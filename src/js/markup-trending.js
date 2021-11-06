@@ -6,7 +6,6 @@ const refs = {
 };
 
 const trendingApiServise = new ApiService();
-console.log(trendingApiServise.fetchPopularMovies());
 
 onLoad();
 

@@ -2,7 +2,7 @@ import ApiService from './apiService';
 import movieTemplate from '../templates/film-card-template.hbs';
 
 const refs = {
-  gallery: document.querySelector('.movies-container'),
+  gallery: document.querySelector('.gallery_trending'),
 };
 
 const trendingApiServise = new ApiService();

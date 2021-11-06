@@ -1,0 +1,11 @@
+.gallery_trending,
+.gallery_library {
+  display: grid;
+  grid-template-columns: 274px 274px 274px;
+  grid-column-gap: 15px;
+}
+
+.movie_image {
+  width: 274px;
+  height: 398px;
+}

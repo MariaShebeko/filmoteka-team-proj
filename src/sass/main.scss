@@ -1,8 +1,25 @@
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
-
+//==========utils=================
+@import './utils/breakpoints';
+@import './utils/fonts';
+@import './utils/colors';
+@import './utils/animation';
 @import './utils/variables';
-@import './utils/common';
 @import './utils/visually-hidden';
+
+
+//=============base==============
+@import './base/reset';
+@import './base/container';
+//=============components==============
+@import './components/backdrop';
+@import './components/modal';
+@import './components/logo';
+@import './components/form';
+@import './components/button';
+@import './components/slider';
+//=========layout===============
+@import './layout/home.scss';
+@import './layout/my-library.scss';
+@import './layout/slider.scss';
+
+

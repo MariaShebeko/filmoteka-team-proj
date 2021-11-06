@@ -1,0 +1,21 @@
+{{#each this}}
+  <li class='gallery-item'>
+    <div class='movie'>
+      <img
+        src='{{this.poster_path}}'
+        alt='{{this.original_title}}'
+        class='movie_image'
+        data-source=''
+        id='{{this.id}}'
+      />
+      <div class='description'>
+        <p class='movie_name'>{{this.original_title}}</p>
+        <p class='movie_genres'>{{this.genre_ids}}</p>
+        <p class='movie_release'>{{this.release_date}}</p>
+        <p class='movie_rating'>{{this.vote_average}}</p>
+      </div>
+    </div>
+  </li>
+{{/each}}
+
+{{! дописать заполнение по условию!!! для названия и даты }}

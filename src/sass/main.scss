@@ -5,6 +5,9 @@
 @import './utils/animation';
 @import './utils/variables';
 @import './utils/visually-hidden';
+
+@import './utils/gallery';
+
 //=============base==============
 @import './base/reset';
 @import './base/container';
@@ -19,3 +22,4 @@
 @import './layout/home.scss';
 @import './layout/my-library.scss';
 @import './layout/slider.scss';
+

@@ -1,0 +1,20 @@
+.container {
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @media screen and (min-width: $min-mobile) and (max-width: $max-mobile) {
+    min-width: $min-mobile;
+  }
+  @media screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
+    width: $min-tablet;
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+  @media screen and (min-width: $min-desktop) {
+    width: $min-desktop;
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+}

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -14,30 +15,34 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+.list {
   margin: 0;
   padding: 0;
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
   height: auto;
 }
 
 .list {
-  padding: 0;
-  margin: 0;
   list-style: none;
 }
 
 .link {
   text-decoration: none;
+  display: inline-block;
 }
 
 body {
-  color: $textColor;
-  font-family: $mainFont;
-  font-size: $mainFontSize;
+  color: $text-color;
+  font-family: $main-font;
+  font-size: $main-fontsize;
   line-height: 1.33;
+}
+
+button {
+  cursor: pointer;
 }

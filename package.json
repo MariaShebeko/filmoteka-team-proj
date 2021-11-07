@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://MariaShebeko.github.io/filmoteka-team-proj",
   "scripts": {
-    "dev": "parcel src/*.html",
+    "dev": "parcel src/*.html --open --port 1234",
     "build": "parcel build src/*.html --public-url /filmoteka-team-proj/"
   },
   "repository": {

@@ -1,0 +1,122 @@
+.modal-film {
+  position: relative;
+  padding-top: 48px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: $white;
+
+  @media screen and (min-width: $min-tablet) {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 42px;
+    padding-left: 28px;
+    padding-right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: $min-desktop) {
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.modal-film__picture {
+  @media screen and (max-width: $max-mobile) {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: $min-tablet) {
+    margin-right: 32px;
+    min-width: 264px;
+  }
+
+  @media screen and (min-width: $min-desktop) {
+    margin-right: 30px;
+    min-width: 396px;
+  }
+}
+
+.modal-film__image {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+.modal-film__title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $min-desktop) {
+    font-size: 30px;
+    line-height: 1.16;
+  }
+}
+
+.modal-film__table {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.modal-film__table-tr {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.modal-film__table-td {
+  &:first-child {
+    color: #8c8c8c;
+  }
+}
+
+.modal-film__table-td--mod {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: $white;
+  background-color: $accent-color;
+  border-radius: 5px;
+}
+
+.modal-film__subtitle {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: $main-fontsize;
+  text-transform: uppercase;
+}
+
+.modal-film__text {
+  margin-bottom: 20px;
+  font-weight: 500;
+  line-height: 1.67;
+}
+
+.button-list {
+  display: flex;
+  justify-content: center;
+}
+
+.button-list__item {
+  width: 113px;
+  height: 44px;
+  &:first-child {
+    margin-right: 15px;
+  }
+
+  @media screen and (min-width: $min-tablet) {
+    width: 125px;
+  }
+
+  @media screen and (min-width: $min-desktop) {
+    width: 136px;
+  }
+}

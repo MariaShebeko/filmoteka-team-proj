@@ -1,0 +1,32 @@
+// =================================================
+// ----- ВРЕМЕННО -----
+.button-close__icon {
+  background-color: rgb(100, 100, 100);
+}
+// =================================================
+
+.button-close {
+  padding: 7px;
+  line-height: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-film__button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.button-close__icon {
+  fill: $text-color;
+  transition-property: fill;
+  transition-duration: $time;
+  transition-timing-function: $cubic;
+
+  .button-close:hover > &,
+  .button-close:focus > & {
+    fill: $accent-color;
+  }
+}

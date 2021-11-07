@@ -1,12 +1,12 @@
 {{#each this}}
   <li class='gallery-item'>
-    <div class='movie'>
+    <div class='movie' id='{{this.id}}'>
       <img
         src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
         alt='{{this.original_title}}'
         class='movie_image'
         data-source=''
-        id='{{this.id}}'
+        
       />
       <div class='description'>
         <p class='movie_name'>

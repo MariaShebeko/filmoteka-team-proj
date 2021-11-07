@@ -30,6 +30,7 @@ export default class ApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
+        console.log(data.genres);
         return data.genres;
       });
   }

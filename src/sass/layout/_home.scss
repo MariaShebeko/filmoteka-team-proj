@@ -58,13 +58,3 @@
   font-size: 12px;
   line-height: 1.33;
 }
-
-.movie_release::before {
-  content: '';
-  width: 1px;
-  height: 10px;
-  border: 1px solid $accent-color;
-  background-color: $accent-color;
-  margin-right: 5px;
-  margin-left: 5px;
-}

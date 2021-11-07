@@ -5,17 +5,17 @@ import refs from '../refs/refs.js';
 const { sliderEl } = refs;
 const sliderAPI = new API();
 
-// need correct func to exports
+// need correct async func to export
 
 onSliderLoad();
-setTimeout(() => slider(), 500);
 
-function onSliderLoad() {
+async function onSliderLoad() {
   try {
-    sliderAPI.fetchPopularMovies().then(appendSliderMarkup);
+    await sliderAPI.fetchPopularMovies().then(appendSliderMarkup);
+    slider();
   } catch (error) {
     // add notify there
-    throw error;
+    throw new Error(error);
   }
 }
 
@@ -23,14 +23,14 @@ function appendSliderMarkup(results) {
   sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
 }
 
-function slider() {
+async function slider() {
   window.jQuery = window.$ = require('jquery');
   require('../slider/slick.min.js');
 
   $(document).ready(function () {
     $('.slider').slick({
       arrows: true,
-      dots: false, // true/false
+      dots: false,
       adaptiveHeight: true,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -38,13 +38,14 @@ function slider() {
       easing: 'ease',
       infinite: true,
       initialSlide: 1,
-      autoplay: true, // true/false
+      autoplay: true,
       autoplaySpeed: 1000,
       pauseOnFocus: true,
       pauseOnHover: true,
       pauseOnDotsHover: true,
       draggable: true,
       swipe: true,
+      swipeToSlide: true,
       touchThreshold: 4,
       touchMove: true,
       waitForAnimate: true,

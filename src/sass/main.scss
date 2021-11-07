@@ -8,6 +8,7 @@
 
 //=============base==============
 @import './base/reset';
+@import './base/base';
 @import './base/container';
 //=============components==============
 @import './components/backdrop';
@@ -17,9 +18,7 @@
 @import './components/button';
 @import './components/slider';
 
-
 @import './components/button-close';
-
 
 @import './components/button-up';
 

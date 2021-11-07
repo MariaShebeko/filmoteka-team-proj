@@ -1,0 +1,60 @@
+.gallery_trending,
+.gallery_library {
+  display: grid;
+  justify-content: center;
+
+  @media screen and (min-width: $min-mobile) and (max-width: $max-mobile) {
+    grid-template-columns: 280px;
+    grid-row-gap: 30px;
+  }
+  @media screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
+    grid-template-columns: 293px 293px;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+  @media screen and (min-width: $min-desktop) {
+    grid-template-columns: 274px 274px 274px;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+}
+
+.movie_image {
+  margin-bottom: 10px;
+
+  @media screen and (min-width: $min-mobile) and (max-width: $max-mobile) {
+    width: 280px;
+    height: 402px;
+  }
+  @media screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
+    width: 293px;
+    height: 398px;
+  }
+  @media screen and (min-width: $min-desktop) {
+    width: 274px;
+    height: 398px;
+  }
+}
+
+.movie_name {
+  display: block;
+  text-transform: uppercase;
+}
+
+.movie_genres {
+  display: inline-block;
+  font: $main-font;
+  color: $accent-color;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+.movie_release {
+  display: inline-block;
+  font: $main-font;
+  color: $accent-color;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}

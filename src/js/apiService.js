@@ -12,6 +12,37 @@ export default class ApiService {
       .then(response => response.json())
       .then(({ results }) => {
         this.incrementPage();
+
+        const genres = JSON.parse(localStorage.getItem('genres'));
+        console.log(genres);
+        results.map(item => {
+          let filmGenres = [];
+          genres.find(elem => {
+            if (item.genre_ids.includes(elem.id)) {
+              filmGenres.push(elem.name);
+            }
+          });
+
+          if (filmGenres.length <= 3) {
+            item.genresShort = filmGenres.join(', ');
+          }
+          if (filmGenres.length > 3) {
+            filmGenres.splice(2, filmGenres.length - 2);
+            filmGenres.push('Other');
+            item.genresShort = filmGenres.join(', ');
+          }
+        });
+
+        results.map(item => {
+          let filmGenresAll = [];
+          genres.find(elem => {
+            if (item.genre_ids.includes(elem.id)) {
+              filmGenresAll.push(elem.name);
+            }
+          });
+          item.genresAll = filmGenresAll;
+        });
+
         console.log(results);
         return results;
       });

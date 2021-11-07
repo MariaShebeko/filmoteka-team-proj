@@ -1,12 +1,12 @@
 {{#each this}}
   <li class='gallery-item'>
-    <div class='movie'>
+    <div class='movie' id='{{this.id}}'>
       <img
         src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
         alt='{{this.original_title}}'
         class='movie_image'
         data-source=''
-        id='{{this.id}}'
+        
       />
       <div class='description'>
         <p class='movie_name'>
@@ -17,7 +17,7 @@
             {{this.original_name}}
           {{/if}}
         </p>
-        <p class='movie_genres'>{{this.genre_ids}}</p>
+        <p class='movie_genres'>{{this.genresShort}}</p>
         <p class='movie_release'> |
           {{#if this.release_date}}
             {{this.release_date}}

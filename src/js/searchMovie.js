@@ -28,22 +28,28 @@ function onSearch(event) {
         return
     }
 
-    //===выполненеие поиска нового типа изображения===
+    //===выполненеие поиска нового названия===
     if (nameOfMovieToSearch.query !== refs.inputField.value) {
         clearContent();
         nameOfMovieToSearch.query = refs.inputField.value;
-        // return nameOfMovieToSearch.query;
     }
     // console.log(nameOfMovieToSearch.fetchSearchMovies());
 
     nameOfMovieToSearch.fetchSearchMovies().then(renderMakrup);
+
+    //==adding search result to the localStorage==
+    nameOfMovieToSearch.fetchSearchMovies().then(result => {
+        localStorage.setItem("surchResult", JSON.stringify(result));
+    });
+
 };
 
 function renderMakrup(name) {
     refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(name))
 }
 
-function clearContent() {
+function clearContent() { //==очистка содержимого страницы перед выведением результатов поиска===
     refs.gallery.innerHTML = '';
     nameOfMovieToSearch.resetPage;
+    localStorage.clear("surchResult");
 };

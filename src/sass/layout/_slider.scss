@@ -87,31 +87,6 @@
   opacity: 0.2;
 }
 
-.slider .slick-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slider .slick-dots li {
-  list-style: none;
-  margin: 0px 10px;
-}
-
-.slider .slick-dots button {
-  font-size: 0;
-  width: 12px;
-  height: 12px;
-  background-color: $slider-dots-bg-color;
-  border: 1px solid $slider-active-dot-border-color;
-  border-radius: 12px;
-}
-
-.slider .slick-dots li.slick-active button {
-  background-color: $slider-active-dot-bg-color;
-  border: 1px solid $slider-active-dot-border-color;
-}
-
 .slider__item {
   position: relative;
   margin-right: 5px;

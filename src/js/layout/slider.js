@@ -30,7 +30,7 @@ function slider() {
   $(document).ready(function () {
     $('.slider').slick({
       arrows: true,
-      dots: true, // true/false
+      dots: false, // true/false
       adaptiveHeight: true,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -57,7 +57,6 @@ function slider() {
           settings: {
             mobileFirst: true,
             arrows: false,
-            dots: false,
           },
         },
       ],

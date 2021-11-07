@@ -1,0 +1,15 @@
+<h2 class="slider-title">Trending movies</h2>
+<div class="wrapper">
+ <div class="slider">
+  {{#each this}}
+
+    <div class="slider__item">
+     <img class="slider__image"
+     src="https://image.tmdb.org/t/p/w500/{{this.poster_path}}"
+     alt="{{this.original_title}}"
+     id="{{this.id}}">
+     <span class="slider__vote-average">{{vote_average}}</span>
+    </div>
+
+  {{/each}}
+</div>

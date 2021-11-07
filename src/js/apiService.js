@@ -16,7 +16,7 @@ export default class ApiService {
         return results;
       });
   }
-  fetchSearchMovies() {
+  fetchSearchMovies() { //==to enter name to surch movie by the user == для ввода названия фильма пользователем для поиска ==
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return fetch(url)
       .then(response => response.json())

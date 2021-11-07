@@ -1,1 +1,37 @@
-<header class="header">This is header</header>
+<header class="header header-home">
+  <div class="container header__container">
+    <nav class="header__nav">
+      <a class="logo link" href="./index.html">
+        <svg class="logo__icon" width="24px" height="24px">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg>
+        <span class="logo__label">Filmoteka</span>
+      </a>
+
+      <ul class="nav-list list">
+        <li class="nav-list__item">
+          <a href="" class="nav-list__link link nav-list__link_current">Home</a>
+        </li>
+        <li class="nav-list__item">
+          <a href="" class="nav-list__link link">My library</a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="search-form search-form-js">
+      <input type="text" name="moviequery" placeholder="Movies search" class="search-form__input" />
+      <svg class="search-form__icon" width="12" height="12">
+        <use href="./images/sprite.svg#icon-search"></use>
+      </svg>
+    </form>
+
+    <span class="error-message visually-hidden">
+      Search result not successful. Enter the correct movie name.
+    </span>
+
+    <div class="library-buttons visually-hidden">
+      <button class="button library__btn" type="button">Watched</button>
+      <button class="button library__btn" type="button">Queue</button>
+    </div>
+  </div>
+</header>

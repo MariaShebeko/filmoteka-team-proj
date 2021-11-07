@@ -5,6 +5,7 @@
 @import './utils/animation';
 @import './utils/variables';
 @import './utils/visually-hidden';
+
 //=============base==============
 @import './base/reset';
 @import './base/container';
@@ -15,8 +16,17 @@
 @import './components/form';
 @import './components/button';
 @import './components/slider';
+
+
 @import './components/button-close';
+
+
+@import './components/button-up';
+
 //=========layout===============
 @import './layout/home.scss';
 @import './layout/my-library.scss';
 @import './layout/slider.scss';
+
+@import './footer';
+@import './header';

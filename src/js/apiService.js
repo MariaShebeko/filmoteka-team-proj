@@ -12,6 +12,7 @@ export default class ApiService {
       .then(response => response.json())
       .then(({ results }) => {
         this.incrementPage();
+        console.log(results);
         return results;
       });
   }
@@ -22,6 +23,14 @@ export default class ApiService {
       .then(({ results }) => {
         this.incrementPage();
         return results;
+      });
+  }
+  fetchMovieGenre() {
+    const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        return data.genres;
       });
   }
   incrementPage() {

@@ -1,22 +1,21 @@
 .button-up {
   position: fixed;
+  z-index: 10;
   bottom: 40px;
   right: 10px;
-
-  z-index: 10;
-
-  fill: $icon-color;
-
+ 
   cursor: pointer;
+  fill: $icon-color;
 
   &:hover,
   &:focus {
     fill: $accent-color;
+    transition: fill $time $cubic;
   }
 
   @media screen and (min-width: $min-mobile) {
     bottom: 40px;
-    right: calc(((100vw - 340px) / 2));
+    right: calc(((100vw - 320px) / 2));
   }
 
   @media screen and (min-width: $min-tablet) {

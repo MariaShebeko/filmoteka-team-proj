@@ -13,6 +13,7 @@ export default class ApiService {
       .then(({ results }) => {
         this.incrementPage();
 
+        // getting short genres names list from local storage
         const genres = JSON.parse(localStorage.getItem('genres'));
         console.log(genres);
         results.map(item => {
@@ -33,6 +34,7 @@ export default class ApiService {
           }
         });
 
+        // getting full genres names list from local storage
         results.map(item => {
           let filmGenresAll = [];
           genres.find(elem => {
@@ -43,11 +45,17 @@ export default class ApiService {
           item.genresAll = filmGenresAll;
         });
 
+        // transforming full date in year in results
+        results.map(item => {
+          item.release_year = item.release_date.slice(0, 4);
+        });
+
         console.log(results);
         return results;
       });
   }
-  fetchSearchMovies() { //==to enter name to surch movie by the user == для ввода названия фильма пользователем для поиска ==
+  fetchSearchMovies() {
+    //==to enter name to surch movie by the user == для ввода названия фильма пользователем для поиска ==
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return fetch(url)
       .then(response => response.json())

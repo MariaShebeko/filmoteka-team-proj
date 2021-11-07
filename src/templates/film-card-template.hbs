@@ -18,13 +18,7 @@
           {{/if}}
         </p>
         <p class='movie_genres'>{{this.genresShort}}</p>
-        <p class='movie_release'> |
-          {{#if this.release_date}}
-            {{this.release_date}}
-          {{/if}}
-          {{#if this.first_air_date}}
-            {{this.first_air_date}}
-          {{/if}}
+        <p class='movie_release'> | {{this.release_year}}
       </div>
     </div>
   </li>

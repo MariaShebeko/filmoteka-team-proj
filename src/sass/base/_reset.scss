@@ -1,12 +1,11 @@
 html {
-  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 h1,
@@ -21,6 +20,7 @@ p,
   padding: 0;
 }
 
+picture,
 img {
   display: block;
   max-width: 100%;

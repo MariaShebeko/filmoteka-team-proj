@@ -1,16 +1,21 @@
-<div class="backdrop is-hidden">
+<div class="backdrop is-hidden container">
   <div class="modal-film">
     <button class="button-close modal-film__button-close" type="button"><svg class="button-close__icon" height="16"
         width="16">
         <use href="#"></use>
       </svg></button>
-    <img class="modal-film__image" src="#" alt="film">
+    <picture class="modal-film__picture">
+      <source srcset="./img/desktop-modal-film.jpg" media="(min-width: 1024px)">
+      <source srcset="./img/tablet-modal-film.jpg" media="(min-width: 768px)">
+      <source srcset="./img/mobile-modal-film.jpg" media="(max-width: 767px)">
+      <img class="modal-film__image" src="./img/mobile-modal-film.jpg" alt="film">
+    </picture>
     <div class="modal-film__description">
       <h2 class="modal-film__title">A FISTFUL OF LEAD</h2>
       <table class="modal-film__table">
         <tr class="modal-film__table-tr">
           <td class="modal-film__table-td">Vote / Votes</td>
-          <td class="modal-film__table-td">7.3 / 1260</td>
+          <td class="modal-film__table-td"><span class="modal-film__table-td--mod">7.3</span> / 1260</td>
         </tr>
         <tr class="modal-film__table-tr">
           <td class="modal-film__table-td">Popularity</td>
@@ -34,11 +39,9 @@
       <ul class="button-list list">
         <li class="button-list__item">
           <button class="button button--mod" type="button">ADD TO WATCHED</button>
-          <!-- <button class="button button--mod" type="button">REMOVE</button> -->
         </li>
         <li class="button-list__item">
           <button class="button button--mod" type="button">ADD TO QUEVE</button>
-          <!-- <button class="button button--mod" type="button">REMOVE</button> -->
         </li>
       </ul>
     </div>

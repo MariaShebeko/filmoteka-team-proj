@@ -10,11 +10,12 @@
 @import './base/container';
 //=============components==============
 @import './components/backdrop';
-@import './components/modal';
+@import './components/modal-film';
 @import './components/logo';
 @import './components/form';
 @import './components/button';
 @import './components/slider';
+@import './components/button-close';
 //=========layout===============
 @import './layout/home.scss';
 @import './layout/my-library.scss';

@@ -1,0 +1,24 @@
+.button {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  font-weight: 500;
+  font-size: $main-fontsize;
+  line-height: 1.33;
+  color: $text-color;
+  background-color: transparent;
+  border: 1px solid $text-color;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition-property: color, background-color, border-color;
+  transition-duration: $time;
+  transition-timing-function: $cubic;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+}

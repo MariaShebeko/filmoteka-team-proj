@@ -6,10 +6,6 @@
 @import './utils/variables';
 @import './utils/visually-hidden';
 
-
-
-
-
 //=============base==============
 @import './base/reset';
 @import './base/container';
@@ -25,7 +21,5 @@
 @import './layout/my-library.scss';
 @import './layout/slider.scss';
 
-
 @import './footer';
-
-
+@import './header';

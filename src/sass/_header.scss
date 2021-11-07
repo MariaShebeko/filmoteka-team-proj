@@ -128,13 +128,9 @@
   &:focus {
     color: $accent-color;
     outline: none;
+    transition: color $time $cubic;
   }
 }
-
-// .nav-list__link:hover,
-// .nav-list__link:focus {
-//   color: $accent-color;
-// }
 
 .nav-list__link_current::after {
   display: block;
@@ -145,12 +141,12 @@
 }
 
 .search-form {
-  //   display: block;
-  //   margin: 0 auto;
   display: flex;
   justify-content: center;
   width: 280px;
   height: 20px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 22px;
   position: relative;
 
@@ -180,6 +176,7 @@
   &:hover,
   &:focus {
     border-bottom: 0.5px solid $accent-color;
+    transition: border-bottom $time $cubic;
   }
 }
 .search-form__icon {

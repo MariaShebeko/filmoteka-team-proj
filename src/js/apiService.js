@@ -13,6 +13,7 @@ export default class ApiService {
       .then(({ results }) => {
         this.incrementPage();
 
+        // getting short genres names list from local storage
         const genres = JSON.parse(localStorage.getItem('genres'));
         console.log(genres);
         results.map(item => {
@@ -33,6 +34,7 @@ export default class ApiService {
           }
         });
 
+        // getting full genres names list from local storage
         results.map(item => {
           let filmGenresAll = [];
           genres.find(elem => {
@@ -41,6 +43,11 @@ export default class ApiService {
             }
           });
           item.genresAll = filmGenresAll;
+        });
+
+        // transforming full date in year in results
+        results.map(item => {
+          item.release_year = item.release_date.slice(0, 4);
         });
 
         console.log(results);

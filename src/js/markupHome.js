@@ -2,10 +2,6 @@ import ApiService from './apiService';
 import refs from './refs/refs';
 import movieTemplate from '../templates/film-card-template.hbs';
 
-import refs from './refs/refs';
-
-
-
 const trendingApiServise = new ApiService();
 
 onLoad();

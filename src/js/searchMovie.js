@@ -2,8 +2,11 @@
 
 import ApiService from './apiService';
 import movieTemplate from '../templates/film-card-template.hbs';
-import refs from './refs/refs';
+
 import { myNotice, myError, myAlert } from './components/pnotify';
+
+import refs from './refs/refs';
+
 
 
 const nameOfMovieToSearch = new ApiService();

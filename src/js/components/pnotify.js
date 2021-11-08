@@ -15,6 +15,7 @@ export function myError() {
 }
 
 export function myAlert() {
+
   alert({
     text: 'Movies with this name has already shown!',
   });

@@ -48,7 +48,7 @@ export default class ApiService {
 
         
         // transforming full date in year in results
-        results.map(item => {
+        data.results.map(item => {
           item.release_year = item.release_date.slice(0, 4);
         });
 

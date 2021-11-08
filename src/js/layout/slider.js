@@ -31,8 +31,8 @@ async function onSliderLoad() {
   }
 }
 
-function appendSliderMarkup(data) {
-  sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(data.results));
+function appendSliderMarkup(results) {
+  sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
 
   onCreateTrailerLink(document.querySelectorAll('.button-youtube'));
 }

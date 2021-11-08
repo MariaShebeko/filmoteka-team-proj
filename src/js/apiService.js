@@ -61,6 +61,12 @@ export default class ApiService {
       .then(response => response.json())
       .then(({ results }) => {
         this.incrementPage();
+
+        // transforming full date in year in results
+        results.map(item => {
+          item.release_year = item.release_date.slice(0, 4);
+        });
+
         return results;
       });
   }

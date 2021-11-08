@@ -22,21 +22,37 @@ function onSearch(event) {
 
   //===выполненеие поиска нового названия===
   if (nameOfMovieToSearch.query !== refs.inputField.value) {
-    clearContent();
     nameOfMovieToSearch.query = refs.inputField.value;
   }
-  // console.log(nameOfMovieToSearch.fetchSearchMovies());
+  // console.log(nameOfMovieToSearch.query);
+  // console.dir(nameOfMovieToSearch.fetchSearchMovies());
 
-  nameOfMovieToSearch.fetchSearchMovies().then(renderMakrup);
+  nameOfMovieToSearch.fetchSearchMovies().
+    // then(renderMakrup).
+    then(result => {
+      if (result.length > 0) {
+        console.dir(result);
+        console.log(result.length);
+        clearContent();
+        renderMakrup(result);
+        // newFunction()
+      }
+      else { return myError(); }
+    }).
+    catch(error => console.log(error));
 
   //==adding search result to the localStorage==
   nameOfMovieToSearch.fetchSearchMovies().then(result => {
     localStorage.setItem('searchResult', JSON.stringify(result));
-  });
+  }).catch(error => console.log(error));
 }
 
-function renderMakrup(name) {
-  refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(name));
+// function newFunction() {
+//   console.log('Hi, man');
+// }
+
+function renderMakrup(array) {
+  refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(array));
 }
 
 function clearContent() {

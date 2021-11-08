@@ -7,8 +7,8 @@ export default class ApiService {
     this.page = 1;
   }
   fetchPopularMovies() {
-    const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this.page}`;
-    // const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${this.page}`;
+    // const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this.page}`;
+    const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${this.page}`;
     return fetch(url)
       .then(response => response.json())
       .then((data) => {

@@ -1,6 +1,6 @@
 // =================================================
 // ----- ВРЕМЕННО -----
-.button-close__icon {
+.bci {
   background-color: rgb(100, 100, 100);
 }
 // =================================================
@@ -20,13 +20,13 @@
 }
 
 .button-close__icon {
-  fill: $text-color;
+  stroke: $text-color;
   transition-property: fill;
   transition-duration: $time;
   transition-timing-function: $cubic;
 
   .button-close:hover > &,
   .button-close:focus > & {
-    fill: $accent-color;
+    stroke: $accent-color;
   }
 }

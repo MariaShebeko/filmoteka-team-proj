@@ -1,5 +1,5 @@
 {
-  "name": "parcel-project-template",
+  "name": "filmoteka-team-proj",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/MariaShebeko/filmoteka-team-proj.git"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "project-group-4",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MariaShebeko/filmoteka-team-proj/issues"
@@ -30,5 +30,7 @@
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@pnotify/core": "^5.2.0"
+  }
 }

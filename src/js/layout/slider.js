@@ -23,7 +23,7 @@ async function onSliderLoad() {
       })
       .then(appendSliderMarkup);
 
-    slider();
+    onSliderActivation();
   } catch (error) {
     // add notify there (need library)
     console.log('Error-allPopularPerDay: ', error); // delete after
@@ -37,7 +37,7 @@ function appendSliderMarkup(results) {
   onCreateTrailerLink(document.querySelectorAll('.button-youtube'));
 }
 
-async function slider() {
+async function onSliderActivation() {
   window.jQuery = window.$ = require('jquery');
   require('../slider/slick.min.js');
 

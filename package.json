@@ -19,6 +19,7 @@
     "url": "https://github.com/MariaShebeko/filmoteka-team-proj/issues"
   },
   "devDependencies": {
+    "animate.css": "^4.1.1",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",

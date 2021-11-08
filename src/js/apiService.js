@@ -14,6 +14,7 @@ export default class ApiService {
       .then((data) => {
         this.incrementPage();
 
+        // getting short genres names list from local storage
         const genres = JSON.parse(localStorage.getItem('genres'));
         console.log(genres);
         data.results.map(item => {
@@ -34,6 +35,7 @@ export default class ApiService {
           }
         });
 
+        // getting full genres names list from local storage
         data.results.map(item => {
           let filmGenresAll = [];
           genres.find(elem => {
@@ -44,11 +46,18 @@ export default class ApiService {
           item.genresAll = filmGenresAll;
         });
 
+        
+        // transforming full date in year in results
+        results.map(item => {
+          item.release_year = item.release_date.slice(0, 4);
+        });
+
         console.log(data);
         return data;
       });
   }
-  fetchSearchMovies() { //==to enter name to surch movie by the user == для ввода названия фильма пользователем для поиска ==
+  fetchSearchMovies() {
+    //==to enter name to surch movie by the user == для ввода названия фильма пользователем для поиска ==
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return fetch(url)
       .then(response => response.json())
@@ -65,8 +74,29 @@ export default class ApiService {
         return data.genres;
       });
   }
+  fetchAllPopularPerDay() {
+    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}`;
+    return fetch(url).then(response => response.json());
+  }
+  fetchAllVideos(id) {
+    const APIKEY = 'f6f92051b45422d9426f457ad6610127';
+    const url = `${BASE_URL}/movie/${id}/videos?api_key=${APIKEY}&language=en-US`;
+
+    console.log('fetchAllVideos__url: ', url); // delete after!!!
+    console.log('fetchAllVideos__id: ', id); // delete after!!!
+
+    return fetch(url).then(response => response.json());
+  }
   incrementPage() {
     this.page += 1;
+  }
+
+  getPage() {
+    return this.page;
+  }
+
+  setPage(numberOfPage) {
+    return (this.page = numberOfPage);
   }
 
   resetPage() {

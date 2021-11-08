@@ -1,5 +1,5 @@
-.gallery_trending,
-.gallery_library {
+.trending,
+.library {
   display: grid;
   justify-content: center;
 
@@ -21,6 +21,7 @@
 
 .movie_image {
   margin-bottom: 10px;
+  border-radius: 5px;
 
   @media screen and (min-width: $min-mobile) and (max-width: $max-mobile) {
     width: 280px;

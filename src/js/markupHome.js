@@ -1,10 +1,7 @@
 import ApiService from './apiService';
+import refs from './refs/refs';
 import movieTemplate from '../templates/film-card-template.hbs';
 // import CustomPagination from '../js/components/pagination';
-
-const refs = {
-  gallery: document.querySelector('.gallery_trending'),
-};
 
 const trendingApiServise = new ApiService();
 

@@ -13,6 +13,7 @@
 //=============components==============
 @import './components/backdrop';
 @import './components/modal-film';
+@import './components/modal-team';
 @import './components/logo';
 @import './components/form';
 @import './components/button';
@@ -24,8 +25,9 @@
 
 //=========layout===============
 @import './layout/home.scss';
-@import './layout/my-library.scss';
 @import './layout/slider.scss';
+@import './layout/my-library.scss';
 
 @import './footer';
 @import './header';
+@import './theme-switch.scss';

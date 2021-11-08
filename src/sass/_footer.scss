@@ -1,19 +1,19 @@
 .footer {
-  color: #545454;
-  background-color: #f7f7f7;
+  color: $footer-text-color;
+  background-color: $footer-bg-color;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 14px;
   line-height: 1.14;
 
-  @media screen and(min-width:768px) {
+  @media screen and(min-width:$min-tablet) {
     font-size: 16px;
     line-height: 1.19;
   }
 }
 .footer-container {
-  @media screen and(min-width:768px) {
+  @media screen and(min-width:$min-tablet) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@
   margin-left: 10px;
 }
 .footer-copyright {
-  @media screen and(max-width:767px) {
+  @media screen and(max-width:$max-mobile) {
     margin-bottom: 10px;
   }
 }
@@ -32,10 +32,19 @@
   display: inline-flex;
   align-items: center;
 
-  @media screen and(min-width:768px) {
+  @media screen and(min-width:$min-tablet) {
     margin-left: 4px;
   }
 }
 .footer-link {
   color: inherit;
+  transition: color $time $cubic, transform $time $cubic;
+
+  &:hover {
+    color: $accent-color;
+    transform: scale(1.05);
+  }
+}
+.animate__heartBeat {
+  animation-iteration-count: infinite;
 }

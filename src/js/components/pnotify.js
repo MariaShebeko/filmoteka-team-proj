@@ -19,3 +19,4 @@ export function myAlert() {
     text: 'Movies with this name has already shown!',
   });
 }
+

@@ -7,16 +7,17 @@ export default class ApiService {
     this.page = 1;
   }
   fetchPopularMovies() {
-    const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this.page}`;
+    // const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this.page}`;
+    const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${this.page}`;
     return fetch(url)
       .then(response => response.json())
-      .then(({ results }) => {
+      .then((data) => {
         this.incrementPage();
 
         // getting short genres names list from local storage
         const genres = JSON.parse(localStorage.getItem('genres'));
         console.log(genres);
-        results.map(item => {
+        data.results.map(item => {
           let filmGenres = [];
           genres.find(elem => {
             if (item.genre_ids.includes(elem.id)) {
@@ -35,7 +36,7 @@ export default class ApiService {
         });
 
         // getting full genres names list from local storage
-        results.map(item => {
+        data.results.map(item => {
           let filmGenresAll = [];
           genres.find(elem => {
             if (item.genre_ids.includes(elem.id)) {
@@ -45,13 +46,14 @@ export default class ApiService {
           item.genresAll = filmGenresAll;
         });
 
+        
         // transforming full date in year in results
-        results.map(item => {
+        data.results.map(item => {
           item.release_year = item.release_date.slice(0, 4);
         });
 
-        console.log(results);
-        return results;
+        console.log(data);
+        return data;
       });
   }
   fetchSearchMovies() {
@@ -61,6 +63,12 @@ export default class ApiService {
       .then(response => response.json())
       .then(({ results }) => {
         this.incrementPage();
+
+        // transforming full date in year in results
+        results.map(item => {
+          item.release_year = item.release_date.slice(0, 4);
+        });
+
         return results;
       });
   }
@@ -99,6 +107,14 @@ export default class ApiService {
 
   resetPage() {
     this.page = 1;
+  }
+
+  set pageNumber(pageNumber) {
+    this.page = pageNumber;
+  }
+
+  get pageNumber() {
+    return this.page;
   }
 
   get query() {

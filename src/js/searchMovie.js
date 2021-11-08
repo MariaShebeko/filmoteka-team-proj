@@ -28,14 +28,12 @@ function onSearch(event) {
   // console.dir(nameOfMovieToSearch.fetchSearchMovies());
 
   nameOfMovieToSearch.fetchSearchMovies().
-    // then(renderMakrup).
     then(result => {
       if (result.length > 0) {
-        console.dir(result);
-        console.log(result.length);
+        // console.dir(result);
+        // console.log(result.length);
         clearContent();
         renderMakrup(result);
-        // newFunction()
       }
       else { return myError(); }
     }).
@@ -47,12 +45,8 @@ function onSearch(event) {
   }).catch(error => console.log(error));
 }
 
-// function newFunction() {
-//   console.log('Hi, man');
-// }
-
-function renderMakrup(array) {
-  refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(array));
+function renderMakrup(results) {
+  refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(results));
 }
 
 function clearContent() {
@@ -61,3 +55,4 @@ function clearContent() {
   nameOfMovieToSearch.resetPage;
   localStorage.clear('searchResult');
 }
+

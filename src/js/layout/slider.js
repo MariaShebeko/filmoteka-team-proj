@@ -52,7 +52,7 @@ async function onSliderActivation() {
       easing: 'ease',
       infinite: true,
       initialSlide: 1,
-      autoplay: false, // true
+      autoplay: true,
       autoplaySpeed: 1000,
       pauseOnFocus: true,
       pauseOnHover: true,

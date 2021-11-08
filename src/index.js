@@ -19,6 +19,7 @@ import './js/searchMovie';
 
 import './js/components/buttonUp.js';
 
+import './js/components/pagination.js';
 import './js/theme-switch';
 
 import 'animate.css';

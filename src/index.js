@@ -12,3 +12,5 @@ import './js/trailer.js';
 import './js/searchMovie';
 
 import './js/components/buttonUp.js';
+
+import './js/theme-switch';

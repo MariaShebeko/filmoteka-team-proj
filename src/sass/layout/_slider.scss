@@ -100,6 +100,9 @@
   border-radius: 5px;
   cursor: grab;
 }
+.slider__item img:active {
+  cursor: grabbing;
+}
 
 .slider__vote-average {
   position: absolute;

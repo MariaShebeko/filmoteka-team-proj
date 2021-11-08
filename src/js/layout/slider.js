@@ -2,7 +2,9 @@
 import API from '../apiService.js';
 import filmCardsTemplate from '../../templates/slider.hbs';
 import refs from '../refs/refs.js';
+import trailer from '../trailer.js';
 const { sliderEl } = refs;
+const { onCreateTrailerLink } = trailer;
 const sliderAPI = new API();
 
 // need correct async func to export
@@ -11,16 +13,28 @@ onSliderLoad();
 
 async function onSliderLoad() {
   try {
-    await sliderAPI.fetchPopularMovies().then(appendSliderMarkup);
+    await sliderAPI
+      .fetchAllPopularPerDay()
+      .then(({ results }) => {
+        sliderAPI.incrementPage();
+
+        console.log('allPopularPerDay__results: ', results);
+        return results;
+      })
+      .then(appendSliderMarkup);
+
     slider();
   } catch (error) {
-    // add notify there
-    throw new Error(error);
+    // add notify there (need library)
+    console.log('Error-allPopularPerDay: ', error); // delete after
+    throw error;
   }
 }
 
 function appendSliderMarkup(results) {
   sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
+
+  onCreateTrailerLink(document.querySelectorAll('.button-youtube'));
 }
 
 async function slider() {
@@ -38,7 +52,7 @@ async function slider() {
       easing: 'ease',
       infinite: true,
       initialSlide: 1,
-      autoplay: true,
+      autoplay: false, // true
       autoplaySpeed: 1000,
       pauseOnFocus: true,
       pauseOnHover: true,
@@ -64,3 +78,5 @@ async function slider() {
     });
   });
 }
+
+export default { onSliderLoad };

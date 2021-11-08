@@ -8,14 +8,15 @@ export default class ApiService {
   }
   fetchPopularMovies() {
     const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this.page}`;
+    // const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${this.page}`;
     return fetch(url)
       .then(response => response.json())
-      .then(({ results }) => {
+      .then((data) => {
         this.incrementPage();
 
         const genres = JSON.parse(localStorage.getItem('genres'));
         console.log(genres);
-        results.map(item => {
+        data.results.map(item => {
           let filmGenres = [];
           genres.find(elem => {
             if (item.genre_ids.includes(elem.id)) {
@@ -33,7 +34,7 @@ export default class ApiService {
           }
         });
 
-        results.map(item => {
+        data.results.map(item => {
           let filmGenresAll = [];
           genres.find(elem => {
             if (item.genre_ids.includes(elem.id)) {
@@ -43,8 +44,8 @@ export default class ApiService {
           item.genresAll = filmGenresAll;
         });
 
-        console.log(results);
-        return results;
+        console.log(data);
+        return data;
       });
   }
   fetchSearchMovies() { //==to enter name to surch movie by the user == для ввода названия фильма пользователем для поиска ==
@@ -70,6 +71,14 @@ export default class ApiService {
 
   resetPage() {
     this.page = 1;
+  }
+
+  set pageNumber(pageNumber) {
+    this.page = pageNumber;
+  }
+
+  get pageNumber() {
+    return this.page;
   }
 
   get query() {

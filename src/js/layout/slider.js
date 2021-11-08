@@ -19,8 +19,8 @@ async function onSliderLoad() {
   }
 }
 
-function appendSliderMarkup(results) {
-  sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
+function appendSliderMarkup(data) {
+  sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(data.results));
 }
 
 async function slider() {

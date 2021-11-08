@@ -21,7 +21,7 @@ async function onSliderLoad() {
         console.log('allPopularPerDay__results: ', results);
         return results;
       })
-      .then(appendSliderMarkup);
+      .then(onAppendSliderMarkup);
 
     onSliderActivation();
   } catch (error) {
@@ -31,7 +31,7 @@ async function onSliderLoad() {
   }
 }
 
-function appendSliderMarkup(results) {
+function onAppendSliderMarkup(results) {
   sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
 
   onCreateTrailerLink(document.querySelectorAll('.button-youtube'));

@@ -9,3 +9,5 @@ import './js/layout/slider.js';
 import './js/searchMovie';
 
 import './js/components/buttonUp.js';
+
+import './js/theme-switch';

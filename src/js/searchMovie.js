@@ -27,22 +27,27 @@ function onSearch(event) {
   // console.log(nameOfMovieToSearch.query);
   // console.dir(nameOfMovieToSearch.fetchSearchMovies());
 
-  nameOfMovieToSearch.fetchSearchMovies().
-    then(result => {
+  nameOfMovieToSearch
+    .fetchSearchMovies()
+    .then(result => {
       if (result.length > 0) {
         // console.dir(result);
         // console.log(result.length);
         clearContent();
         renderMakrup(result);
+      } else {
+        return myError();
       }
-      else { return myError(); }
-    }).
-    catch(error => console.log(error));
+    })
+    .catch(error => console.log(error));
 
   //==adding search result to the localStorage==
-  nameOfMovieToSearch.fetchSearchMovies().then(result => {
-    localStorage.setItem('searchResult', JSON.stringify(result));
-  }).catch(error => console.log(error));
+  nameOfMovieToSearch
+    .fetchSearchMovies()
+    .then(result => {
+      localStorage.setItem('searchResult', JSON.stringify(result));
+    })
+    .catch(error => console.log(error));
 }
 
 function renderMakrup(results) {
@@ -55,4 +60,3 @@ function clearContent() {
   nameOfMovieToSearch.resetPage;
   localStorage.clear('searchResult');
 }
-

@@ -155,6 +155,20 @@
   }
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white; // Цвет текста
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset; // Тенью во внутрь делаем BG и вместо #000 выбираем цвет BG
+  transition: background-color 5000s ease-in-out 0s; // Так-как напрямую с BGC взаимодействовать нельзя, делаем его замену очень медленной, и как-бы отменяем его замену. (хотя через 1.5 часа он таки поменяет цвет)
+}
+
 .search-form__input {
   width: 100%;
   background-color: transparent;

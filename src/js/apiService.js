@@ -14,23 +14,23 @@ class ApiService {
       .then(data => {
         this.incrementPage();
 
-        // console.log(data);
+        console.log(data);
         return data;
       });
   }
   fetchSearchMovies() {
-    //==to enter name to surch movie by the user == для ввода названия фильма пользователем для поиска ==
+    //==to enter name to search movie by the user == для ввода названия фильма пользователем для поиска ==
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return fetch(url)
       .then(response => response.json())
-      .then((data) => {
+      .then(data => {
         this.incrementPage();
 
-        // transforming full date in year in results
-        data.results.map(item => {
-          console.log(item);
-          item.release_year = item.release_date ? item.release_date.slice(0, 4) : '';
-        });
+        // // transforming full date in year in results
+        // data.results.map(item => {
+        //   console.log(item);
+        //   item.release_year = item.release_date ? item.release_date.slice(0, 4) : '';
+        // });
 
         return data;
       });

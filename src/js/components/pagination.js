@@ -42,4 +42,6 @@ class CustomPagination{
 
 }
 
-export default CustomPagination;
+window.pagination = new CustomPagination();
+
+// export default CustomPagination;

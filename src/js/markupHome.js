@@ -1,15 +1,8 @@
-import ApiService from './apiService';
+// import ApiService from './apiService';
 import refs from './refs/refs';
 import movieTemplate from '../templates/film-card-template.hbs';
-import CustomPagination from '../js/components/pagination';
 
-const trendingApiServise = new ApiService();
-
-const pagination = new CustomPagination();
-pagination.onPageClicked(function (pageNumber) {
-  trendingApiServise.pageNumber = pageNumber;
-  trendingApiServise.fetchPopularMovies().then(appendMoviesMarkup);
-});
+const trendingApiServise = window.ApiService;
 
 onLoad();
 
@@ -20,7 +13,7 @@ function onLoad() {
 
 function appendMoviesMarkup(data) {
   refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data.results));
-  pagination.draw(data);
+  window.pagination.draw(data);
 }
 
 function toSaveGenres(data) {

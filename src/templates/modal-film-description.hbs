@@ -34,7 +34,9 @@
       Genre
     </td>
     <td class='modal-film__table-td'>
-      {{this.genresShort}}
+      {{#each this.genresAll}}
+        {{this}}
+      {{/each}}
     </td>
   </tr>
 </table>

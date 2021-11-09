@@ -9,6 +9,8 @@ const {
   modalFilmEl,
   modalFilmImageEl,
   modalFilmDescriptionEl,
+  buttonWatchedEl,
+  buttonQueveEl,
 } = refs;
 
 // Open modal-film
@@ -47,10 +49,38 @@ function getTitle(e) {
 
 function markupFilm(titleFilm) {
   dataFilm = arrayFilms.find(el => el.title === titleFilm);
+  chekLocalWatched(dataFilm);
+  chekLocalQueve(dataFilm);
   modalFilmImageEl.innerHTML = '';
   modalFilmDescriptionEl.innerHTML = '';
   modalFilmImageEl.insertAdjacentHTML('afterbegin', imageTemplate(dataFilm));
   modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', descriptionTemplate(dataFilm));
+}
+
+// ChekLocal
+
+function chekLocalWatched(dataFilm) {
+  if (
+    localStorage.getItem('watched') &&
+    JSON.parse(localStorage.getItem('watched')).some(el => el.title === dataFilm.title)
+  ) {
+    buttonWatchedEl.textContent = 'REMOVE';
+  } else {
+    buttonWatchedEl.textContent = 'ADD TO WATCHED';
+  }
+  return;
+}
+
+function chekLocalQueve(dataFilm) {
+  if (
+    localStorage.getItem('queve') &&
+    JSON.parse(localStorage.getItem('queve')).some(el => el.title === dataFilm.title)
+  ) {
+    buttonQueveEl.textContent = 'REMOVE';
+  } else {
+    buttonQueveEl.textContent = 'ADD TO QUEVE';
+  }
+  return;
 }
 
 galleryEl.addEventListener('click', getTitle);

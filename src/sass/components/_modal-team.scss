@@ -1,4 +1,5 @@
 .team {
+  margin: -10px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -9,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #767575;
+  background-color: $white;
 
   @media screen and(min-width:$min-tablet) {
     width: 600px;
@@ -38,39 +39,31 @@
 .img-wrapper {
   display: flex;
   justify-content: center;
-  border-radius: 50px;
-}
-
-.team_img {
-  border-radius: 50%;
-  box-shadow: 5px 5px 11px -2px#f2cb9a;
 }
 
 .team_git-link {
-  display: flex;
   position: absolute;
   bottom: 27px;
   right: 0px;
-  width: 14px;
-  height: 14px;
-
-  transition: transform $time $cubic;
-
-  &:hover,
-  &:focus {
-    transform: scale(1.5);
-  }
 
   @media screen and(min-width:$min-tablet) {
     top: 95px;
     right: 0px;
-    width: 24px;
-    height: 24px;
   }
 
   @media screen and(min-width:$min-desktop) {
     top: 115px;
     right: 15px;
+  }
+}
+
+.team_git-icon {
+  width: 14px;
+  height: 14px;
+
+  @media screen and(min-width:$min-tablet) {
+    width: 24px;
+    height: 24px;
   }
 }
 

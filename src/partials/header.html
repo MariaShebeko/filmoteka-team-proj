@@ -1,9 +1,9 @@
 <header class="header header-home">
   <!-- Разметка переключателя темы -->
       <div class="theme-switch">
-        <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+        <!-- <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
           <use href="./images/sprite.svg#sun"></use>
-        </svg>
+        </svg> -->
 
         <div class="theme-switch__control">
           <input
@@ -22,9 +22,9 @@
           <div aria-hidden="true" class="theme-switch__marker"></div>
         </div>
 
-        <svg class="theme-switch__icon" aria-label="Иконка луны">
+        <!-- <svg class="theme-switch__icon" aria-label="Иконка луны">
           <use href="./images/sprite.svg#moon"></use>
-        </svg>
+        </svg> -->
       </div>
     </div>
     <!--  -->
@@ -49,17 +49,10 @@
     </nav>
 
     <form class="search-form search-form-js">
-      <input class="search-form__input"
-       type="text" 
-       name="moviequery"
-       placeholder="Movies search"
-       autocomplete="off"/>
-       <button class="search-form__btn js-search-btn" type="button">
-         <svg class="search-form__icon" width="12" height="12">
+      <input type="text" name="moviequery" placeholder="Movies search" class="search-form__input" />
+      <svg class="search-form__icon" width="12" height="12">
         <use href="./images/sprite.svg#icon-search"></use>
       </svg>
-       </button>
-      
     </form>
 
     <span class="error-message visually-hidden">

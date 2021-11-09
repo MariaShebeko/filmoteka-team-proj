@@ -1,8 +1,5 @@
 import './sass/main.scss';
 
-import './js/components/pagination.js';
-import './js/apiService.js';
-
 import './js/markupHome.js';
 
 import './js/refs/refs.js';

@@ -21,7 +21,7 @@ async function onSliderLoad() {
         console.log('allPopularPerDay__results: ', results);
         return results;
       })
-      .then(onAppendSliderMarkup);
+      .then(appendSliderMarkup);
 
     onSliderActivation();
   } catch (error) {
@@ -31,7 +31,7 @@ async function onSliderLoad() {
   }
 }
 
-function onAppendSliderMarkup(results) {
+function appendSliderMarkup(results) {
   sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
 
   onCreateTrailerLink(document.querySelectorAll('.button-youtube'));
@@ -52,7 +52,7 @@ async function onSliderActivation() {
       easing: 'ease',
       infinite: true,
       initialSlide: 1,
-      autoplay: true,
+      autoplay: false, // true
       autoplaySpeed: 1000,
       pauseOnFocus: true,
       pauseOnHover: true,

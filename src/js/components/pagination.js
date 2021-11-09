@@ -7,41 +7,42 @@ const { paginationEl } = refs;
 
 // new Pagination(paginationEl);
 
+class CustomPagination {
+  constructor() {
+    this.perPage = 20;
+    this.isDraw = false;
+    this.pagination = new Pagination(paginationEl);
+    this.pagination.on('beforeMove', this.#beforeMoveHandler.bind(this));
+  }
 
-class CustomPagination{
+  onPageClicked(fun) {
+    this.pageClickedCallbackFunction = fun;
+  }
 
-    constructor() {
-        this.perPage = 20;
-        this.isDraw = false;
-        this.pagination = new Pagination(paginationEl);
-        this.pagination.on('beforeMove', this.#beforeMoveHandler.bind(this))
+  draw(data) {
+    this.isDraw = true;
+    this.pagination.setTotalItems(data.total_results);
+    this.pagination.setItemsPerPage(Math.floor(data.total_results / data.total_pages));
+    this.pagination.movePageTo(data.page);
+  }
+
+  reset() {
+    this.pagination.reset();
+  }
+
+  #beforeMoveHandler(evt) {
+    if (this.isDraw) {
+      this.isDraw = false;
+      return;
     }
-
-    onPageClicked(fun) {
-        this.pageClickedCallbackFunction = fun;
-    }
-
-    draw(data) {
-        this.isDraw = true;
-        this.pagination.setTotalItems(data.total_results);
-        this.pagination.setItemsPerPage(Math.floor(data.total_results / data.total_pages));
-        this.pagination.movePageTo(data.page);
-    }
-
-    reset() {
-        this.pagination.reset();
-    }
-
-    #beforeMoveHandler(evt) {
-        if (this.isDraw) {
-            this.isDraw = false;
-            return;
-        }
-        this.pageClickedCallbackFunction(evt.page);
-    }
-
+    this.pageClickedCallbackFunction(evt.page);
+  }
 }
+
 
 window.pagination = new CustomPagination();
 
 // export default CustomPagination;
+
+export default CustomPagination;
+

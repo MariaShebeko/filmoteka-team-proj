@@ -19,6 +19,7 @@
     "url": "https://github.com/MariaShebeko/filmoteka-team-proj/issues"
   },
   "devDependencies": {
+    "@pnotify/mobile": "^5.2.0",
     "animate.css": "^4.1.1",
     "basiclightbox": "^5.0.4",
     "handlebars": "^4.7.7",

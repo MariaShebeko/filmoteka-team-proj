@@ -11,48 +11,10 @@ class ApiService {
     const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${this.page}`;
     return fetch(url)
       .then(response => response.json())
-      .then((data) => {
+      .then(data => {
         this.incrementPage();
 
-        // getting short genres names list from local storage
-        const genres = JSON.parse(localStorage.getItem('genres'));
-        console.log(genres);
-        data.results.map(item => {
-          let filmGenres = [];
-          genres.find(elem => {
-            if (item.genre_ids.includes(elem.id)) {
-              filmGenres.push(elem.name);
-            }
-          });
-
-          if (filmGenres.length <= 3) {
-            item.genresShort = filmGenres.join(', ');
-          }
-          if (filmGenres.length > 3) {
-            filmGenres.splice(2, filmGenres.length - 2);
-            filmGenres.push('Other');
-            item.genresShort = filmGenres.join(', ');
-          }
-        });
-
-        // getting full genres names list from local storage
-        data.results.map(item => {
-          let filmGenresAll = [];
-          genres.find(elem => {
-            if (item.genre_ids.includes(elem.id)) {
-              filmGenresAll.push(elem.name);
-            }
-          });
-          item.genresAll = filmGenresAll;
-        });
-
-        
-        // transforming full date in year in results
-        data.results.map(item => {
-          item.release_year = item.release_date.slice(0, 4);
-        });
-
-        console.log(data);
+        // console.log(data);
         return data;
       });
   }

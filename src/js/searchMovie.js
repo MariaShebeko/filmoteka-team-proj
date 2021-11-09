@@ -4,6 +4,7 @@
 import movieTemplate from '../templates/film-card-template.hbs';
 import { myNotice, myError, myAlert } from './components/pnotify';
 import refs from './refs/refs';
+import { getFilm } from './modalFilm.js';
 
 const nameOfMovieToSearch = window.ApiService;
 
@@ -21,6 +22,7 @@ function init() {
   nameOfMovieToSearch.fetchPopularMovies().then(function (data) {
     clearContent();
     renderMakrup(data.results);
+    getFilm(data.results);
     window.pagination.draw(data);
   });
 }
@@ -60,7 +62,7 @@ function fetchSearch() {
   nameOfMovieToSearch
     .fetchSearchMovies()
     .then(data => {
-      console.log(data);
+      getFilm(data.results);
       if (data.results.length > 0) {
         // console.dir(result);
         // console.log(result.length);

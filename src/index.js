@@ -15,7 +15,6 @@ import './js/layout/slider.js';
 import './sass/components/basicLightbox.min.css';
 import './js/components/basicLightbox.min.js';
 import './js/trailer.js';
-import './js/modalFilm.js';
 
 import './js/searchMovie';
 
@@ -24,3 +23,7 @@ import './js/components/buttonUp.js';
 import './js/theme-switch';
 
 import 'animate.css';
+
+import './js/modalFilm.js';
+import './js/addToWatched.js';
+import './js/addToQueve.js';

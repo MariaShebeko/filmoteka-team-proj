@@ -1,21 +1,24 @@
 <div class="backdrop is-hidden container">
   <div class="modal-film" id="modal-film">
-    <button class="button-close modal-film__button-close" type="button">
-      <svg class="button-close__icon" height="16px" width="16px">
-        <use href="./images/sprite.svg#icon-close"></use>
+    <button class="button-close modal-film__button-close" type="button" data-value="close">
+      <svg class="button-close__icon" height="16px" width="16px" data-value="close">
+        <use href="./images/sprite.svg#icon-close" data-value="close"></use>
       </svg></button>
-    <div class="modal-film-wrapper" id="modal-film-wrapper"></div>
-    <ul class="button-list list">
-      <li class="button-list__item">
-        <button class="button button--mod" type="button">ADD TO WATCHED</button>
-      </li>
-      <li class="button-list__item">
-        <button class="button button--mod" type="button">ADD TO QUEVE</button>
-      </li>
-    </ul>
-    <a href="https://www.google.com/search?q=фільм" target="_blank" rel="noopener" rel="noreferrer">
+    <div class="modal-film__wrapper-image" id="modal-film-image"></div>
+    <div class="modal-film__wrapper-description">
+      <div class='modal-film__description' id="modal-film-description"></div>
+      <ul class="button-list list">
+        <li class="button-list__item">
+          <button class="button button--mod" type="button" data-value="watched">ADD TO WATCHED</button>
+        </li>
+        <li class="button-list__item">
+          <button class="button button--mod" type="button" data-value="queve">ADD TO QUEVE</button>
+        </li>
+      </ul>
+    </div>
+    <!-- <a href="https://www.google.com/search?q=фільм" target="_blank" rel="noopener" rel="noreferrer">
       <svg class="bci" height="20" width="40">
         <use href="#"></use>
-    </a>
+    </a> -->
   </div>
 </div>

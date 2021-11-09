@@ -1,5 +1,6 @@
 // import ApiService from './apiService';
 import refs from './refs/refs';
+import { getFilm } from './modalFilm.js';
 import movieTemplate from '../templates/film-card-template.hbs';
 
 const trendingApiServise = window.ApiService;
@@ -32,7 +33,7 @@ function onLoad() {
 function appendMoviesMarkup(data) {
   refs.gallery.innerHTML = '';
   refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data.results));
-
+  getFilm(data.results);
   window.pagination.draw(data);
 
   // pagination.draw(data);

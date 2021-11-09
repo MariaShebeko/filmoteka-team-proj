@@ -9,5 +9,6 @@ export default {
   inputField: document.querySelector('.search-form__input'),
   formEl: document.querySelector('.search-form-js'),
   modalFilmEl: document.getElementById('modal-film'),
-  modalFilmWrapperEl: document.getElementById('modal-film-wrapper'),
+  modalFilmImageEl: document.getElementById('modal-film-image'),
+  modalFilmDescriptionEl: document.getElementById('modal-film-description'),
 };

@@ -7,6 +7,8 @@
   background-color: $white;
 
   @media screen and (min-width: $min-tablet) {
+    display: flex;
+    justify-content: space-between;
     padding-top: 42px;
     padding-left: 28px;
     padding-right: 28px;
@@ -21,9 +23,7 @@
   }
 }
 
-.modal-film__image {
-  border-radius: 5px;
-
+.modal-film__wrapper-image {
   @media screen and (max-width: $max-mobile) {
     margin-left: auto;
     margin-right: auto;
@@ -33,20 +33,21 @@
 
   @media screen and (min-width: $min-tablet) {
     margin-right: 32px;
-    width: 264px;
+    min-width: 264px;
   }
 
   @media screen and (min-width: $min-desktop) {
     margin-right: 30px;
-    width: 396px;
+    min-width: 396px;
   }
 }
 
-.modal-film-wrapper {
-  @media screen and (min-width: $min-tablet) {
-    display: flex;
-    justify-content: space-between;
-  }
+.modal-film__image {
+  border-radius: 5px;
+}
+
+.modal-film__description {
+  margin-bottom: 20px;
 }
 
 .modal-film__title {
@@ -103,7 +104,6 @@
 }
 
 .modal-film__text {
-  margin-bottom: 20px;
   font-weight: 500;
   line-height: 1.67;
 }

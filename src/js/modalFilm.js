@@ -1,16 +1,20 @@
 import refs from './refs/refs';
-import ApiService from './apiService';
-import modalFilmTemplate from '../templates/modal-film.hbs';
+import imageTemplate from '../templates/modal-film-image.hbs';
+import descriptionTemplate from '../templates/modal-film-description.hbs';
 
-const { bodyEl, galleryEl, backdropEl, modalFilmEl, modalFilmWrapperEl } = refs;
+const {
+  bodyEl,
+  galleryEl,
+  backdropEl,
+  modalFilmEl,
+  modalFilmImageEl,
+  modalFilmDescriptionEl,
+} = refs;
 
-const trendingApiServise1 = new ApiService();
-
-// !Modal-film
 // Open modal-film
 
 function openModalFilm(e) {
-  if (e.target.nodeName !== 'IMG' && e.target.nodeName !== 'P') return;
+  if (e.target.nodeName !== 'IMG') return;
   backdropEl.classList.toggle('is-hidden');
   bodyEl.classList.toggle('backdrop-open');
 }
@@ -20,7 +24,7 @@ galleryEl.addEventListener('click', openModalFilm);
 // Close modal-film
 
 function closeModalFilm(e) {
-  if (e.target.nodeName !== 'use' && e.target.nodeName !== 'svg') return;
+  if (e.target.dataset.value !== 'close') return;
   backdropEl.classList.toggle('is-hidden');
   bodyEl.classList.toggle('backdrop-open');
 }
@@ -29,30 +33,24 @@ modalFilmEl.addEventListener('click', closeModalFilm);
 
 // Markup film
 
-const arrayWatched = [];
-const arrayQueue = [];
+let arrayFilms;
+export let dataFilm;
+
+export function getFilm(data) {
+  arrayFilms = data;
+}
 
 function getTitle(e) {
   if (e.target.nodeName !== 'IMG') return;
-  getFilm(e.target.alt);
+  markupFilm(e.target.alt);
 }
 
-let array;
-
-function getFilm(titleFilm) {
-  if (!array) {
-    trendingApiServise1.fetchPopularMovies().then(data => {
-      array = data;
-      markupFilm(data.find(el => el.title === titleFilm));
-    });
-  } else {
-    markupFilm(array.find(el => el.title === titleFilm));
-  }
-}
-
-function markupFilm(data) {
-  modalFilmWrapperEl.innerHTML = '';
-  modalFilmWrapperEl.insertAdjacentHTML('afterbegin', modalFilmTemplate(data));
+function markupFilm(titleFilm) {
+  dataFilm = arrayFilms.find(el => el.title === titleFilm);
+  modalFilmImageEl.innerHTML = '';
+  modalFilmDescriptionEl.innerHTML = '';
+  modalFilmImageEl.insertAdjacentHTML('afterbegin', imageTemplate(dataFilm));
+  modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', descriptionTemplate(dataFilm));
 }
 
 galleryEl.addEventListener('click', getTitle);

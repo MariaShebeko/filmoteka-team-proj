@@ -1,0 +1,46 @@
+<h2 class='modal-film__title'>
+  {{this.title}}
+</h2>
+<table class='modal-film__table'>
+  <tr class='modal-film__table-tr'>
+    <td class='modal-film__table-td'>
+      Vote / Votes
+    </td>
+    <td class='modal-film__table-td'>
+      <span class='modal-film__table-td--mod'>
+        {{this.vote_average}}
+      </span>
+      / {{this.vote_count}}
+    </td>
+  </tr>
+  <tr class='modal-film__table-tr'>
+    <td class='modal-film__table-td'>
+      Popularity
+    </td>
+    <td class='modal-film__table-td'>
+      {{this.popularity}}
+    </td>
+  </tr>
+  <tr class='modal-film__table-tr'>
+    <td class='modal-film__table-td'>
+      Original Title
+    </td>
+    <td class='modal-film__table-td'>
+      {{this.original_title}}
+    </td>
+  </tr>
+  <tr class='modal-film__table-tr'>
+    <td class='modal-film__table-td'>
+      Genre
+    </td>
+    <td class='modal-film__table-td'>
+      {{this.genresShort}}
+    </td>
+  </tr>
+</table>
+<h3 class='modal-film__subtitle'>
+  ABOUT
+</h3>
+<p class='modal-film__text'>
+  {{overview}}
+</p>

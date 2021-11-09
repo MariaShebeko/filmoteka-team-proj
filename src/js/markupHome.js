@@ -19,8 +19,10 @@ function onLoad() {
 }
 
 function appendMoviesMarkup(data) {
+  refs.gallery.innerHTML = '';
   refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data.results));
   pagination.draw(data);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function toSaveGenres(data) {

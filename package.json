@@ -33,9 +33,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "@pnotify/core": "^5.2.0"
-
-
+    "@pnotify/core": "^5.2.0",
     "tui-pagination": "^3.4.1"
 
   }

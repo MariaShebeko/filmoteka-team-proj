@@ -9,10 +9,8 @@ const nameOfMovieToSearch = window.ApiService;
 
 window.pagination.onPageClicked(function (pageNumber) {
   nameOfMovieToSearch.pageNumber = pageNumber;
-  if (!nameOfMovieToSearch.query)
-    init();
-  else
-    fetchSearch();
+  if (!nameOfMovieToSearch.query) init();
+  else fetchSearch();
 });
 
 function init() {
@@ -45,7 +43,6 @@ function onSearch(event) {
     } else {
       return myAlert();
     }
-    
   }
 
   //===выполненеие поиска нового названия===
@@ -56,14 +53,13 @@ function onSearch(event) {
   // console.log(nameOfMovieToSearch.query);
   // console.dir(nameOfMovieToSearch.fetchSearchMovies());
 
-
   fetchSearch();
-  
 }
 
 function fetchSearch() {
-  nameOfMovieToSearch.fetchSearchMovies().
-    then(data => {
+  nameOfMovieToSearch
+    .fetchSearchMovies()
+    .then(data => {
       console.log(data);
       if (data.results.length > 0) {
         // console.dir(result);
@@ -72,17 +68,16 @@ function fetchSearch() {
         renderMakrup(data.results);
         window.pagination.draw(data);
 
-  nameOfMovieToSearch
-    .fetchSearchMovies()
-    .then(result => {
-      if (result.length > 0) {
-        // console.dir(result);
-        // console.log(result.length);
-        clearContent();
-        renderMakrup(result);
-      } else {
-        return myError();
-
+        // nameOfMovieToSearch
+        //   .fetchSearchMovies()
+        //   .then(result => {
+        //     if (result.length > 0) {
+        //       // console.dir(result);
+        //       // console.log(result.length);
+        //       clearContent();
+        //       renderMakrup(result);
+        //     } else {
+        //       return myError();
       }
     })
     .catch(error => console.log(error));

@@ -2,6 +2,7 @@ export default {
   bodyEl: document.querySelector('body'),
   mainEl: document.querySelector('main'),
   sliderEl: document.querySelector('.js-slider'),
+  paginationEl: document.querySelector('#pagination'),
   gallery: document.querySelector('.trending'),
   galleryEl: document.querySelector('.gallery'),
   backdropEl: document.querySelector('.backdrop'),

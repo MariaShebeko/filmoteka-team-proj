@@ -84,6 +84,10 @@
   padding-bottom: 97px;
 }
 
+.logo:focus {
+  outline: none;
+}
+
 .logo__label {
   @media screen and (max-width: $max-mobile) {
     display: none;
@@ -141,6 +145,7 @@
 }
 
 .search-form {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 280px;
@@ -154,6 +159,22 @@
     width: 336px;
   }
 }
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white; // Цвет текста
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset; // Тенью во внутрь делаем BG и вместо #000 выбираем цвет BG
+  transition: background-color 5000s ease-in-out 0s; // Так-как напрямую с BGC взаимодействовать нельзя, делаем его замену очень медленной, и как-бы отменяем его замену. (хотя через 1.5 часа он таки поменяет цвет)
+}
+
 
 .search-form__input {
   width: 100%;
@@ -179,11 +200,26 @@
     transition: border-bottom $time $cubic;
   }
 }
-.search-form__icon {
+
+.search-form__btn {
   position: absolute;
-  bottom: 25%;
-  right: 10px;
+  top: 10%;
+  right: -5px;
+
+  background-color: transparent;
+  border: none;
+  &:hover,
+  &:focus {
+    transform: scale(1.25);
+    outline: none;
+  }
 }
+
+// .search-form__icon {
+//   position: absolute;
+//   bottom: 25%;
+//   right: 10px;
+// }
 
 .error-message {
   color: $warning-color;

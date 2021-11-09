@@ -2,22 +2,20 @@
 import refs from './refs/refs';
 import movieTemplate from '../templates/film-card-template.hbs';
 
+const trendingApiServise = window.ApiService;
 
-// const trendingApiServise = window.ApiService;
+// const trendingApiServise = new ApiService();
 
-const trendingApiServise = new ApiService();
-
-const pagination = new CustomPagination();
-pagination.onPageClicked(function (pageNumber) {
-  trendingApiServise.pageNumber = pageNumber;
-  trendingApiServise
-    .fetchPopularMovies()
-    .then(toGetShortGenresList)
-    .then(toGetYear)
-    .then(toGetFullGenresList)
-    .then(appendMoviesMarkup);
-});
-
+// const pagination = new CustomPagination();
+// pagination.onPageClicked(function (pageNumber) {
+//   trendingApiServise.pageNumber = pageNumber;
+//   trendingApiServise
+//     .fetchPopularMovies()
+//     .then(toGetShortGenresList)
+//     .then(toGetYear)
+//     .then(toGetFullGenresList)
+//     .then(appendMoviesMarkup);
+// });
 
 onLoad();
 
@@ -37,9 +35,8 @@ function appendMoviesMarkup(data) {
 
   window.pagination.draw(data);
 
-  pagination.draw(data);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
+  // pagination.draw(data);
+  // window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // saving genges id-list in localStorage

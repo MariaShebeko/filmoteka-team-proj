@@ -1,49 +1,24 @@
 <div class="backdrop is-hidden container">
-  <div class="modal-film">
-    <button class="button-close modal-film__button-close" type="button"><svg class="button-close__icon" height="16"
-        width="16">
-        <use href="#"></use>
+  <div class="modal-film" id="modal-film">
+    <button class="button-close modal-film__button-close" type="button" data-value="close">
+      <svg class="button-close__icon" height="16px" width="16px" data-value="close">
+        <use href="./images/sprite.svg#icon-close" data-value="close"></use>
       </svg></button>
-    <picture class="modal-film__picture">
-      <source srcset="./img/desktop-modal-film.jpg" media="(min-width: 1024px)">
-      <source srcset="./img/tablet-modal-film.jpg" media="(min-width: 768px)">
-      <source srcset="./img/mobile-modal-film.jpg" media="(max-width: 767px)">
-      <img class="modal-film__image" src="./img/mobile-modal-film.jpg" alt="film">
-    </picture>
-    <div class="modal-film__description">
-      <h2 class="modal-film__title">A FISTFUL OF LEAD</h2>
-      <table class="modal-film__table">
-        <tr class="modal-film__table-tr">
-          <td class="modal-film__table-td">Vote / Votes</td>
-          <td class="modal-film__table-td"><span class="modal-film__table-td--mod">7.3</span> / 1260</td>
-        </tr>
-        <tr class="modal-film__table-tr">
-          <td class="modal-film__table-td">Popularity</td>
-          <td class="modal-film__table-td">100.2</td>
-        </tr>
-        <tr class="modal-film__table-tr">
-          <td class="modal-film__table-td">Original Title</td>
-          <td class="modal-film__table-td">A FISTFUL OF LEAD</td>
-        </tr>
-        <tr class="modal-film__table-tr">
-          <td class="modal-film__table-td">Genre</td>
-          <td class="modal-film__table-td">Western</td>
-        </tr>
-      </table>
-      <h3 class="modal-film__subtitle">ABOUT</h3>
-      <p class="modal-film__text">Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from
-        the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three
-        escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three –
-        who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they
-        realise the bags of gold are filled with lead... they’ve been double crossed – but by who and how?</p>
+    <div class="modal-film__wrapper-image" id="modal-film-image"></div>
+    <div class="modal-film__wrapper-description">
+      <div class='modal-film__description' id="modal-film-description"></div>
       <ul class="button-list list">
         <li class="button-list__item">
-          <button class="button button--mod" type="button">ADD TO WATCHED</button>
+          <button class="button button--mod" type="button" data-value="watched">ADD TO WATCHED</button>
         </li>
         <li class="button-list__item">
-          <button class="button button--mod" type="button">ADD TO QUEVE</button>
+          <button class="button button--mod" type="button" data-value="queve">ADD TO QUEVE</button>
         </li>
       </ul>
     </div>
+    <!-- <a href="https://www.google.com/search?q=фільм" target="_blank" rel="noopener" rel="noreferrer">
+      <svg class="bci" height="20" width="40">
+        <use href="#"></use>
+    </a> -->
   </div>
 </div>

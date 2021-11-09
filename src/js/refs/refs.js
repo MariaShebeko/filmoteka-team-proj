@@ -4,6 +4,11 @@ export default {
   sliderEl: document.querySelector('.js-slider'),
   paginationEl: document.querySelector('#pagination'),
   gallery: document.querySelector('.trending'),
+  galleryEl: document.querySelector('.gallery'),
+  backdropEl: document.querySelector('.backdrop'),
   inputField: document.querySelector('.search-form__input'),
   formEl: document.querySelector('.search-form-js'),
+  modalFilmEl: document.getElementById('modal-film'),
+  modalFilmImageEl: document.getElementById('modal-film-image'),
+  modalFilmDescriptionEl: document.getElementById('modal-film-description'),
 };

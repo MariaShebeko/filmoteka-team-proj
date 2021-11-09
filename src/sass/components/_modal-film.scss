@@ -23,9 +23,12 @@
   }
 }
 
-.modal-film__picture {
+.modal-film__wrapper-image {
   @media screen and (max-width: $max-mobile) {
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 30px;
+    width: 240px;
   }
 
   @media screen and (min-width: $min-tablet) {
@@ -40,9 +43,11 @@
 }
 
 .modal-film__image {
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 5px;
+}
+
+.modal-film__description {
+  margin-bottom: 20px;
 }
 
 .modal-film__title {
@@ -75,13 +80,17 @@
   &:first-child {
     color: #8c8c8c;
   }
+
+  .modal-film__table-tr:nth-child(3) &:nth-child(2) {
+    text-transform: uppercase;
+  }
 }
 
 .modal-film__table-td--mod {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 7px;
   color: $white;
   background-color: $accent-color;
   border-radius: 5px;
@@ -95,7 +104,6 @@
 }
 
 .modal-film__text {
-  margin-bottom: 20px;
   font-weight: 500;
   line-height: 1.67;
 }

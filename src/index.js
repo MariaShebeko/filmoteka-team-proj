@@ -11,7 +11,6 @@ import './js/main.js';
 import './js/modal-team.js';
 import './js/components/buttonUp.js';
 
-
 import './js/layout/slider.js';
 import './sass/components/basicLightbox.min.css';
 import './js/components/basicLightbox.min.js';
@@ -24,3 +23,7 @@ import './js/components/buttonUp.js';
 import './js/theme-switch';
 
 import 'animate.css';
+
+import './js/modalFilm.js';
+import './js/addToWatched.js';
+import './js/addToQueve.js';

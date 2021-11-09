@@ -8,3 +8,7 @@ body {
 button {
   cursor: pointer;
 }
+
+body.backdrop-open {
+  overflow: hidden;
+}

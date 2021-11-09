@@ -1,7 +1,9 @@
-import ApiService from './apiService';
+// import ApiService from './apiService';
 import refs from './refs/refs';
 import movieTemplate from '../templates/film-card-template.hbs';
-import CustomPagination from '../js/components/pagination';
+
+
+// const trendingApiServise = window.ApiService;
 
 const trendingApiServise = new ApiService();
 
@@ -15,6 +17,7 @@ pagination.onPageClicked(function (pageNumber) {
     .then(toGetFullGenresList)
     .then(appendMoviesMarkup);
 });
+
 
 onLoad();
 
@@ -31,8 +34,12 @@ function onLoad() {
 function appendMoviesMarkup(data) {
   refs.gallery.innerHTML = '';
   refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data.results));
+
+  window.pagination.draw(data);
+
   pagination.draw(data);
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
 }
 
 // saving genges id-list in localStorage

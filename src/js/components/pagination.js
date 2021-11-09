@@ -39,4 +39,10 @@ class CustomPagination {
   }
 }
 
+
+window.pagination = new CustomPagination();
+
+// export default CustomPagination;
+
 export default CustomPagination;
+

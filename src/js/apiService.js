@@ -1,7 +1,7 @@
 const API_KEY = 'd9be23358e97f87c33dbf928d8eaec37';
 const BASE_URL = `https://api.themoviedb.org/3`;
 
-export default class ApiService {
+class ApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
@@ -23,15 +23,16 @@ export default class ApiService {
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return fetch(url)
       .then(response => response.json())
-      .then(({ results }) => {
+      .then((data) => {
         this.incrementPage();
 
         // transforming full date in year in results
-        results.map(item => {
-          item.release_year = item.release_date.slice(0, 4);
+        data.results.map(item => {
+          console.log(item);
+          item.release_year = item.release_date ? item.release_date.slice(0, 4) : '';
         });
 
-        return results;
+        return data;
       });
   }
   fetchMovieGenre() {
@@ -87,3 +88,5 @@ export default class ApiService {
     this.searchQuery = newQuery;
   }
 }
+window.ApiService = new ApiService();
+export default ApiService;

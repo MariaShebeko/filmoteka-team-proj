@@ -1,11 +1,31 @@
 'use strict';
 
-import ApiService from './apiService';
+// import ApiService from './apiService';
 import movieTemplate from '../templates/film-card-template.hbs';
 import { myNotice, myError, myAlert } from './components/pnotify';
 import refs from './refs/refs';
 
-const nameOfMovieToSearch = new ApiService();
+const nameOfMovieToSearch = window.ApiService;
+
+window.pagination.onPageClicked(function (pageNumber) {
+  nameOfMovieToSearch.pageNumber = pageNumber;
+  if (!nameOfMovieToSearch.query)
+    init();
+  else
+    fetchSearch();
+});
+
+function init() {
+  nameOfMovieToSearch.query = refs.inputField.value;
+  nameOfMovieToSearch.fetchMovieGenre().then(function (data) {
+    localStorage.setItem('genres', JSON.stringify(data));
+  });
+  nameOfMovieToSearch.fetchPopularMovies().then(function (data) {
+    clearContent();
+    renderMakrup(data.results);
+    window.pagination.draw(data);
+  });
+}
 
 refs.formEl.addEventListener('submit', onSearch);
 
@@ -13,19 +33,44 @@ function onSearch(event) {
   event.preventDefault();
 
   if (!refs.inputField.value) {
-    return myNotice();
+    nameOfMovieToSearch.resetPage();
+    init();
+    return;
+    // return myNotice();
   }
 
   if (nameOfMovieToSearch.query === refs.inputField.value) {
-    return myAlert();
+    if (!refs.inputField.value) {
+      return myNotice();
+    } else {
+      return myAlert();
+    }
+    
   }
 
   //===выполненеие поиска нового названия===
   if (nameOfMovieToSearch.query !== refs.inputField.value) {
     nameOfMovieToSearch.query = refs.inputField.value;
+    nameOfMovieToSearch.resetPage();
   }
   // console.log(nameOfMovieToSearch.query);
   // console.dir(nameOfMovieToSearch.fetchSearchMovies());
+
+
+  fetchSearch();
+  
+}
+
+function fetchSearch() {
+  nameOfMovieToSearch.fetchSearchMovies().
+    then(data => {
+      console.log(data);
+      if (data.results.length > 0) {
+        // console.dir(result);
+        // console.log(result.length);
+        clearContent();
+        renderMakrup(data.results);
+        window.pagination.draw(data);
 
   nameOfMovieToSearch
     .fetchSearchMovies()
@@ -37,6 +82,7 @@ function onSearch(event) {
         renderMakrup(result);
       } else {
         return myError();
+
       }
     })
     .catch(error => console.log(error));

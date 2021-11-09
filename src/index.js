@@ -1,5 +1,8 @@
 import './sass/main.scss';
 
+import './js/components/pagination.js';
+import './js/apiService.js';
+
 import './js/markupHome.js';
 
 import './js/refs/refs.js';
@@ -7,7 +10,6 @@ import './js/main.js';
 
 import './js/modal-team.js';
 import './js/components/buttonUp.js';
-
 
 
 import './js/layout/slider.js';

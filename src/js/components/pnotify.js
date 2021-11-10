@@ -59,3 +59,26 @@ export function myAlert() {
     ]),
   });
 }
+
+export function onCatchError(error) {
+  alert({
+    title: 'Something went wrong! Σ(‘◉⌓◉’)',
+    text: `${error}`,
+    width: 300,
+    sticker: false,
+    hide: true,
+    delay: 2000,
+    closerHover: true,
+    mouseReset: true,
+    shadow: true,
+    modules: new Map([
+      ...defaultModules,
+      [
+        PNotifyMobile,
+        {
+          swipeDismiss: true,
+        },
+      ],
+    ]),
+  });
+}

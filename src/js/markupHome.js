@@ -44,7 +44,7 @@ function onLoad() {
 
 function appendMoviesMarkup(data) {
   refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
-  getFilm(data.results);
+  getFilm(data);
 
   // pagination.draw(data);
   // window.scrollTo({ top: 0, behavior: 'smooth' });

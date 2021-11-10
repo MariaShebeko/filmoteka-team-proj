@@ -1,13 +1,11 @@
-//delete if not used
 import API from '../apiService.js';
 import filmCardsTemplate from '../../templates/slider.hbs';
 import refs from '../refs/refs.js';
 import trailer from '../trailer.js';
+import { onCatchError } from '../components/pnotify.js';
 const { sliderEl } = refs;
 const { onCreateTrailerLink } = trailer;
 const sliderAPI = new API();
-
-// need correct async func to export
 
 onSliderLoad();
 
@@ -25,9 +23,9 @@ async function onSliderLoad() {
 
     onSliderActivation();
   } catch (error) {
-    // add notify there (need library)
-    console.log('Error-allPopularPerDay: ', error); // delete after
-    throw error;
+    console.log('allPopularPerDay_catchError: ', error); // delete after
+
+    onCatchError(error);
   }
 }
 

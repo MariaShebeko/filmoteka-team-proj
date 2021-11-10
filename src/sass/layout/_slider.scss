@@ -183,7 +183,7 @@
 
 // Dark theme styles
 
-body[class='dark-theme'] {
+body.dark-theme {
   & .slider-title {
     color: $accent-color;
   }

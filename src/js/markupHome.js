@@ -20,29 +20,40 @@ const trendingApiServise = window.ApiService;
 //     .then(toGetFullGenresList)
 //     .then(appendMoviesMarkup);
 // });
-
 onLoad();
+window.pagination.onPageClicked(function (pageNumber) {
+  trendingApiServise.pageNumber = pageNumber;
+
+  onLoad();
+});
 
 function onLoad() {
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);
   trendingApiServise
     .fetchPopularMovies()
-    .then(toGetShortGenresList)
     .then(toGetYear)
+    .then(toGetShortGenresList)
     .then(toGetFullGenresList)
-    .then(appendMoviesMarkup);
+    .then(data => {
+      clearContent();
+      appendMoviesMarkup(data.results);
+      window.pagination.draw(data);
+    })
+    .catch(error => console.log(error));
 }
 
 function appendMoviesMarkup(data) {
-  refs.gallery.innerHTML = '';
-  refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data.results));
+  refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
   getFilm(data.results);
-  window.pagination.draw(data);
 
   // pagination.draw(data);
   // window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function clearContent() {
+  refs.gallery.innerHTML = '';
+  trendingApiServise.resetPage;
+}
 // saving genges id-list in localStorage
 function toSaveGenres(data) {
   localStorage.setItem('genres', JSON.stringify(data));

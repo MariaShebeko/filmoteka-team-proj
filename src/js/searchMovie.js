@@ -22,26 +22,29 @@ function init() {
   nameOfMovieToSearch.fetchMovieGenre().then(function (data) {
     localStorage.setItem('genres', JSON.stringify(data));
   });
-  nameOfMovieToSearch.fetchPopularMovies().then(function (data) {
-    clearContent();
-    renderMakrup(data.results);
-    getFilm(data.results);
-    window.pagination.draw(data);
-  });
+  nameOfMovieToSearch
+    .fetchPopularMovies()
+    .then(toGetYear)
+    .then(toGetShortGenresList)
+    .then(toGetFullGenresList)
+    .then(function (data) {
+      clearContent();
+      renderMakrup(data.results);
+      getFilm(data.results);
+      window.pagination.draw(data);
+    });
 }
 
 refs.formEl.addEventListener('submit', onSearch);
 
 function onSearch(event) {
   event.preventDefault();
-
   if (!refs.inputField.value) {
     nameOfMovieToSearch.resetPage();
     init();
     return;
     // return myNotice();
   }
-
   if (nameOfMovieToSearch.query === refs.inputField.value) {
     if (!refs.inputField.value) {
       return myNotice();
@@ -49,7 +52,6 @@ function onSearch(event) {
       return myAlert();
     }
   }
-
   //===выполненеие поиска нового названия===
   if (nameOfMovieToSearch.query !== refs.inputField.value) {
     nameOfMovieToSearch.query = refs.inputField.value;
@@ -57,7 +59,6 @@ function onSearch(event) {
   }
   // console.log(nameOfMovieToSearch.query);
   // console.dir(nameOfMovieToSearch.fetchSearchMovies());
-
   fetchSearch();
 }
 

@@ -76,17 +76,8 @@ function fetchSearch() {
         clearContent();
         renderMakrup(data.results);
         window.pagination.draw(data);
-
-        // nameOfMovieToSearch
-        //   .fetchSearchMovies()
-        //   .then(result => {
-        //     if (result.length > 0) {
-        //       // console.dir(result);
-        //       // console.log(result.length);
-        //       clearContent();
-        //       renderMakrup(result);
-        //     } else {
-        //       return myError();
+      } else {
+        return myError();
       }
     })
     .catch(error => console.log(error));

@@ -13,4 +13,6 @@ export default {
   modalFilmDescriptionEl: document.getElementById('modal-film-description'),
   buttonWatchedEl: document.querySelector('[data-value="watched"]'),
   buttonQueveEl: document.querySelector('[data-value="queve"]'),
+  checkboxEl: document.querySelector('.theme-switch__toggle'),
+  buttonCloseIconEl: document.querySelector('.button-close__icon'),
 };

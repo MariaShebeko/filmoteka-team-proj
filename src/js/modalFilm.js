@@ -19,19 +19,34 @@ function openModalFilm(e) {
   if (e.target.nodeName !== 'IMG') return;
   backdropEl.classList.toggle('is-hidden');
   bodyEl.classList.toggle('backdrop-open');
+  window.addEventListener('keydown', keyListener);
+  backdropEl.addEventListener('click', backdropListener);
 }
 
 galleryEl.addEventListener('click', openModalFilm);
 
 // Close modal-film
 
-function closeModalFilm(e) {
-  if (e.target.dataset.value !== 'close') return;
+function closeModalFilm() {
   backdropEl.classList.toggle('is-hidden');
   bodyEl.classList.toggle('backdrop-open');
+  window.removeEventListener('keydown', keyListener);
+  backdropEl.removeEventListener('click', backdropListener);
 }
 
-modalFilmEl.addEventListener('click', closeModalFilm);
+modalFilmEl.addEventListener('click', e => {
+  if (e.target.dataset.value !== 'close') return;
+  closeModalFilm();
+});
+
+function keyListener(e) {
+  if (e.key === 'Escape') closeModalFilm();
+}
+
+function backdropListener(e) {
+  if (!e.target.classList.contains('backdrop')) return;
+  closeModalFilm();
+}
 
 // Markup film
 

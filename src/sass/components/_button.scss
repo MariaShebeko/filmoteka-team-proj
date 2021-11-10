@@ -22,3 +22,18 @@
     border-color: $accent-color;
   }
 }
+
+// black theme
+
+.button--theme.dark-theme {
+  color: $white;
+  background-color: $dark-grey;
+  border-color: $white;
+
+  &:hover,
+  &:focus {
+    color: $dark-grey;
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
+}

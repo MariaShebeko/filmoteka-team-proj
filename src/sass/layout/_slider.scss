@@ -125,6 +125,8 @@
   color: $white;
   background-color: $accent-color;
   border-radius: 5px;
+
+  pointer-events: none;
 }
 
 // from trailler

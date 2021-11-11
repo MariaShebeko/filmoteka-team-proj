@@ -1,5 +1,4 @@
 'use strict';
-
 // import ApiService from './apiService';
 import movieTemplate from '../templates/film-card-template.hbs';
 import { myNotice, myError, myAlert } from './components/pnotify';
@@ -13,8 +12,7 @@ const nameOfMovieToSearch = window.ApiService;
 
 window.pagination.onPageClicked(function (pageNumber) {
   nameOfMovieToSearch.pageNumber = pageNumber;
-  if (!nameOfMovieToSearch.query)
-    init();
+  if (!nameOfMovieToSearch.query) init();
   else fetchSearch();
 });
 
@@ -41,10 +39,6 @@ refs.formEl.addEventListener('submit', onSearch);
 function onSearch(event) {
   event.preventDefault();
   if (!refs.inputField.value) {
-    //что выполняет этот блок кода ниже? Здесь только выполняется проверка введено ли значение в поле ввода и выводится сообщение, если не введено
-    // nameOfMovieToSearch.resetPage(); 
-    // init();
-    // return;
     return myNotice();
   }
   if (nameOfMovieToSearch.query === refs.inputField.value) {
@@ -56,8 +50,7 @@ function onSearch(event) {
     nameOfMovieToSearch.query = refs.inputField.value;
     nameOfMovieToSearch.resetPage();
   }
-  // console.log(nameOfMovieToSearch.query);
-  // console.dir(nameOfMovieToSearch.fetchSearchMovies());
+
   fetchSearch();
 }
 
@@ -68,11 +61,8 @@ function fetchSearch() {
     .then(toGetShortGenresList)
     .then(toGetFullGenresList)
     .then(data => {
-      //console.dir(data);
       getFilm(data.results);
       if (data.results.length > 0) {
-        // console.dir(result);
-        // console.log(result.length);
         clearContent();
         renderMakrup(data.results);
         window.pagination.draw(data);

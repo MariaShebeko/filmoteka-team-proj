@@ -3,7 +3,6 @@
 @import './utils/fonts';
 @import './utils/colors';
 @import './utils/animation';
-@import './utils/variables';
 @import './utils/visually-hidden';
 
 //=============base==============
@@ -14,10 +13,7 @@
 @import './components/backdrop';
 @import './components/modal-film';
 @import './components/modal-team';
-@import './components/logo';
-@import './components/form';
 @import './components/button';
-@import './components/slider';
 
 @import './components/button-close';
 
@@ -27,7 +23,6 @@
 @import './layout/home.scss';
 @import './layout/slider.scss';
 @import './layout/trailer';
-@import './layout/my-library.scss';
 
 @import './footer';
 @import './header';

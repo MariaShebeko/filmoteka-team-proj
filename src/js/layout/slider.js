@@ -32,7 +32,7 @@ async function onSliderLoad() {
 function onAppendSliderMarkup(results) {
   sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
 
-  onCreateTrailerLink(document.querySelectorAll('.button-youtube'));
+  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 async function onSliderActivation() {

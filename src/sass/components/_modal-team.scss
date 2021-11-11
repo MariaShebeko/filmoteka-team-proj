@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #767575;
+  background-color: $team-bg-color;
 
   @media screen and(min-width:$min-tablet) {
     width: 600px;
@@ -43,7 +43,7 @@
 
 .team__img {
   border-radius: 50%;
-  box-shadow: 5px 5px 11px -2px#f2cb9a;
+  box-shadow: 5px 5px 11px -2px $team-thumb-shadow;
 }
 
 .team__git-link {

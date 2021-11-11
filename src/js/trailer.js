@@ -13,8 +13,6 @@ function onCreateTrailerLink(elementsRef) {
 async function onDrawModalFromTrailer(id) {
   try {
     await videoAPI.fetchAllVideos(id).then(data => {
-      console.log('onDrawModalFromTrailer__fetch-data: ', data); // delete after!!!
-
       const responseData = {
         id: data.results[0].key,
         name: data.results[0].name,
@@ -39,7 +37,7 @@ async function onDrawModalFromTrailer(id) {
       instance.show();
     });
   } catch (error) {
-    console.log('onDrawModalFromTrailer__catch-error: ', error);
+    console.log('catch-error: onDrawModalFromTrailer: ', error);
 
     const instance = basicLightbox.create(`
   <h2 class="trailer-title">404 video trailer not found</h2>

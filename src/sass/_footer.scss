@@ -12,23 +12,23 @@
     line-height: 1.19;
   }
 }
-.footer-container {
+.footer__container {
   @media screen and(min-width:$min-tablet) {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
-.footer-icon {
+.footer__icon {
   margin-right: 10px;
   margin-left: 10px;
 }
-.footer-copyright {
+.footer__copyright {
   @media screen and(max-width:$max-mobile) {
     margin-bottom: 10px;
   }
 }
-.footer-authors {
+.footer__authors {
   display: inline-flex;
   align-items: center;
 
@@ -36,7 +36,7 @@
     margin-left: 4px;
   }
 }
-.footer-link {
+.footer__link {
   color: inherit;
   transition: color $time $cubic, transform $time $cubic;
 

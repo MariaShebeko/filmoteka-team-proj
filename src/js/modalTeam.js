@@ -1,5 +1,5 @@
-const btnFooterEl = document.querySelector('.footer-link');
-const footerBackdropEl = document.querySelector('.js-footer');
+const btnFooterEl = document.querySelector('.footer__link');
+const footerBackdropEl = document.querySelector('#footer-backdrop');
 import refs from './refs/refs';
 btnFooterEl.addEventListener('click', onFooterBtnClick);
 footerBackdropEl.addEventListener('click', onFooterModalClose);

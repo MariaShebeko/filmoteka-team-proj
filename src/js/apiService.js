@@ -60,14 +60,6 @@ class ApiService {
     this.page += 1;
   }
 
-  getPage() {
-    return this.page;
-  }
-
-  setPage(numberOfPage) {
-    return (this.page = numberOfPage);
-  }
-
   resetPage() {
     this.page = 1;
   }

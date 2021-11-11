@@ -13,7 +13,8 @@ const nameOfMovieToSearch = window.ApiService;
 
 window.pagination.onPageClicked(function (pageNumber) {
   nameOfMovieToSearch.pageNumber = pageNumber;
-  if (!nameOfMovieToSearch.query) init();
+  if (!nameOfMovieToSearch.query)
+    init();
   else fetchSearch();
 });
 
@@ -40,19 +41,17 @@ refs.formEl.addEventListener('submit', onSearch);
 function onSearch(event) {
   event.preventDefault();
   if (!refs.inputField.value) {
-    nameOfMovieToSearch.resetPage();
-    init();
-    return;
-    // return myNotice();
+    //что выполняет этот блок кода ниже? Здесь только выполняется проверка введено ли значение в поле ввода и выводится сообщение, если не введено
+    // nameOfMovieToSearch.resetPage(); 
+    // init();
+    // return;
+    return myNotice();
   }
   if (nameOfMovieToSearch.query === refs.inputField.value) {
-    if (!refs.inputField.value) {
-      return myNotice();
-    } else {
-      return myAlert();
-    }
+    return myAlert();
   }
-  //===выполненеие поиска нового названия===
+
+  //===выполненеие чтения и поиска нового названия===
   if (nameOfMovieToSearch.query !== refs.inputField.value) {
     nameOfMovieToSearch.query = refs.inputField.value;
     nameOfMovieToSearch.resetPage();
@@ -69,6 +68,7 @@ function fetchSearch() {
     .then(toGetShortGenresList)
     .then(toGetFullGenresList)
     .then(data => {
+      //console.dir(data);
       getFilm(data.results);
       if (data.results.length > 0) {
         // console.dir(result);
@@ -96,8 +96,8 @@ function renderMakrup(results) {
 }
 
 function clearContent() {
-  //==очистка содержимого страницы перед выведением результатов поиска===
+  //==очистка содержимого страницы перед выведением результатов поиска и сброс страницы на 1===
   refs.gallery.innerHTML = '';
-  nameOfMovieToSearch.resetPage;
+  nameOfMovieToSearch.resetPage();
   // localStorage.clear('searchResult');
 }

@@ -78,7 +78,7 @@
 
 .modal-film__table-td {
   &:first-child {
-    color: #8c8c8c;
+    color: $modal-film-table-text;
   }
 
   .modal-film__table-tr:nth-child(3) &:nth-child(2) {

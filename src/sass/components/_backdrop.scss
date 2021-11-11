@@ -6,6 +6,7 @@
   width: 100vw;
   height: 100vh;
   background-color: $backdrop-bg-color;
+  pointer-events: initial;
   overflow-y: scroll;
   transition-property: opacity, visibility;
   transition-duration: $time;

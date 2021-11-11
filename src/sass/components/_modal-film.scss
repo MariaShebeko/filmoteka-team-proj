@@ -128,3 +128,15 @@
     width: 136px;
   }
 }
+
+// black theme
+
+.modal-film--theme.dark-theme {
+  background-color: $dark-grey;
+}
+
+.modal-film__description.dark-theme {
+  .modal-film__table-td--theme:first-child {
+    color: $white;
+  }
+}

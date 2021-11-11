@@ -15,16 +15,12 @@ async function onSliderLoad() {
       .fetchAllPopularPerDay()
       .then(({ results }) => {
         sliderAPI.incrementPage();
-
-        console.log('allPopularPerDay__results: ', results);
         return results;
       })
       .then(onAppendSliderMarkup);
 
     onSliderActivation();
   } catch (error) {
-    console.log('allPopularPerDay_catchError: ', error); // delete after
-
     onCatchError(error);
   }
 }

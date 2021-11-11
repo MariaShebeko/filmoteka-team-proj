@@ -13,6 +13,10 @@
 
 // 16:9 Aspect Ratio
 .trailer-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
   @media screen and (max-width: 559px) {
     position: relative;
     overflow: hidden;

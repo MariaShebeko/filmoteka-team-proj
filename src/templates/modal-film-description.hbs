@@ -1,5 +1,10 @@
 <h2 class='modal-film__title'>
-  {{this.title}}
+  {{#if this.original_title}}
+    {{this.original_title}}
+  {{/if}}
+  {{#if this.original_name}}
+    {{this.original_name}}
+  {{/if}}
 </h2>
 <table class='modal-film__table'>
   <tr class='modal-film__table-tr'>
@@ -10,7 +15,8 @@
       <span class='modal-film__table-td--mod'>
         {{this.vote_average}}
       </span>
-      / {{this.vote_count}}
+      /
+      {{this.vote_count}}
     </td>
   </tr>
   <tr class='modal-film__table-tr'>

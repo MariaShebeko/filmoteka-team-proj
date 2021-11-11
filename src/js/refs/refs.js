@@ -4,6 +4,8 @@ export default {
   sliderEl: document.querySelector('.js-slider'),
   paginationEl: document.querySelector('#pagination'),
   gallery: document.querySelector('.trending'),
+  library: document.querySelector('.library'),
+  buttonLibrary: document.querySelector('.library-button'),
   galleryEl: document.querySelector('.gallery'),
   backdropEl: document.querySelector('.backdrop'),
   inputField: document.querySelector('.search-form__input'),
@@ -15,4 +17,9 @@ export default {
   buttonQueveEl: document.querySelector('[data-value="queve"]'),
   checkboxEl: document.querySelector('.theme-switch__toggle'),
   buttonCloseIconEl: document.querySelector('.button-close__icon'),
+  headerEl: document.querySelector('.header'),
+  libraryBtnListEl: document.querySelector('.button-list'),
+  buttonHomeEl: document.querySelector('.home-button'),
+  btnWatchedHeaderEl: document.querySelector('.watched-js'),
+  btnQueueHeaderEl: document.querySelector('.queue-js'),
 };

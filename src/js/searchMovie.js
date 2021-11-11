@@ -1,5 +1,4 @@
 'use strict';
-
 // import ApiService from './apiService';
 import movieTemplate from '../templates/film-card-template.hbs';
 import { myNotice, myError, myAlert } from './components/pnotify';
@@ -40,25 +39,18 @@ refs.formEl.addEventListener('submit', onSearch);
 function onSearch(event) {
   event.preventDefault();
   if (!refs.inputField.value) {
-    nameOfMovieToSearch.resetPage();
-    init();
-    return;
-    // return myNotice();
+    return myNotice();
   }
   if (nameOfMovieToSearch.query === refs.inputField.value) {
-    if (!refs.inputField.value) {
-      return myNotice();
-    } else {
-      return myAlert();
-    }
+    return myAlert();
   }
-  //===выполненеие поиска нового названия===
+
+  //===выполненеие чтения и поиска нового названия===
   if (nameOfMovieToSearch.query !== refs.inputField.value) {
     nameOfMovieToSearch.query = refs.inputField.value;
     nameOfMovieToSearch.resetPage();
   }
-  // console.log(nameOfMovieToSearch.query);
-  // console.dir(nameOfMovieToSearch.fetchSearchMovies());
+
   fetchSearch();
 }
 
@@ -71,8 +63,6 @@ function fetchSearch() {
     .then(data => {
       getFilm(data.results);
       if (data.results.length > 0) {
-        // console.dir(result);
-        // console.log(result.length);
         clearContent();
         renderMakrup(data.results);
         window.pagination.draw(data);
@@ -96,8 +86,8 @@ function renderMakrup(results) {
 }
 
 function clearContent() {
-  //==очистка содержимого страницы перед выведением результатов поиска===
+  //==очистка содержимого страницы перед выведением результатов поиска и сброс страницы на 1===
   refs.gallery.innerHTML = '';
-  nameOfMovieToSearch.resetPage;
+  nameOfMovieToSearch.resetPage();
   // localStorage.clear('searchResult');
 }

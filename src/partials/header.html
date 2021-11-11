@@ -1,34 +1,28 @@
 <header class="header header-home">
   <!-- Разметка переключателя темы -->
-      <div class="theme-switch">
-        <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
-          <use href="./images/sprite.svg#sun"></use>
-        </svg>
+  <div class="theme-switch">
+    <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+      <use href="./images/sprite.svg#sun"></use>
+    </svg>
 
-        <div class="theme-switch__control">
-          <input
-            class="theme-switch__toggle"
-            type="checkbox"
-            name="theme"
-            id="theme-switch-toggle"
-            aria-label="Переключить между тёмной и светлой темой"
-          />
-          <label
-            aria-hidden="true"
-            class="theme-switch__track"
-            for="theme-switch-toggle"
-          >
-          </label>
-          <div aria-hidden="true" class="theme-switch__marker"></div>
-        </div>
-
-        <svg class="theme-switch__icon" aria-label="Иконка луны">
-          <use href="./images/sprite.svg#moon"></use>
-        </svg>
-      </div>
+    <div class="theme-switch__control">
+      <input
+        class="theme-switch__toggle"
+        type="checkbox"
+        name="theme"
+        id="theme-switch-toggle"
+        aria-label="Переключить между тёмной и светлой темой"
+      />
+      <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle"> </label>
+      <div aria-hidden="true" class="theme-switch__marker"></div>
     </div>
-    <!--  -->
-    
+
+    <svg class="theme-switch__icon" aria-label="Иконка луны">
+      <use href="./images/sprite.svg#moon"></use>
+    </svg>
+  </div>
+  <!--  -->
+
   <div class="container header__container">
     <nav class="header__nav">
       <a class="logo link" href="./index.html">
@@ -40,26 +34,29 @@
 
       <ul class="nav-list list">
         <li class="nav-list__item">
-          <a href="" class="nav-list__link link nav-list__link_current">Home</a>
+          <a href="./index.html" class="nav-list__link home-button link nav-list__link_current"
+            >Home</a
+          >
         </li>
         <li class="nav-list__item">
-          <a href="" class="nav-list__link link">My library</a>
+          <a href="#" class="nav-list__link library-button link">My library</a>
         </li>
       </ul>
     </nav>
 
     <form class="search-form search-form-js">
-      <input class="search-form__input"
-       type="text" 
-       name="moviequery"
-       placeholder="Movies search"
-       autocomplete="off"/>
-       <button class="search-form__btn js-search-btn" type="button">
-         <svg class="search-form__icon" width="12" height="12">
-        <use href="./images/sprite.svg#icon-search"></use>
-      </svg>
-       </button>
-      
+      <input
+        class="search-form__input"
+        type="text"
+        name="moviequery"
+        placeholder="Movies search"
+        autocomplete="off"
+      />
+      <button class="search-form__btn js-search-btn" type="submit">
+        <svg class="search-form__icon" width="12" height="12">
+          <use href="./images/sprite.svg#icon-search"></use>
+        </svg>
+      </button>
     </form>
 
     <span class="error-message visually-hidden">
@@ -73,10 +70,10 @@
 
     <ul class="button-list list visually-hidden">
       <li class="button-list__item">
-        <button class="button button--mod" type="button">Watched</button>
+        <button class="button button--mod watched-js" type="button">Watched</button>
       </li>
       <li class="button-list__item">
-        <button class="button button--mod" type="button">Queue</button>
+        <button class="button button--mod queue-js" type="button">Queue</button>
       </li>
     </ul>
   </div>

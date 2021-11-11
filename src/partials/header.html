@@ -1,34 +1,28 @@
 <header class="header header-home">
   <!-- Разметка переключателя темы -->
-      <div class="theme-switch">
-        <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
-          <use href="./images/sprite.svg#sun"></use>
-        </svg>
+  <div class="theme-switch">
+    <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+      <use href="./images/sprite.svg#sun"></use>
+    </svg>
 
-        <div class="theme-switch__control">
-          <input
-            class="theme-switch__toggle"
-            type="checkbox"
-            name="theme"
-            id="theme-switch-toggle"
-            aria-label="Переключить между тёмной и светлой темой"
-          />
-          <label
-            aria-hidden="true"
-            class="theme-switch__track"
-            for="theme-switch-toggle"
-          >
-          </label>
-          <div aria-hidden="true" class="theme-switch__marker"></div>
-        </div>
-
-        <svg class="theme-switch__icon" aria-label="Иконка луны">
-          <use href="./images/sprite.svg#moon"></use>
-        </svg>
-      </div>
+    <div class="theme-switch__control">
+      <input
+        class="theme-switch__toggle"
+        type="checkbox"
+        name="theme"
+        id="theme-switch-toggle"
+        aria-label="Переключить между тёмной и светлой темой"
+      />
+      <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle"> </label>
+      <div aria-hidden="true" class="theme-switch__marker"></div>
     </div>
-    <!--  -->
-    
+
+    <svg class="theme-switch__icon" aria-label="Иконка луны">
+      <use href="./images/sprite.svg#moon"></use>
+    </svg>
+  </div>
+  <!--  -->
+
   <div class="container header__container">
     <nav class="header__nav">
       <a class="logo link" href="./index.html">
@@ -49,17 +43,23 @@
     </nav>
 
     <form class="search-form search-form-js">
-      <input class="search-form__input"
-       type="text" 
-       name="moviequery"
-       placeholder="Movies search"
-       autocomplete="off"/>
-       <button class="search-form__btn js-search-btn" type="submit">
-         <svg class="search-form__icon" width="12" height="12">
-        <use href="./images/sprite.svg#icon-search"></use>
-      </svg>
-       </button>
+
+      <input
+        class="search-form__input"
+        type="text"
+        name="moviequery"
+        placeholder="Movies search"
+        autocomplete="off"
+      />
+      <button class="search-form__btn js-search-btn" type="submit">
+        <svg class="search-form__icon" width="12" height="12">
+          <use href="./images/sprite.svg#icon-search"></use>
+        </svg>
+      </button>
+
       
+      
+
     </form>
 
     <span class="error-message visually-hidden">

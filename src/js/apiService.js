@@ -50,22 +50,10 @@ class ApiService {
   fetchAllVideos(id) {
     const APIKEY = 'f6f92051b45422d9426f457ad6610127';
     const url = `${BASE_URL}/movie/${id}/videos?api_key=${APIKEY}&language=en-US`;
-
-    console.log('fetchAllVideos__url: ', url); // delete after!!!
-    console.log('fetchAllVideos__id: ', id); // delete after!!!
-
     return fetch(url).then(response => response.json());
   }
   incrementPage() {
     this.page += 1;
-  }
-
-  getPage() {
-    return this.page;
-  }
-
-  setPage(numberOfPage) {
-    return (this.page = numberOfPage);
   }
 
   resetPage() {

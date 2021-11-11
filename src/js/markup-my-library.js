@@ -5,8 +5,8 @@ import movieTemplate from '../templates/film-card-template.hbs';
 let watchedFilms = [];
 let queuedFilms = [];
 refs.buttonLibrary.addEventListener('click', onMyLibraryBtnClick);
-refs.buttonWatchedEl.addEventListener('click', onBtnWathedClick);
-refs.buttonQueveEl.addEventListener('click', onBtnQueueClick);
+refs.btnWatchedHeaderEl.addEventListener('click', onBtnWathedClick);
+refs.btnQueueHeaderEl.addEventListener('click', onBtnQueueClick);
 
 function getWatchedFilms(data) {
   watchedFilms = JSON.parse(localStorage.getItem('watched'));
@@ -31,6 +31,8 @@ function appendLibraryMarkup(data) {
 function onMyLibraryBtnClick() {
   clearContent();
   changeMyLibraryHeader();
+  refs.btnWatchedHeaderEl.classList.add('active');
+  onBtnWathedClick();
 }
 
 function clearContent() {
@@ -57,4 +59,5 @@ function onBtnWathedClick() {
 function onBtnQueueClick() {
   clearContent();
   appendLibraryMarkup(queuedFilms);
+  refs.btnWatchedHeaderEl.classList.remove('active');
 }

@@ -13,9 +13,11 @@ export default {
   modalFilmEl: document.getElementById('modal-film'),
   modalFilmImageEl: document.getElementById('modal-film-image'),
   modalFilmDescriptionEl: document.getElementById('modal-film-description'),
-  buttonWatchedEl: document.querySelector('.watched-js'),
-  buttonQueveEl: document.querySelector('.queue-js'),
+  buttonWatchedEl: document.querySelector('[data-value="watched"]'),
+  buttonQueveEl: document.querySelector('[data-value="queve"]'),
   headerEl: document.querySelector('.header'),
   libraryBtnListEl: document.querySelector('.button-list'),
   buttonHomeEl: document.querySelector('.home-button'),
+  btnWatchedHeaderEl: document.querySelector('.watched-js'),
+  btnQueueHeaderEl: document.querySelector('.queue-js'),
 };

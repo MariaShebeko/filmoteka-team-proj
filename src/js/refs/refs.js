@@ -4,6 +4,8 @@ export default {
   sliderEl: document.querySelector('.js-slider'),
   paginationEl: document.querySelector('#pagination'),
   gallery: document.querySelector('.trending'),
+  library: document.querySelector('.library'),
+  buttonLibrary: document.querySelector('.library-button'),
   galleryEl: document.querySelector('.gallery'),
   backdropEl: document.querySelector('.backdrop'),
   inputField: document.querySelector('.search-form__input'),
@@ -11,4 +13,6 @@ export default {
   modalFilmEl: document.getElementById('modal-film'),
   modalFilmImageEl: document.getElementById('modal-film-image'),
   modalFilmDescriptionEl: document.getElementById('modal-film-description'),
+  buttonWatchedEl: document.querySelector('[data-value="watched"]'),
+  buttonQueveEl: document.querySelector('[data-value="queve"]'),
 };

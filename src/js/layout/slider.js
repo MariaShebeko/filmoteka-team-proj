@@ -1,13 +1,11 @@
-//delete if not used
 import API from '../apiService.js';
 import filmCardsTemplate from '../../templates/slider.hbs';
 import refs from '../refs/refs.js';
 import trailer from '../trailer.js';
+import { onCatchError } from '../components/pnotify.js';
 const { sliderEl } = refs;
 const { onCreateTrailerLink } = trailer;
 const sliderAPI = new API();
-
-// need correct async func to export
 
 onSliderLoad();
 
@@ -17,24 +15,20 @@ async function onSliderLoad() {
       .fetchAllPopularPerDay()
       .then(({ results }) => {
         sliderAPI.incrementPage();
-
-        console.log('allPopularPerDay__results: ', results);
         return results;
       })
       .then(onAppendSliderMarkup);
 
     onSliderActivation();
   } catch (error) {
-    // add notify there (need library)
-    console.log('Error-allPopularPerDay: ', error); // delete after
-    throw error;
+    onCatchError(error);
   }
 }
 
 function onAppendSliderMarkup(results) {
   sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
 
-  onCreateTrailerLink(document.querySelectorAll('.button-youtube'));
+  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 async function onSliderActivation() {

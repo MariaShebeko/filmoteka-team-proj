@@ -19,7 +19,11 @@
   }
 }
 
-.movie_image {
+.gallery-item {
+  cursor: pointer;
+}
+
+.movie__image {
   margin-bottom: 10px;
   border-radius: 5px;
 
@@ -37,12 +41,12 @@
   }
 }
 
-.movie_name {
+.movie__name {
   display: block;
   text-transform: uppercase;
 }
 
-.movie_genres {
+.movie__genres {
   display: inline-block;
   font: $main-font;
   color: $accent-color;
@@ -51,7 +55,7 @@
   line-height: 1.17;
 }
 
-.movie_release {
+.movie__release {
   display: inline-block;
   font: $main-font;
   color: $accent-color;

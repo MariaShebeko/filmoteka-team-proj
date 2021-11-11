@@ -125,10 +125,12 @@
   color: $white;
   background-color: $accent-color;
   border-radius: 5px;
+
+  pointer-events: none;
 }
 
 // from trailler
-.button-youtube {
+.btn-youtube {
   position: absolute;
   z-index: 1;
   width: 275px;
@@ -142,7 +144,7 @@
   background-color: initial;
 }
 
-.button-youtube__overlay {
+.btn-youtube__overlay {
   position: absolute;
   top: 5px;
   left: 75px;
@@ -165,13 +167,13 @@
   transition: all 400ms $cubic;
 }
 
-.slider__item:hover .button-youtube__overlay {
+.slider__item:hover .btn-youtube__overlay {
   display: flex;
   opacity: 1;
   transform: translateX(-65%);
 }
 
-.button-youtube__title-trailer {
+.btn-youtube__title-trailer {
   position: absolute;
   font-family: $main-font;
   font-size: 16px;
@@ -183,7 +185,7 @@
 
 // Dark theme styles
 
-body[class='dark-theme'] {
+body.dark-theme {
   & .slider-title {
     color: $accent-color;
   }
@@ -204,11 +206,11 @@ body[class='dark-theme'] {
     background-color: $accent-color;
   }
 
-  & .button-youtube__overlay {
+  & .btn-youtube__overlay {
     background-color: $dark-grey;
   }
 
-  & .button-youtube__title-trailer {
+  & .btn-youtube__title-trailer {
     color: $accent-color;
   }
 }

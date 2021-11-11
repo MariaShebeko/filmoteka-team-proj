@@ -3,16 +3,43 @@ import { dataFilm } from './modalFilm.js';
 
 const { modalFilmEl } = refs;
 
-const arrayWatched = [];
+function watched(e) {
+  if (e.target.dataset.value !== 'watched') return;
+  if (!localStorage.getItem('watched')) {
+    const arrayWatched = [];
+    addToArrayWatchedFirst(e, arrayWatched);
+  } else if (JSON.parse(localStorage.getItem('watched')).some(el => el.title === dataFilm.title)) {
+    deleteFromArrayWatched(e);
+  } else {
+    addToArrayWatched(e);
+  }
+}
+
+function addToArrayWatchedFirst(e, arrayWatched) {
+  arrayWatched.push(dataFilm);
+  setLocalArrayWatched(arrayWatched);
+  e.target.textContent = 'REMOVE';
+}
 
 function addToArrayWatched(e) {
-  if (e.target.dataset.value !== 'watched') return;
-  arrayWatched.push(dataFilm);
-  setLocalArrayWatched();
+  const newArrayWatched = JSON.parse(localStorage.getItem('watched'));
+  newArrayWatched.push(dataFilm);
+  setLocalArrayWatched(newArrayWatched);
+  e.target.textContent = 'REMOVE';
 }
 
-function setLocalArrayWatched() {
-  localStorage.setItem('watched', JSON.stringify(arrayWatched));
+function deleteFromArrayWatched(e) {
+  const newArrayWatched = JSON.parse(localStorage.getItem('watched'));
+  newArrayWatched.splice(
+    newArrayWatched.findIndex(el => el.title === dataFilm.title),
+    1,
+  );
+  setLocalArrayWatched(newArrayWatched);
+  e.target.textContent = 'ADD TO WATCHED';
 }
 
-modalFilmEl.addEventListener('click', addToArrayWatched);
+function setLocalArrayWatched(array) {
+  localStorage.setItem('watched', JSON.stringify(array));
+}
+
+modalFilmEl.addEventListener('click', watched);

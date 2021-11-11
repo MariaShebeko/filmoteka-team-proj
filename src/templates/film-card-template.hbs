@@ -5,11 +5,11 @@
         src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
         onerror="this.onerror=null;this.src='https://image.shutterstock.com/shutterstock/photos/325494917/display_1500/stock-vector-page-with-a-error-in-the-popular-linear-style-template-reports-that-the-page-is-not-found-325494917.jpg';"
         alt='{{this.original_title}}'
-        class='movie_image'
+        class='movie__image'
         data-source=''
       />
       <div class='description'>
-        <p class='movie_name'>
+        <p class='movie__name'>
           {{#if this.original_title}}
             {{this.original_title}}
           {{/if}}
@@ -17,8 +17,8 @@
             {{this.original_name}}
           {{/if}}
         </p>
-        <p class='movie_genres'>{{this.genresShort}}</p>
-        <p class='movie_release'> | {{this.release_year}}
+        <p class='movie__genres'>{{this.genresShort}}</p>
+        <p class='movie__release'> | {{this.release_year}}
       </div>
     </div>
   </li>

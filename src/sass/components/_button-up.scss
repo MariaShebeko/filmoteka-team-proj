@@ -14,17 +14,17 @@
   }
 
   @media screen and (min-width: $min-mobile) {
-    bottom: 40px;
+    bottom: 95px;
     right: calc(((100vw - 320px) / 2));
   }
 
   @media screen and (min-width: $min-tablet) {
-    bottom: 40px;
+    bottom: 74px;
     right: calc(((100vw - 768px) / 2));
   }
 
   @media screen and (min-width: $min-desktop) {
-    bottom: 55px;
+    bottom: 74px;
     right: calc(((100vw - 1024px) / 2));
   }
 }

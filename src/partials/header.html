@@ -37,12 +37,13 @@
           <a href="" class="nav-list__link link nav-list__link_current">Home</a>
         </li>
         <li class="nav-list__item">
-          <a href="" class="nav-list__link link">My library</a>
+          <a href="" class="nav-list__link library-button link">My library</a>
         </li>
       </ul>
     </nav>
 
     <form class="search-form search-form-js">
+
       <input
         class="search-form__input"
         type="text"
@@ -50,11 +51,15 @@
         placeholder="Movies search"
         autocomplete="off"
       />
-      <button class="search-form__btn js-search-btn" type="button">
+      <button class="search-form__btn js-search-btn" type="submit">
         <svg class="search-form__icon" width="12" height="12">
           <use href="./images/sprite.svg#icon-search"></use>
         </svg>
       </button>
+
+      
+      
+
     </form>
 
     <span class="error-message visually-hidden">

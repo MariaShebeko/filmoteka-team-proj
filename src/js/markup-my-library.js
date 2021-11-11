@@ -37,24 +37,24 @@ function clearContent() {
   refs.gallery.innerHTML = '';
   refs.library.innerHTML = '';
   refs.sliderEl.innerHTML = '';
+  refs.sliderEl.style.minHeight = '0px';
   refs.paginationEl.innerHTML = '';
 }
 
 function changeMyLibraryHeader() {
-  refs.headerEl.classList.remove('header-home');
-  refs.headerEl.classList.add('header-library');
+  refs.headerEl.classList.replace('header-home', 'header-library');
   refs.libraryBtnListEl.classList.remove('visually-hidden');
   refs.formEl.classList.add('visually-hidden');
+  refs.buttonHomeEl.classList.remove('nav-list__link_current');
+  refs.buttonLibrary.classList.add('nav-list__link_current');
 }
 
 function onBtnWathedClick() {
-  console.log('click watched');
   clearContent();
   appendLibraryMarkup(watchedFilms);
 }
 
 function onBtnQueueClick() {
-  console.log('click queue');
   clearContent();
   appendLibraryMarkup(queuedFilms);
 }

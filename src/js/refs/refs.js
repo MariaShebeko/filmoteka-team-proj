@@ -17,4 +17,5 @@ export default {
   buttonQueveEl: document.querySelector('.queue-js'),
   headerEl: document.querySelector('.header'),
   libraryBtnListEl: document.querySelector('.button-list'),
+  buttonHomeEl: document.querySelector('.home-button'),
 };

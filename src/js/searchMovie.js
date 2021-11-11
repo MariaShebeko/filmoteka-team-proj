@@ -76,7 +76,7 @@ function fetchSearch() {
   // nameOfMovieToSearch
   //   .fetchSearchMovies()
   //   .then(result => {
-  //     localStorage.setItem('searchResult', JSON.stringify(result));
+  //     localStorage.setItem('watched', JSON.stringify(result));
   //   })
   //   .catch(error => console.log(error));
 }

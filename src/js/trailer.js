@@ -1,6 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import trailerVideoGoodTemplate from '../templates/trailer-video-good.hbs';
 import trailerVideoErrorTemplate from '../templates/trailer-video-error.hbs';
+import trailerCloseButtonTemplate from '../templates/trailer-close-button.hbs';
 import API from './apiService.js';
 import refs from './refs/refs.js';
 const { bodyEl } = refs;
@@ -24,12 +25,14 @@ async function onDrawModalFromTrailer(id) {
       const instance = basicLightbox.create(trailerVideoGoodTemplate(responseData));
       instance.show();
       bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
+      onButtonCloseModalTrailer(instance);
     });
   } catch (error) {
     console.log('catch-error: onDrawModalFromTrailer: ', error);
     const instance = basicLightbox.create(trailerVideoErrorTemplate());
     instance.show();
     bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
+    onButtonCloseModalTrailer(instance);
   }
 }
 
@@ -40,6 +43,13 @@ function onPressedEscapeCloseTrailer(event) {
     trailerBackdropEl.classList.remove('basicLightbox--visible');
     bodyEl.removeEventListener('keydown', onPressedEscapeCloseTrailer);
   }
+}
+
+function onButtonCloseModalTrailer(instance) {
+  const trailerBackdropEl = document.querySelector('.basicLightbox');
+  trailerBackdropEl.insertAdjacentHTML('afterbegin', trailerCloseButtonTemplate());
+  const modalCloseButtonEl = document.querySelector('.lightbox__button-close');
+  modalCloseButtonEl.addEventListener('click', () => instance.close(), { once: true });
 }
 
 export default { onCreateTrailerLink };

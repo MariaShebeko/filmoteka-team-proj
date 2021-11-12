@@ -1,0 +1,41 @@
+.lightbox__button-close {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: $white;
+  color: $text-color;
+  cursor: pointer;
+  outline: none;
+
+  transform: rotateZ(0deg);
+  transition: transform 250ms $cubic, background-color 250ms $cubic 250ms, color 250ms $cubic;
+
+  @media screen and (min-width: $min-tablet) {
+    top: 100px;
+    right: calc(((100vw - 668px) / 2));
+  }
+
+  @media screen and (min-width: $min-desktop) {
+    top: 100px;
+    right: calc(((100vw - 824px) / 2));
+  }
+
+  &:hover,
+  &:focus {
+    transform: rotateZ(360deg);
+    background-color: $dark-grey;
+    color: $accent-color;
+  }
+}
+
+.button-close__icon {
+  stroke: currentColor;
+}

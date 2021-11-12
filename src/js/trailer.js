@@ -17,7 +17,7 @@ const videoAPI = new API();
 const EventHandler = param => event => {
   if (!document.querySelector('.basicLightbox')) return;
   if (event.key === 'Escape' || event.code === 'Escape' || event.keyCode == 27) {
-    bodyEl.setAttribute('listener', true);
+    // bodyEl.setAttribute('listener', true);
     param.close();
     // onIsTrailerHasListener(bodyEl);
 

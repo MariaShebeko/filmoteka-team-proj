@@ -6,7 +6,7 @@ import { toGetShortGenresList } from './data-converting-functions.js';
 import { toGetFullGenresList } from './data-converting-functions.js';
 import { toGetYear } from './data-converting-functions.js';
 
-const trendingApiServise = window.ApiService;
+export const trendingApiServise = window.ApiService;
 
 onLoad();
 
@@ -15,7 +15,7 @@ window.pagination.onPageClicked(function (pageNumber) {
   onLoad();
 });
 
-function onLoad() {
+export function onLoad() {
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);
   trendingApiServise
     .fetchPopularMovies()
@@ -30,7 +30,7 @@ function onLoad() {
     .catch(error => console.log(error));
 }
 
-function appendMoviesMarkup(data) {
+export function appendMoviesMarkup(data) {
   refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
   getFilm(data);
 
@@ -38,12 +38,12 @@ function appendMoviesMarkup(data) {
   // window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function clearContent() {
+export function clearContent() {
   refs.gallery.innerHTML = '';
-  trendingApiServise.resetPage;
+  trendingApiServise.resetPage();
 }
 // saving genges id-list in localStorage
-function toSaveGenres(data) {
+export function toSaveGenres(data) {
   localStorage.setItem('genres', JSON.stringify(data));
 }
 

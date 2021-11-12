@@ -136,11 +136,9 @@ function updateWatchedLibrary() {
 function updateQueuedLibrary() {
   if (JSON.parse(localStorage.getItem('queve')).length === 0) {
     library.innerHTML = '';
-    btnWatchedHeaderEl.classList.add('active');
   } else {
     library.innerHTML = '';
     appendLibraryMarkup(queuedFilms);
-    btnQueueHeaderEl.classList.add('active');
   }
 }
 

@@ -35,8 +35,9 @@ function onMyLibraryBtnClick() {
 function clearContent() {
   refs.gallery.innerHTML = '';
   refs.library.innerHTML = '';
-  refs.sliderEl.innerHTML = '';
-  refs.sliderEl.style.minHeight = '0px';
+  // refs.sliderEl.innerHTML = '';
+  // refs.sliderEl.style.minHeight = '0px';
+  refs.sliderEl.style.display = 'none';
   refs.paginationEl.innerHTML = '';
 }
 
@@ -51,10 +52,13 @@ export function changeMyLibraryHeader() {
 function onBtnWathedClick() {
   clearContent();
   appendLibraryMarkup(watchedFilms);
+  refs.btnWatchedHeaderEl.classList.add('active');
+  refs.btnQueueHeaderEl.classList.remove('active');
 }
 
 function onBtnQueueClick() {
   clearContent();
   appendLibraryMarkup(queuedFilms);
   refs.btnWatchedHeaderEl.classList.remove('active');
+  refs.btnQueueHeaderEl.classList.add('active');
 }

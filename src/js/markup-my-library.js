@@ -38,6 +38,7 @@ function clearContent() {
   // refs.sliderEl.innerHTML = '';
   // refs.sliderEl.style.minHeight = '0px';
   refs.sliderEl.style.display = 'none';
+  refs.filterWrapperEl.style.display = 'none';
   refs.paginationEl.innerHTML = '';
 }
 

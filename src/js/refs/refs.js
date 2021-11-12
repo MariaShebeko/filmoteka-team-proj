@@ -22,4 +22,9 @@ export default {
   buttonHomeEl: document.querySelector('.home-button'),
   btnWatchedHeaderEl: document.querySelector('.watched-js'),
   btnQueueHeaderEl: document.querySelector('.queue-js'),
+  popularBtnEl: document.querySelector('#popular'),
+  nowPlayingBtnEl: document.querySelector('#now-playing'),
+  topRatedBtnEl: document.querySelector('#top-rated'),
+  upcomingBtnEl: document.querySelector('#upcoming'),
+  filterWrapperEl: document.querySelector('.filter-wrapper'),
 };

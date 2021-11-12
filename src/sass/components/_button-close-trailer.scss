@@ -4,8 +4,9 @@
   align-items: center;
   justify-content: center;
   top: 0;
-  width: 40px;
-  height: 40px;
+  right: 0;
+  width: 30px;
+  height: 30px;
   padding: 0;
   margin: 0;
   border: none;
@@ -19,16 +20,6 @@
 
   transform: rotateZ(0deg);
   transition: transform 250ms $cubic, background-color 250ms $cubic 250ms, color 250ms $cubic;
-
-  @media screen and (min-width: $min-tablet) {
-    top: 100px;
-    right: calc(((100vw - 668px) / 2));
-  }
-
-  @media screen and (min-width: $min-desktop) {
-    top: 100px;
-    right: calc(((100vw - 824px) / 2));
-  }
 
   &:hover,
   &:focus {

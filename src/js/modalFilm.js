@@ -19,6 +19,8 @@ const {
   buttonWatchedEl,
   buttonQueveEl,
   library,
+  btnWatchedHeaderEl,
+  btnQueueHeaderEl,
 } = refs;
 
 // Open modal-film
@@ -42,8 +44,18 @@ function closeModalFilm() {
   backdropEl.removeEventListener('click', backdropListener);
   getWatchedFilms();
   getQueue();
-  updateWatchedLibrary();
-  updateQueuedLibrary();
+  if (refs.gallery.innerHTML === '') {
+    updateWatchedLibrary();
+    updateQueuedLibrary();
+  }
+  if (refs.library.innerHTML !== '') {
+    if (btnWatchedHeaderEl.classList.contains('active')) {
+      updateWatchedLibrary();
+    }
+    if (btnQueueHeaderEl.classList.contains('active')) {
+      updateQueuedLibrary();
+    }
+  }
 }
 
 modalFilmEl.addEventListener('click', e => {
@@ -124,9 +136,11 @@ function updateWatchedLibrary() {
 function updateQueuedLibrary() {
   if (JSON.parse(localStorage.getItem('queve')).length === 0) {
     library.innerHTML = '';
+    btnWatchedHeaderEl.classList.add('active');
   } else {
     library.innerHTML = '';
     appendLibraryMarkup(queuedFilms);
+    btnQueueHeaderEl.classList.add('active');
   }
 }
 

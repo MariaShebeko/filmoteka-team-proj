@@ -30,7 +30,7 @@
 
   &:hover,
   &:focus {
-    transform: rotateZ(360deg);
+    transform: rotateZ(180deg);
     background-color: $dark-grey;
     color: $accent-color;
   }

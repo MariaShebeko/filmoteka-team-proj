@@ -24,12 +24,14 @@ async function onDrawModalFromTrailer(id) {
       const instance = basicLightbox.create(trailerVideoGoodTemplate(responseData));
       instance.show();
       bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
+      onButtonCloseModalTrailer(instance);
     });
   } catch (error) {
     console.log('catch-error: onDrawModalFromTrailer: ', error);
     const instance = basicLightbox.create(trailerVideoErrorTemplate());
     instance.show();
     bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
+    onButtonCloseModalTrailer(instance);
   }
 }
 
@@ -40,6 +42,11 @@ function onPressedEscapeCloseTrailer(event) {
     trailerBackdropEl.classList.remove('basicLightbox--visible');
     bodyEl.removeEventListener('keydown', onPressedEscapeCloseTrailer);
   }
+}
+
+function onButtonCloseModalTrailer(instance) {
+  const modalCloseButtonEl = document.querySelector('.lightbox__button-close');
+  modalCloseButtonEl.addEventListener('click', () => instance.close(), { once: true });
 }
 
 export default { onCreateTrailerLink };

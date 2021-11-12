@@ -6,24 +6,14 @@ import refs from './refs/refs.js';
 const { bodyEl } = refs;
 const videoAPI = new API();
 
-//testing -- not working
-// function onIsTrailerHasListener(element) {
-//   if (element.getAttribute('listener') === 'true') return;
-//   element.setAttribute('listener', true);
-// }
-//testing -- not working
-
-// Need correct auto-remove listener
-const EventHandler = param => event => {
+function onPressedEscapeCloseTrailer(event) {
   if (!document.querySelector('.basicLightbox')) return;
   if (event.key === 'Escape' || event.code === 'Escape' || event.keyCode == 27) {
-    // bodyEl.setAttribute('listener', true);
-    param.close();
-    // onIsTrailerHasListener(bodyEl);
-
-    return bodyEl.removeEventListener('keydown', EventHandler);
+    const trailerBackdropEl = document.querySelector('.basicLightbox');
+    trailerBackdropEl.classList.remove('basicLightbox--visible');
+    bodyEl.removeEventListener('keydown', onPressedEscapeCloseTrailer);
   }
-};
+}
 
 function onCreateTrailerLink(elementsRef) {
   elementsRef.forEach(element => {
@@ -42,17 +32,13 @@ async function onDrawModalFromTrailer(id) {
       };
       const instance = basicLightbox.create(trailerVideoGoodTemplate(responseData));
       instance.show();
-      bodyEl.setAttribute('listener', true);
-
-      bodyEl.addEventListener('keydown', EventHandler(instance));
+      bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
     });
   } catch (error) {
     console.log('catch-error: onDrawModalFromTrailer: ', error);
-
     const instance = basicLightbox.create(trailerVideoErrorTemplate());
     instance.show();
-
-    bodyEl.addEventListener('keydown', EventHandler(instance));
+    bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
   }
 }
 

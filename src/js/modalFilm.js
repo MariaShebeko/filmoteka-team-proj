@@ -1,6 +1,13 @@
 import refs from './refs/refs';
 import imageTemplate from '../templates/modal-film-image.hbs';
 import descriptionTemplate from '../templates/modal-film-description.hbs';
+import {
+  getWatchedFilms,
+  getQueue,
+  appendLibraryMarkup,
+  watchedFilms,
+  queuedFilms,
+} from '../js/markup-my-library.js';
 
 const {
   bodyEl,
@@ -11,6 +18,9 @@ const {
   modalFilmDescriptionEl,
   buttonWatchedEl,
   buttonQueveEl,
+  library,
+  btnWatchedHeaderEl,
+  btnQueueHeaderEl,
 } = refs;
 
 // Open modal-film
@@ -32,6 +42,20 @@ function closeModalFilm() {
   bodyEl.classList.toggle('backdrop-open');
   window.removeEventListener('keydown', keyListener);
   backdropEl.removeEventListener('click', backdropListener);
+  getWatchedFilms();
+  getQueue();
+  if (refs.gallery.innerHTML === '') {
+    updateWatchedLibrary();
+    updateQueuedLibrary();
+  }
+  if (refs.library.innerHTML !== '') {
+    if (btnWatchedHeaderEl.classList.contains('active')) {
+      updateWatchedLibrary();
+    }
+    if (btnQueueHeaderEl.classList.contains('active')) {
+      updateQueuedLibrary();
+    }
+  }
 }
 
 modalFilmEl.addEventListener('click', e => {
@@ -63,7 +87,9 @@ function getTitle(e) {
 }
 
 function markupFilm(titleFilm) {
-  dataFilm = arrayFilms.find(el => el.title === titleFilm);
+  dataFilm = arrayFilms.find(
+    el => el.original_title === titleFilm || el.original_name === titleFilm,
+  );
   chekLocalWatched(dataFilm);
   chekLocalQueve(dataFilm);
   modalFilmImageEl.innerHTML = '';
@@ -96,6 +122,26 @@ function chekLocalQueve(dataFilm) {
     buttonQueveEl.textContent = 'ADD TO QUEVE';
   }
   return;
+}
+
+function updateWatchedLibrary() {
+  if (JSON.parse(localStorage.getItem('watched')).length === 0) {
+    library.innerHTML = '';
+  } else {
+    library.innerHTML = '';
+    appendLibraryMarkup(watchedFilms);
+  }
+}
+
+function updateQueuedLibrary() {
+  if (JSON.parse(localStorage.getItem('queve')).length === 0) {
+    library.innerHTML = '';
+    btnWatchedHeaderEl.classList.add('active');
+  } else {
+    library.innerHTML = '';
+    appendLibraryMarkup(queuedFilms);
+    btnQueueHeaderEl.classList.add('active');
+  }
 }
 
 galleryEl.addEventListener('click', getTitle);

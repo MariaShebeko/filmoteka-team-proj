@@ -2,30 +2,27 @@ import refs from './refs/refs';
 import { getFilm } from './modalFilm.js';
 import movieTemplate from '../templates/film-card-template.hbs';
 
-let watchedFilms = [];
-let queuedFilms = [];
+export let watchedFilms = [];
+export let queuedFilms = [];
 refs.buttonLibrary.addEventListener('click', onMyLibraryBtnClick);
 refs.btnWatchedHeaderEl.addEventListener('click', onBtnWathedClick);
 refs.btnQueueHeaderEl.addEventListener('click', onBtnQueueClick);
 
-function getWatchedFilms(data) {
+export function getWatchedFilms() {
   watchedFilms = JSON.parse(localStorage.getItem('watched'));
-  console.log(watchedFilms);
   return watchedFilms;
 }
 
-function getQueue(data) {
+export function getQueue() {
   queuedFilms = JSON.parse(localStorage.getItem('queve'));
-  console.log(queuedFilms);
   return queuedFilms;
 }
 
 getWatchedFilms();
 getQueue();
 
-function appendLibraryMarkup(data) {
+export function appendLibraryMarkup(data) {
   refs.library.insertAdjacentHTML('afterbegin', movieTemplate(data));
-  getFilm(data);
 }
 
 function onMyLibraryBtnClick() {
@@ -43,7 +40,7 @@ function clearContent() {
   refs.paginationEl.innerHTML = '';
 }
 
-function changeMyLibraryHeader() {
+export function changeMyLibraryHeader() {
   refs.headerEl.classList.replace('header-home', 'header-library');
   refs.libraryBtnListEl.classList.remove('visually-hidden');
   refs.formEl.classList.add('visually-hidden');

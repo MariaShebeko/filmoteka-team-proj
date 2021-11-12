@@ -10,6 +10,8 @@
   margin: 0;
   border: none;
   border-radius: 50%;
+  font-size: 20px;
+  text-shadow: 0 0 2px $text-color;
   background-color: $white;
   color: $text-color;
   cursor: pointer;
@@ -34,8 +36,4 @@
     background-color: $dark-grey;
     color: $accent-color;
   }
-}
-
-.button-close__icon {
-  stroke: currentColor;
 }

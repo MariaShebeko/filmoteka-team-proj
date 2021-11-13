@@ -1,17 +1,29 @@
 body.light-theme {
   background-color: #e5e5e5;
   color: $text-color;
+  background-image: url('../images/bg-image/bg-image-light.jpg');
 }
 
 body.dark-theme {
   background-color: #333;
   color: $white;
-  // background-image: url('../images/film.jpg');
+  background-image: url('../images/bg-image/bg-image-dark.jpg');
+  // background-size: auto;
   // background-position: center;
   // background-repeat: no-repeat;
   // background-size: cover;
 }
 
+.dark-theme .theme-switch__icon {
+  fill: $white;
+  // box-shadow: 2px 2px 3px 1px rgba(243, 137, 53, 0.75);
+  // filter: drop-shadow2px 2px 3px 1px $white;
+  // overflow: visible;
+}
+
+.dark-theme .theme-switch__marker {
+  background-color: $white;
+}
 .theme-switch {
   position: absolute;
   top: 2%;

@@ -1,77 +1,89 @@
-const API_KEY = 'd9be23358e97f87c33dbf928d8eaec37';
-const BASE_URL = `https://api.themoviedb.org/3`;
-
 class ApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.API_KEY = 'd9be23358e97f87c33dbf928d8eaec37';
+    this.BASE_URL = `https://api.themoviedb.org/3`;
   }
-  fetchPopularMovies() {
+  async fetchPopularMovies() {
     // const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this.page}`;
-    const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${this.page}`;
-    return fetch(url)
+    const url = `${this.BASE_URL}/movie/popular?api_key=${this.API_KEY}&page=${this.page}`;
+    return await fetch(url)
       .then(response => response.json())
       .then(data => {
         this.incrementPage();
-
-        console.log(data);
         return data;
       });
   }
-  fetchSearchMovies() {
-    //==to enter name to search movie by the user == для ввода названия фильма пользователем для поиска ==
-    const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
-    return fetch(url)
+
+  async fetchSearchMovies() {
+    const url = `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
+    return await fetch(url)
       .then(response => response.json())
       .then(data => {
         this.incrementPage();
-
-        // // transforming full date in year in results
-        // data.results.map(item => {
-        //   console.log(item);
-        //   item.release_year = item.release_date ? item.release_date.slice(0, 4) : '';
-        // });
-
         return data;
       });
   }
-  fetchMovieGenre() {
-    const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`;
-    return fetch(url)
+  async fetchMovieGenre() {
+    const url = `${this.BASE_URL}/genre/movie/list?api_key=${this.API_KEY}&language=en-US`;
+    return await fetch(url)
       .then(response => response.json())
       .then(data => {
         return data.genres;
       });
   }
-  fetchAllPopularPerDay() {
-    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}`;
-    return fetch(url).then(response => response.json());
+  async fetchAllPopularPerDay() {
+    const url = `${this.BASE_URL}/trending/all/day?api_key=${this.API_KEY}`;
+    return await fetch(url).then(response => response.json());
   }
-  fetchAllVideos(id) {
+  async fetchAllVideos(id) {
     const APIKEY = 'f6f92051b45422d9426f457ad6610127';
-    const url = `${BASE_URL}/movie/${id}/videos?api_key=${APIKEY}&language=en-US`;
-    return fetch(url).then(response => response.json());
+    const url = `${this.BASE_URL}/movie/${id}/videos?api_key=${APIKEY}&language=en-US`;
+    return await fetch(url).then(response => response.json());
+  }
+  async fetchNowPlayingMovies() {
+    const url = `${this.BASE_URL}/movie/now_playing?api_key=${this.API_KEY}&page=${this.page}`;
+    return await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.incrementPage();
+        return data;
+      });
+  }
+  async fetchTopRatedMovies() {
+    const url = `${this.BASE_URL}/movie/top_rated?api_key=${this.API_KEY}&page=${this.page}`;
+    return await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.incrementPage();
+        return data;
+      });
+  }
+  async fetchUpcomingMovies() {
+    const url = `${this.BASE_URL}/movie/upcoming?api_key=${this.API_KEY}&page=${this.page}`;
+    return await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.incrementPage();
+        return data;
+      });
   }
   incrementPage() {
     this.page += 1;
   }
-
   resetPage() {
     this.page = 1;
   }
-
   set pageNumber(pageNumber) {
     this.page = pageNumber;
   }
-
   get pageNumber() {
     return this.page;
   }
-
   get query() {
     return this.searchQuery;
   }
-
   set query(newQuery) {
     this.searchQuery = newQuery;
   }

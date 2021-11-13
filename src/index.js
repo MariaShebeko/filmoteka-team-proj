@@ -29,3 +29,4 @@ import './js/modalFilm.js';
 import './js/addToWatched.js';
 import './js/addToQueve.js';
 import './js/loader.js';
+import './js/filter.js';

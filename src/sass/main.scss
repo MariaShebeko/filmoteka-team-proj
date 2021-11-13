@@ -9,6 +9,7 @@
 @import './base/reset';
 @import './base/base';
 @import './base/container';
+
 //=============components==============
 @import './components/backdrop';
 @import './components/modal-film';
@@ -21,11 +22,10 @@
 @import './components/loader';
 
 //=========layout===============
-@import './layout/home.scss';
-@import './layout/slider.scss';
+@import './layout/home';
+@import './layout/slider';
 @import './layout/trailer';
-
 @import './footer';
 @import './header';
-@import './theme-switch.scss';
-@import './components/pagination.scss';
+@import './theme-switch';
+@import './components/pagination';

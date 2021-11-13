@@ -1,6 +1,6 @@
 // import ApiService from './apiService';
 import refs from './refs/refs';
-import { getFilm } from './modalFilm.js';
+import { getFilm } from './modal-film.js';
 import movieTemplate from '../templates/film-card-template.hbs';
 import { toGetShortGenresList } from './data-converting-functions.js';
 import { toGetFullGenresList } from './data-converting-functions.js';

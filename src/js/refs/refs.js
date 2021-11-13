@@ -15,7 +15,7 @@ export default {
   modalFilmImageEl: document.getElementById('modal-film-image'),
   modalFilmDescriptionEl: document.getElementById('modal-film-description'),
   buttonWatchedEl: document.querySelector('[data-value="watched"]'),
-  buttonQueveEl: document.querySelector('[data-value="queve"]'),
+  buttonQueueEl: document.querySelector('[data-value="queue"]'),
   checkboxEl: document.querySelector('.theme-switch__toggle'),
   buttonCloseIconEl: document.querySelector('.button-close__icon'),
   headerEl: document.querySelector('.header'),

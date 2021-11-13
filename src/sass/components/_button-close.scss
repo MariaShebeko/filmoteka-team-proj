@@ -3,7 +3,6 @@
   line-height: 0;
   background-color: transparent;
   border: none;
-  cursor: pointer;
 }
 
 .modal-film__button-close {
@@ -14,13 +13,14 @@
 
 .button-close__icon {
   stroke: $text-color;
-  transition-property: stroke;
+  transition-property: stroke, transform;
   transition-duration: $time;
   transition-timing-function: $cubic;
 
   .button-close:hover > &,
   .button-close:focus > & {
     stroke: $accent-color;
+    transform: scale(1.2);
   }
 }
 

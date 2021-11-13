@@ -2,186 +2,193 @@
   min-height: 150px;
   max-height: 200px;
   overflow: hidden;
-}
 
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  & .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  height: 100%;
-}
+    height: 100%;
+  }
 
-/* Main styles*/
-.slider-title {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  & .slider-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
 
-  text-align: center;
-  color: $slider-title-color;
-  font-family: $main-font;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 2;
-  text-transform: uppercase;
-  text-shadow: 0 -1px 0 $slider-text-shadow;
-}
+    text-align: center;
+    color: $slider-title-color;
+    font-family: $main-font;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 2;
+    text-transform: uppercase;
+    text-shadow: 0 -1px 0 $slider-text-shadow;
+    transition: color $time $cubic;
+  }
 
-/* Slider */
-.slick-slider {
-  min-width: 0;
-}
+  /* Slider */
+  & .slick-slider {
+    min-width: 0;
+  }
 
-/* Bounding shell */
-.slick-list {
-  overflow: hidden;
-}
+  /* Bounding shell */
+  & .slick-list {
+    overflow: hidden;
+  }
 
-/* Track */
-.slick-track {
-  display: flex;
-  align-items: flex-start;
-}
+  /* Track */
+  & .slick-track {
+    display: flex;
+    align-items: flex-start;
+  }
 
-/* Hero slider */
-.slider {
-  position: relative;
-}
+  /* Hero slider */
+  & .slider {
+    position: relative;
+  }
 
-.slider .slick-arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  font-size: 0;
-  width: 40px;
-  height: 30px;
+  & .slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    font-size: 0;
+    width: 40px;
+    height: 30px;
 
-  border: 2px solid $white;
-  border-radius: 5px;
-  box-shadow: $slider-arrows-box-shadow;
+    border: 2px solid $white;
+    border-radius: 5px;
+    box-shadow: $slider-arrows-box-shadow;
 
-  cursor: pointer;
-  transform: translateY(-50%);
-  transition: border 500ms $cubic, background-color 500ms $cubic;
-}
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: border $time $cubic, background-color $time $cubic;
+  }
 
-.slider .slick-arrow.slick-prev {
-  left: 1rem;
-  background: url('../images/svg/sl-arrow_l.svg') 0 0 / 40% no-repeat;
-  background-color: $accent-color;
-  background-position: center;
-}
+  & .slider .slick-arrow.slick-prev {
+    left: 1rem;
+    background: $accent-color url('../images/svg/sl-arrow_l--white.svg') center / 40% no-repeat;
+  }
 
-.slider .slick-arrow.slick-prev:hover,
-.slider .slick-arrow.slick-next:hover {
-  border: 2px solid $yellow;
-  background-color: $dark-grey;
-}
+  & .slider .slick-arrow.slick-next {
+    right: 1rem;
+    background: $accent-color url('../images/svg/sl-arrow_r--white.svg') center / 40% no-repeat;
+  }
 
-.slider .slick-arrow.slick-next {
-  right: 1rem;
-  background: url('../images/svg/sl-arrow_r.svg') 0 0 / 40% no-repeat;
-  background-color: $accent-color;
-  background-position: center;
-}
+  & .slider .slick-arrow.slick-prev:hover {
+    right: 1rem;
+    background: $accent-color url('../images/svg/sl-arrow_l--black.svg') center / 40% no-repeat;
+  }
 
-.slider .slick-arrow.slick-disabled {
-  opacity: 0.2;
-}
+  & .slider .slick-arrow.slick-next:hover {
+    right: 1rem;
+    background: $accent-color url('../images/svg/sl-arrow_r--black.svg') center / 40% no-repeat;
+  }
 
-.slider__item {
-  position: relative;
-  margin-right: 5px;
-}
+  & .slider .slick-arrow.slick-prev:hover,
+  & .slider .slick-arrow.slick-next:hover {
+    border: 2px solid $dark-grey;
+  }
 
-.slider__item img {
-  max-width: 100%;
-  width: 100px;
-  height: 150px;
+  & .slider .slick-arrow.slick-disabled {
+    opacity: 0.2;
+  }
 
-  border-radius: 5px;
-  cursor: grab;
-}
+  & .slider__item {
+    position: relative;
+    margin-right: 5px;
+  }
 
-.slider__item img:active {
-  cursor: grabbing;
-}
+  & .slider__item img {
+    max-width: 100%;
+    width: 100px;
+    height: 150px;
 
-.slider__vote-average {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+    border-radius: 5px;
+    cursor: grab;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  & .slider__item img:active {
+    cursor: grabbing;
+  }
 
-  width: 38px;
-  height: 18px;
-  font-family: $main-font;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 1.1;
-  color: $white;
-  background-color: $accent-color;
-  border: 1px solid $white;
-  border-radius: 5px;
+  & .slider__vote-average {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 
-  pointer-events: none;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-// from trailler
-.btn-youtube {
-  position: absolute;
-  z-index: 1;
-  width: 275px;
-  height: 30px;
-  margin-left: 1px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  border: 0;
-  outline: none;
-  background-image: url(../images/svg/icon-youtube.svg);
-  background-color: initial;
-}
+    width: 38px;
+    height: 18px;
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.1;
+    color: $white;
+    background-color: $accent-color;
+    border: 1px solid $white;
+    border-radius: 5px;
 
-.btn-youtube__overlay {
-  position: absolute;
-  top: 5px;
-  left: 75px;
-  z-index: 2;
-  opacity: 0;
+    pointer-events: none;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 19px;
-  width: 70px;
+  // from trailler
+  & .btn-youtube {
+    position: absolute;
+    z-index: 1;
+    width: 275px;
+    height: 30px;
+    margin-left: 1px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    background-image: url(../images/svg/icon-youtube.svg);
+    background-color: initial;
+  }
 
-  pointer-events: none;
-  font-family: $main-font;
-  background-color: $slider-button-youtube-bg-color;
-  border-radius: 5px;
+  & .btn-youtube__overlay {
+    position: absolute;
+    top: 5px;
+    left: 75px;
+    z-index: 2;
+    opacity: 0;
 
-  transform: translateX(-63%);
-  transition: transform 500ms $cubic, opacity 500ms $cubic, display 500ms $cubic;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 19px;
+    width: 70px;
 
-.slider__item:hover .btn-youtube__overlay {
-  display: flex;
-  opacity: 1;
-  transform: translateX(-65%);
-}
+    pointer-events: none;
+    font-family: $main-font;
+    background-color: $slider-button-youtube-bg-color;
+    border-radius: 5px;
 
-.btn-youtube__title-trailer {
-  position: absolute;
-  font-family: $main-font;
-  font-size: 16px;
-  color: $youtube;
-  cursor: pointer;
-  margin: 0;
-  z-index: 5;
+    transform: translateX(-63%);
+    transition: transform $time $cubic, opacity $time $cubic, display $time $cubic,
+      background-color $time $cubic;
+  }
+
+  & .slider__item:hover .btn-youtube__overlay {
+    display: flex;
+    opacity: 1;
+    transform: translateX(-65%);
+  }
+
+  & .btn-youtube__title-trailer {
+    position: absolute;
+    font-family: $main-font;
+    font-size: 16px;
+    color: $youtube;
+    cursor: pointer;
+    margin: 0;
+    z-index: 5;
+    transition: color $time $cubic;
+  }
 }
 
 // Dark theme styles
@@ -192,19 +199,32 @@ body.dark-theme {
   }
 
   & .slider .slick-arrow {
-    border: 2px solid $yellow;
+    border: 2px solid $dark-grey;
   }
 
   & .slider .slick-arrow.slick-prev {
-    background-color: $dark-grey;
-  }
-  & .slider .slick-arrow.slick-next {
-    background-color: $dark-grey;
+    right: 1rem;
+    background: $accent-color url('../images/svg/sl-arrow_l--black.svg') center / 40% no-repeat;
   }
 
-  & .slider .slick-arrow.slick-prev:hover,
+  & .slider .slick-arrow.slick-next {
+    right: 1rem;
+    background: $accent-color url('../images/svg/sl-arrow_r--black.svg') center / 40% no-repeat;
+  }
+
+  & .slider .slick-arrow.slick-prev:hover {
+    right: 1rem;
+    background: $dark-grey url('../images/svg/sl-arrow_l--accent.svg') center / 40% no-repeat;
+  }
+
   & .slider .slick-arrow.slick-next:hover {
-    background-color: $accent-color;
+    right: 1rem;
+    background: $dark-grey url('../images/svg/sl-arrow_r--accent.svg') center / 40% no-repeat;
+  }
+
+  .slider .slick-arrow.slick-prev:hover,
+  .slider .slick-arrow.slick-next:hover {
+    border: 2px solid $accent-color;
   }
 
   & .btn-youtube__overlay {

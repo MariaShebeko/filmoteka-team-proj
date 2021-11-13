@@ -1,6 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import trailerVideoGoodTemplate from '../templates/trailer-video-good.hbs';
 import trailerVideoErrorTemplate from '../templates/trailer-video-error.hbs';
+import { showLoader } from './loader.js';
 import API from './apiService.js';
 import refs from './refs/refs.js';
 const { bodyEl } = refs;
@@ -16,6 +17,7 @@ function onCreateTrailerLink(elementsRef) {
 
 async function onDrawModalFromTrailer(id) {
   try {
+    showLoader();
     await videoAPI.fetchAllVideos(id).then(data => {
       const responseData = {
         id: data.results[0].key,
@@ -23,6 +25,7 @@ async function onDrawModalFromTrailer(id) {
       };
       const instance = basicLightbox.create(trailerVideoGoodTemplate(responseData));
       instance.show();
+      showLoader();
       bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
       onButtonCloseModalTrailer(instance);
     });

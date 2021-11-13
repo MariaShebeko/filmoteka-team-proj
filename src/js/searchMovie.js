@@ -7,13 +7,16 @@ import { getFilm } from './modalFilm.js';
 import { toGetShortGenresList } from './data-converting-functions.js';
 import { toGetFullGenresList } from './data-converting-functions.js';
 import { toGetYear } from './data-converting-functions.js';
+import { showLoader } from './loader.js';
 
 const nameOfMovieToSearch = window.ApiService;
 
 window.pagination.onPageClicked(function (pageNumber) {
   nameOfMovieToSearch.pageNumber = pageNumber;
-  if (!nameOfMovieToSearch.query) init();
-  else fetchSearch();
+  if (!nameOfMovieToSearch.query) {
+    showLoader();
+    init();
+  } else fetchSearch();
 });
 
 function init() {
@@ -27,6 +30,7 @@ function init() {
     .then(toGetShortGenresList)
     .then(toGetFullGenresList)
     .then(function (data) {
+      showLoader();
       clearContent();
       renderMakrup(data.results);
       getFilm(data.results);
@@ -55,12 +59,14 @@ function onSearch(event) {
 }
 
 function fetchSearch() {
+  showLoader();
   nameOfMovieToSearch
     .fetchSearchMovies()
     .then(toGetYear)
     .then(toGetShortGenresList)
     .then(toGetFullGenresList)
     .then(data => {
+      showLoader();
       getFilm(data.results);
       if (data.results.length > 0) {
         clearContent();

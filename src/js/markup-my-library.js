@@ -30,6 +30,7 @@ function onMyLibraryBtnClick() {
   changeMyLibraryHeader();
   refs.btnWatchedHeaderEl.classList.add('active');
   onBtnWathedClick();
+  showEmptyWatched();
 }
 
 function clearContent() {
@@ -55,6 +56,7 @@ function onBtnWathedClick() {
   appendLibraryMarkup(watchedFilms);
   refs.btnWatchedHeaderEl.classList.add('active');
   refs.btnQueueHeaderEl.classList.remove('active');
+  showEmptyWatched();
 }
 
 function onBtnQueueClick() {
@@ -62,4 +64,24 @@ function onBtnQueueClick() {
   appendLibraryMarkup(queuedFilms);
   refs.btnWatchedHeaderEl.classList.remove('active');
   refs.btnQueueHeaderEl.classList.add('active');
+  showEmptyQueue();
+}
+
+export function showEmptyWatched() {
+  const watchedShown =
+    watchedFilms && watchedFilms.length > 0 && refs.btnWatchedHeaderEl.classList.contains('active');
+  if (!watchedShown) {
+    refs.emptyTextEl.classList.remove('visually-hidden');
+  } else {
+    refs.emptyTextEl.classList.add('visually-hidden');
+  }
+}
+export function showEmptyQueue() {
+  const queueShown =
+    queuedFilms && queuedFilms.length > 0 && refs.btnQueueHeaderEl.classList.contains('active');
+  if (!queueShown) {
+    refs.emptyTextEl.classList.remove('visually-hidden');
+  } else {
+    refs.emptyTextEl.classList.add('visually-hidden');
+  }
 }

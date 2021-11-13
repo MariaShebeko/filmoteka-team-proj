@@ -14,17 +14,21 @@
 @import './components/modal-film';
 @import './components/modal-team';
 @import './components/button';
-@import './components/filter';
 @import './components/button-close';
+@import './components/filter';
 @import './components/button-close-trailer';
 @import './components/library-cleaner';
 
 @import './components/button-up';
+@import './components/loader';
+@import './components/_logo.scss';
+@import './components/theme-switch-toggle.scss';
 
 //=========layout===============
 @import './layout/home.scss';
 @import './layout/slider.scss';
 @import './layout/trailer';
+@import './layout/library';
 
 @import './footer';
 @import './header';

@@ -1,14 +1,7 @@
-import {
-  trendingApiServise,
-  onLoad,
-  appendMoviesMarkup,
-  clearContent,
-  toSaveGenres,
-} from './markupHome';
-import { toGetShortGenresList } from './data-converting-functions.js';
-import { toGetFullGenresList } from './data-converting-functions.js';
-import { toGetYear } from './data-converting-functions.js';
 import refs from './refs/refs';
+import { trendingApiServise, onLoad, appendMoviesMarkup, clearContent } from './markupHome';
+import { convertingData } from './data-converting-functions.js';
+import { showLoader } from './loader.js';
 
 refs.popularBtnEl.addEventListener('click', onLoad);
 refs.nowPlayingBtnEl.addEventListener('click', onFetchNowPlayingMovies);
@@ -16,44 +9,55 @@ refs.topRatedBtnEl.addEventListener('click', onFetchTopRated);
 refs.upcomingBtnEl.addEventListener('click', onFetchUpcoming);
 
 function onFetchNowPlayingMovies() {
-  trendingApiServise.fetchMovieGenre().then(toSaveGenres);
+  showLoader();
   trendingApiServise
     .fetchNowPlayingMovies()
-    .then(toGetYear)
-    .then(toGetShortGenresList)
-    .then(toGetFullGenresList)
+    .then(convertingData)
     .then(data => {
+      showLoader();
       clearContent();
       appendMoviesMarkup(data.results);
       window.pagination.draw(data);
     })
     .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchNowPlayingMovies();
+  });
 }
+
 function onFetchTopRated() {
-  trendingApiServise.fetchMovieGenre().then(toSaveGenres);
+  showLoader();
   trendingApiServise
     .fetchTopRatedMovies()
-    .then(toGetYear)
-    .then(toGetShortGenresList)
-    .then(toGetFullGenresList)
+    .then(convertingData)
     .then(data => {
+      showLoader();
       clearContent();
       appendMoviesMarkup(data.results);
       window.pagination.draw(data);
     })
     .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchTopRated();
+  });
 }
+
 function onFetchUpcoming() {
-  trendingApiServise.fetchMovieGenre().then(toSaveGenres);
+  showLoader();
   trendingApiServise
     .fetchUpcomingMovies()
-    .then(toGetYear)
-    .then(toGetShortGenresList)
-    .then(toGetFullGenresList)
+    .then(convertingData)
     .then(data => {
+      showLoader();
       clearContent();
       appendMoviesMarkup(data.results);
       window.pagination.draw(data);
     })
     .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchUpcoming();
+  });
 }

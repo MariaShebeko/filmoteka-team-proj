@@ -1,0 +1,42 @@
+.logo {
+  display: flex;
+  align-items: baseline;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.logo__label {
+  @media screen and (max-width: $max-mobile) {
+    display: none;
+  }
+
+  @media screen and (min-width: $min-tablet) {
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
+    color: $white;
+  }
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    outline: none;
+    transition-property: color;
+    transition-duration: $time;
+    transition-timing-function: $cubic;
+  }
+}
+
+.logo__icon {
+  margin-right: 10px;
+  fill: $icon-color;
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+    transition-property: fill;
+    transition-duration: $time;
+    transition-timing-function: $cubic;
+  }
+}

@@ -1,4 +1,3 @@
-// transforming full date in year in results
 export function convertingData(data) {
   toGetYear(data);
   toGetShortGenresList(data);
@@ -6,6 +5,7 @@ export function convertingData(data) {
   return data;
 }
 
+// transforming full date in year in results
 export function toGetYear(data) {
   data.results.map(item => {
     if (item.release_date) {

@@ -29,7 +29,7 @@ function init() {
       showLoader();
       clearContent();
       renderMakrup(data.results);
-      getFilm(data.results);
+      // getFilm(data.results);
       window.pagination.draw(data);
     });
 }
@@ -83,6 +83,7 @@ function fetchSearch() {
 
 function renderMakrup(results) {
   refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(results));
+  getFilm(data.results);
 }
 
 function clearContent() {

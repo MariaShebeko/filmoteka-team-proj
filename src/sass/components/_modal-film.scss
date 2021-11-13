@@ -116,7 +116,11 @@
 .button-list__item {
   width: 113px;
   height: 44px;
-  &:first-child {
+  // &:first-child {
+  //   margin-right: 15px;
+  // }
+  &:not(:last-of-type) {
+    //для форматирования положения кнопок my library
     margin-right: 15px;
   }
 

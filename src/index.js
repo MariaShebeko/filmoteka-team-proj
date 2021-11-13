@@ -29,3 +29,5 @@ import './js/modalFilm.js';
 import './js/addToWatched.js';
 import './js/addToQueve.js';
 import './js/filter.js';
+
+import './js/components/modal-library-clean.js';

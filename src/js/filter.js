@@ -13,12 +13,7 @@ function onFetchNowPlayingMovies() {
   trendingApiServise
     .fetchNowPlayingMovies()
     .then(convertingData)
-    .then(data => {
-      showLoader();
-      clearContent();
-      appendMoviesMarkup(data.results);
-      window.pagination.draw(data);
-    })
+    .then(markup)
     .catch(error => console.log(error));
   window.pagination.onPageClicked(function (pageNumber) {
     trendingApiServise.pageNumber = pageNumber;
@@ -31,12 +26,7 @@ function onFetchTopRated() {
   trendingApiServise
     .fetchTopRatedMovies()
     .then(convertingData)
-    .then(data => {
-      showLoader();
-      clearContent();
-      appendMoviesMarkup(data.results);
-      window.pagination.draw(data);
-    })
+    .then(markup)
     .catch(error => console.log(error));
   window.pagination.onPageClicked(function (pageNumber) {
     trendingApiServise.pageNumber = pageNumber;
@@ -49,15 +39,17 @@ function onFetchUpcoming() {
   trendingApiServise
     .fetchUpcomingMovies()
     .then(convertingData)
-    .then(data => {
-      showLoader();
-      clearContent();
-      appendMoviesMarkup(data.results);
-      window.pagination.draw(data);
-    })
+    .then(markup)
     .catch(error => console.log(error));
   window.pagination.onPageClicked(function (pageNumber) {
     trendingApiServise.pageNumber = pageNumber;
     onFetchUpcoming();
   });
+}
+
+function markup(data) {
+  showLoader();
+  clearContent();
+  appendMoviesMarkup(data.results);
+  window.pagination.draw(data);
 }

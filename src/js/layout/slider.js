@@ -3,6 +3,7 @@ import filmCardsTemplate from '../../templates/slider.hbs';
 import refs from '../refs/refs.js';
 import trailer from '../trailer.js';
 import { onCatchError } from '../components/pnotify.js';
+import { showLoader } from '../loader.js';
 const { sliderEl } = refs;
 const { onCreateTrailerLink } = trailer;
 const sliderAPI = new API();

@@ -4,9 +4,7 @@ import movieTemplate from '../templates/film-card-template.hbs';
 import { myNotice, myError, myAlert } from './components/pnotify';
 import refs from './refs/refs';
 import { getFilm } from './modalFilm.js';
-import { toGetShortGenresList } from './data-converting-functions.js';
-import { toGetFullGenresList } from './data-converting-functions.js';
-import { toGetYear } from './data-converting-functions.js';
+import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 
 const nameOfMovieToSearch = window.ApiService;
@@ -26,9 +24,7 @@ function init() {
   });
   nameOfMovieToSearch
     .fetchPopularMovies()
-    .then(toGetYear)
-    .then(toGetShortGenresList)
-    .then(toGetFullGenresList)
+    .then(convertingData)
     .then(function (data) {
       showLoader();
       clearContent();
@@ -62,9 +58,7 @@ function fetchSearch() {
   showLoader();
   nameOfMovieToSearch
     .fetchSearchMovies()
-    .then(toGetYear)
-    .then(toGetShortGenresList)
-    .then(toGetFullGenresList)
+    .then(convertingData)
     .then(data => {
       showLoader();
       getFilm(data.results);

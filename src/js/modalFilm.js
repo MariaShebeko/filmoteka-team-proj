@@ -10,6 +10,7 @@ import {
   showEmptyWatched,
   showEmptyQueue,
 } from '../js/markup-my-library.js';
+import { showLoader } from './loader.js';
 
 const {
   bodyEl,
@@ -29,10 +30,15 @@ const {
 
 function openModalFilm(e) {
   if (e.target.nodeName !== 'IMG') return;
-  backdropEl.classList.toggle('is-hidden');
-  bodyEl.classList.toggle('backdrop-open');
-  window.addEventListener('keydown', keyListener);
-  backdropEl.addEventListener('click', backdropListener);
+  showLoader();
+  const timerId = setTimeout(() => {
+    backdropEl.classList.toggle('is-hidden');
+    bodyEl.classList.toggle('backdrop-open');
+    window.addEventListener('keydown', keyListener);
+    backdropEl.addEventListener('click', backdropListener);
+    showLoader();
+    clearTimeout(timerId);
+  }, 250);
 }
 
 galleryEl.addEventListener('click', openModalFilm);

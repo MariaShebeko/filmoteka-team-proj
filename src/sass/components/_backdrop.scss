@@ -9,7 +9,7 @@
   pointer-events: initial;
   overflow-y: scroll;
   transition-property: opacity, visibility;
-  transition-duration: $time;
+  transition-duration: 500ms;
   transition-timing-function: $cubic;
 }
 

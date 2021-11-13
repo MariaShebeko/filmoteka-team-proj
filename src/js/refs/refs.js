@@ -27,4 +27,5 @@ export default {
   topRatedBtnEl: document.querySelector('#top-rated'),
   upcomingBtnEl: document.querySelector('#upcoming'),
   filterWrapperEl: document.querySelector('.filter-wrapper'),
+  emptyTextEl: document.querySelector('.empty-library'),
 };

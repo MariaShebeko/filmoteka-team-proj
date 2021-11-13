@@ -1,12 +1,15 @@
 import refs from './refs/refs';
 import { getFilm } from './modalFilm.js';
 import movieTemplate from '../templates/film-card-template.hbs';
+// import { openModalWindowLibrary } from '../js/components/modal-library-clean';
+
 
 export let watchedFilms = [];
 export let queuedFilms = [];
 refs.buttonLibrary.addEventListener('click', onMyLibraryBtnClick);
 refs.btnWatchedHeaderEl.addEventListener('click', onBtnWathedClick);
 refs.btnQueueHeaderEl.addEventListener('click', onBtnQueueClick);
+refs.btnCleanLibraryEl.addEventListener('click', onBtnCleanLibraryClick);
 
 export function getWatchedFilms() {
   watchedFilms = JSON.parse(localStorage.getItem('watched'));
@@ -56,6 +59,7 @@ function onBtnWathedClick() {
   appendLibraryMarkup(watchedFilms);
   refs.btnWatchedHeaderEl.classList.add('active');
   refs.btnQueueHeaderEl.classList.remove('active');
+  refs.btnCleanLibraryEl.classList.remove('active');
   showEmptyWatched();
 }
 
@@ -65,7 +69,35 @@ function onBtnQueueClick() {
   refs.btnWatchedHeaderEl.classList.remove('active');
   refs.btnQueueHeaderEl.classList.add('active');
   showEmptyQueue();
+  refs.btnCleanLibraryEl.classList.remove('active');
 }
+
+function onBtnCleanLibraryClick() {
+  refs.btnWatchedHeaderEl.classList.remove('active');
+  refs.btnQueueHeaderEl.classList.remove('active');
+  refs.btnCleanLibraryEl.classList.add('active')
+
+  openModalWindowLibrary();
+};
+const modalLibrary = document.querySelector('.modal-library');
+
+function openModalWindowLibrary() {
+  modalLibrary.style.display = "block";
+};
+
+const span = document.querySelector('.close');
+span.addEventListener('click', closeModalLibrary);
+function closeModalLibrary(event) {
+  if (event.target !== modalLibrary) {
+    modalLibrary.style.display = "none";
+  }
+  modalLibrary.style.display = "none";
+};
+// window.onclick = function (event) {
+//   if (event.target == modalLibrary) {
+//     modalLibrary.style.display = "none";
+//   }
+// };
 
 export function showEmptyWatched() {
   const watchedShown =

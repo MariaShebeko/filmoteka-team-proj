@@ -38,6 +38,7 @@ function onFetchNowPlayingMovies() {
     onFetchNowPlayingMovies();
   });
 }
+
 function onFetchTopRated() {
   showLoader();
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);
@@ -58,6 +59,7 @@ function onFetchTopRated() {
     onFetchTopRated();
   });
 }
+
 function onFetchUpcoming() {
   showLoader();
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);

@@ -9,7 +9,6 @@
   justify-content: center;
   align-items: center;
 
-  padding-bottom: 20px;
   height: 100%;
 }
 
@@ -63,7 +62,7 @@
 
   cursor: pointer;
   transform: translateY(-50%);
-  transition: all 500ms $cubic;
+  transition: border 500ms $cubic, background-color 500ms $cubic;
 }
 
 .slider .slick-arrow.slick-prev {
@@ -125,6 +124,7 @@
   line-height: 1.1;
   color: $white;
   background-color: $accent-color;
+  border: 1px solid $white;
   border-radius: 5px;
 
   pointer-events: none;
@@ -165,7 +165,7 @@
   border-radius: 5px;
 
   transform: translateX(-63%);
-  transition: all 400ms $cubic;
+  transition: transform 500ms $cubic, opacity 500ms $cubic, display 500ms $cubic;
 }
 
 .slider__item:hover .btn-youtube__overlay {
@@ -188,7 +188,7 @@
 
 body.dark-theme {
   & .slider-title {
-    color: $accent-color;
+    color: $white;
   }
 
   & .slider .slick-arrow {
@@ -213,5 +213,11 @@ body.dark-theme {
 
   & .btn-youtube__title-trailer {
     color: $accent-color;
+  }
+
+  & .slider__vote-average {
+    color: $accent-color;
+    background-color: $dark-grey;
+    border: 1px solid $accent-color;
   }
 }

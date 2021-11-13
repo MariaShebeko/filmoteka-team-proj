@@ -7,6 +7,8 @@ import {
   appendLibraryMarkup,
   watchedFilms,
   queuedFilms,
+  showEmptyWatched,
+  showEmptyQueue,
 } from '../js/markup-my-library.js';
 import { showLoader } from './loader.js';
 
@@ -61,6 +63,12 @@ function closeModalFilm() {
     if (btnQueueHeaderEl.classList.contains('active')) {
       updateQueuedLibrary();
     }
+  }
+  if (refs.gallery.innerHTML !== '') {
+    return;
+  } else if (refs.library.innerHTML === '') {
+    showEmptyWatched();
+    showEmptyQueue();
   }
 }
 

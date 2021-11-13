@@ -1,12 +1,15 @@
 import refs from './refs/refs';
 import { getFilm } from './modalFilm.js';
 import movieTemplate from '../templates/film-card-template.hbs';
+// import { openModalWindowLibrary } from '../js/components/modal-library-clean';
+
 
 export let watchedFilms = [];
 export let queuedFilms = [];
 refs.buttonLibrary.addEventListener('click', onMyLibraryBtnClick);
 refs.btnWatchedHeaderEl.addEventListener('click', onBtnWathedClick);
 refs.btnQueueHeaderEl.addEventListener('click', onBtnQueueClick);
+refs.btnCleanLibraryEl.addEventListener('click', onBtnCleanLibraryClick);
 
 export function getWatchedFilms() {
   watchedFilms = JSON.parse(localStorage.getItem('watched'));
@@ -30,6 +33,7 @@ function onMyLibraryBtnClick() {
   changeMyLibraryHeader();
   refs.btnWatchedHeaderEl.classList.add('active');
   onBtnWathedClick();
+  showEmptyWatched();
 }
 
 function clearContent() {
@@ -38,6 +42,7 @@ function clearContent() {
   // refs.sliderEl.innerHTML = '';
   // refs.sliderEl.style.minHeight = '0px';
   refs.sliderEl.style.display = 'none';
+  refs.filterWrapperEl.style.display = 'none';
   refs.paginationEl.innerHTML = '';
 }
 
@@ -54,6 +59,8 @@ function onBtnWathedClick() {
   appendLibraryMarkup(watchedFilms);
   refs.btnWatchedHeaderEl.classList.add('active');
   refs.btnQueueHeaderEl.classList.remove('active');
+  refs.btnCleanLibraryEl.classList.remove('active');
+  showEmptyWatched();
 }
 
 function onBtnQueueClick() {
@@ -61,4 +68,52 @@ function onBtnQueueClick() {
   appendLibraryMarkup(queuedFilms);
   refs.btnWatchedHeaderEl.classList.remove('active');
   refs.btnQueueHeaderEl.classList.add('active');
+  showEmptyQueue();
+  refs.btnCleanLibraryEl.classList.remove('active');
+}
+
+function onBtnCleanLibraryClick() {
+  refs.btnWatchedHeaderEl.classList.remove('active');
+  refs.btnQueueHeaderEl.classList.remove('active');
+  refs.btnCleanLibraryEl.classList.add('active')
+
+  openModalWindowLibrary();
+};
+const modalLibrary = document.querySelector('.modal-library');
+
+function openModalWindowLibrary() {
+  modalLibrary.style.display = "block";
+};
+
+const span = document.querySelector('.close');
+span.addEventListener('click', closeModalLibrary);
+function closeModalLibrary(event) {
+  if (event.target !== modalLibrary) {
+    modalLibrary.style.display = "none";
+  }
+  modalLibrary.style.display = "none";
+};
+// window.onclick = function (event) {
+//   if (event.target == modalLibrary) {
+//     modalLibrary.style.display = "none";
+//   }
+// };
+
+export function showEmptyWatched() {
+  const watchedShown =
+    watchedFilms && watchedFilms.length > 0 && refs.btnWatchedHeaderEl.classList.contains('active');
+  if (!watchedShown) {
+    refs.emptyTextEl.classList.remove('visually-hidden');
+  } else {
+    refs.emptyTextEl.classList.add('visually-hidden');
+  }
+}
+export function showEmptyQueue() {
+  const queueShown =
+    queuedFilms && queuedFilms.length > 0 && refs.btnQueueHeaderEl.classList.contains('active');
+  if (!queueShown) {
+    refs.emptyTextEl.classList.remove('visually-hidden');
+  } else {
+    refs.emptyTextEl.classList.add('visually-hidden');
+  }
 }

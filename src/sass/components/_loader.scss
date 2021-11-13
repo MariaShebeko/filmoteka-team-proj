@@ -1,0 +1,66 @@
+.loader-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 50%;
+  background-color: $accent-color;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+}
+
+.loader::before {
+  top: calc(50% - 10vmin);
+  left: calc(50% - 10vmin);
+  animation: loader-1 1.5s $cubic infinite;
+}
+
+.loader::after {
+  top: 50%;
+  left: 50%;
+  animation: loader-2 1.5s $cubic infinite;
+}
+
+@keyframes loader-1 {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(100%) translateY(100%);
+  }
+
+  75% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes loader-2 {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+
+  75% {
+    transform: translateY(-100%);
+  }
+}

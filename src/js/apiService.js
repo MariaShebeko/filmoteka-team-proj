@@ -15,6 +15,7 @@ class ApiService {
         return data;
       });
   }
+
   async fetchSearchMovies() {
     const url = `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return await fetch(url)
@@ -40,6 +41,33 @@ class ApiService {
     const APIKEY = 'f6f92051b45422d9426f457ad6610127';
     const url = `${this.BASE_URL}/movie/${id}/videos?api_key=${APIKEY}&language=en-US`;
     return await fetch(url).then(response => response.json());
+  }
+  async fetchNowPlayingMovies() {
+    const url = `${this.BASE_URL}/movie/now_playing?api_key=${this.API_KEY}&page=${this.page}`;
+    return await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.incrementPage();
+        return data;
+      });
+  }
+  async fetchTopRatedMovies() {
+    const url = `${this.BASE_URL}/movie/top_rated?api_key=${this.API_KEY}&page=${this.page}`;
+    return await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.incrementPage();
+        return data;
+      });
+  }
+  async fetchUpcomingMovies() {
+    const url = `${this.BASE_URL}/movie/upcoming?api_key=${this.API_KEY}&page=${this.page}`;
+    return await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.incrementPage();
+        return data;
+      });
   }
   incrementPage() {
     this.page += 1;

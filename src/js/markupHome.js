@@ -2,11 +2,10 @@
 import refs from './refs/refs';
 import { getFilm } from './modalFilm.js';
 import movieTemplate from '../templates/film-card-template.hbs';
-import { toGetShortGenresList } from './data-converting-functions.js';
-import { toGetFullGenresList } from './data-converting-functions.js';
-import { toGetYear } from './data-converting-functions.js';
+import { convertingData } from './data-converting-functions.js';
+import { showLoader } from './loader.js';
 
-const trendingApiServise = window.ApiService;
+export const trendingApiServise = window.ApiService;
 
 onLoad();
 
@@ -15,14 +14,14 @@ window.pagination.onPageClicked(function (pageNumber) {
   onLoad();
 });
 
-function onLoad() {
+export function onLoad() {
+  showLoader();
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);
   trendingApiServise
     .fetchPopularMovies()
-    .then(toGetYear)
-    .then(toGetShortGenresList)
-    .then(toGetFullGenresList)
+    .then(convertingData)
     .then(data => {
+      showLoader();
       clearContent();
       appendMoviesMarkup(data.results);
       window.pagination.draw(data);
@@ -30,7 +29,7 @@ function onLoad() {
     .catch(error => console.log(error));
 }
 
-function appendMoviesMarkup(data) {
+export function appendMoviesMarkup(data) {
   refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
   getFilm(data);
 
@@ -38,12 +37,12 @@ function appendMoviesMarkup(data) {
   // window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function clearContent() {
+export function clearContent() {
   refs.gallery.innerHTML = '';
-  trendingApiServise.resetPage;
+  trendingApiServise.resetPage();
 }
 // saving genges id-list in localStorage
-function toSaveGenres(data) {
+export function toSaveGenres(data) {
   localStorage.setItem('genres', JSON.stringify(data));
 }
 

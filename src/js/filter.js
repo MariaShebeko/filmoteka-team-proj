@@ -1,3 +1,63 @@
-// import API from './apiService';
-// const filterAPI = new API();
-// console.log(filterAPI);
+import refs from './refs/refs';
+import { trendingApiServise, onLoad, appendMoviesMarkup, clearContent } from './markupHome';
+import { convertingData } from './data-converting-functions.js';
+import { showLoader } from './loader.js';
+
+refs.popularBtnEl.addEventListener('click', onLoad);
+refs.nowPlayingBtnEl.addEventListener('click', onFetchNowPlayingMovies);
+refs.topRatedBtnEl.addEventListener('click', onFetchTopRated);
+refs.upcomingBtnEl.addEventListener('click', onFetchUpcoming);
+
+function onFetchNowPlayingMovies() {
+  showLoader();
+  trendingApiServise
+    .fetchNowPlayingMovies()
+    .then(convertingData)
+    .then(data => {
+      showLoader();
+      clearContent();
+      appendMoviesMarkup(data.results);
+      window.pagination.draw(data);
+    })
+    .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchNowPlayingMovies();
+  });
+}
+
+function onFetchTopRated() {
+  showLoader();
+  trendingApiServise
+    .fetchTopRatedMovies()
+    .then(convertingData)
+    .then(data => {
+      showLoader();
+      clearContent();
+      appendMoviesMarkup(data.results);
+      window.pagination.draw(data);
+    })
+    .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchTopRated();
+  });
+}
+
+function onFetchUpcoming() {
+  showLoader();
+  trendingApiServise
+    .fetchUpcomingMovies()
+    .then(convertingData)
+    .then(data => {
+      showLoader();
+      clearContent();
+      appendMoviesMarkup(data.results);
+      window.pagination.draw(data);
+    })
+    .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchUpcoming();
+  });
+}

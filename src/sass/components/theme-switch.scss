@@ -1,0 +1,17 @@
+body.light-theme {
+  color: $text-color;
+}
+
+body.dark-theme {
+  background-color: $dark-grey;
+  color: $white;
+  background-image: url('../images/bg-image/bg-image-dark.jpg');
+}
+
+.dark-theme .theme-switch__icon {
+  fill: $white;
+}
+
+.dark-theme .theme-switch__marker {
+  background-color: $white;
+}

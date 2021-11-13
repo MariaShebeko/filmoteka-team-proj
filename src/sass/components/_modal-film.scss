@@ -120,7 +120,8 @@
 .button-list__item {
   width: 113px;
   height: 44px;
-  &:first-child {
+  &:not(:last-of-type) {
+    //для форматирования положения кнопок my library
     margin-right: 15px;
   }
 

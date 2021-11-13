@@ -4,7 +4,6 @@
 @import './utils/colors';
 @import './utils/animation';
 @import './utils/visually-hidden';
-
 //=============base==============
 @import './base/reset';
 @import './base/base';
@@ -18,14 +17,18 @@
 @import './components/button-close';
 @import './components/filter';
 @import './components/button-close-trailer';
+@import './components/library-cleaner';
 @import './components/button-up';
 @import './components/loader';
+@import './components/logo';
+@import './components/theme-switch-toggle';
+@import './components/theme-switch';
+@import './components/pagination';
 
 //=========layout===============
 @import './layout/home';
 @import './layout/slider';
 @import './layout/trailer';
-@import './footer';
-@import './header';
-@import './theme-switch';
-@import './components/pagination';
+@import './layout/library';
+@import './layout/footer';
+@import './layout/header';

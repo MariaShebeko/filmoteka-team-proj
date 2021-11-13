@@ -5,7 +5,7 @@
   max-height: 230px;
   background-color: rgba(0, 0, 0, 0.56);
 }
-// Фон основной страницы
+
 .header-home {
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header-home-mobile@1x.jpg');
@@ -42,7 +42,6 @@
   }
 }
 
-// Фон библиотеки
 .header-library {
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header-libr-mobile.jpg');
@@ -80,36 +79,12 @@
 }
 
 .header__container {
-  padding-top: 46px;
-  padding-bottom: 97px;
+  padding-top: 40px;
+  padding-bottom: 90px;
 }
 
-.logo:focus {
-  outline: none;
-}
-
-.logo__label {
-  @media screen and (max-width: $max-mobile) {
-    display: none;
-  }
-
-  @media screen and (min-width: $min-tablet) {
-    font-family: $main-font;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 1.17;
-    color: $white;
-  }
-  &:hover,
-  &:focus {
-    color: $accent-color;
-    outline: none;
-    transition: color $time $cubic;
-  }
-}
-
-.logo__icon {
-  margin-right: 10px;
+.header-library .header__container {
+  padding-bottom: 48px;
 }
 
 .header__nav {
@@ -138,7 +113,9 @@
   &:focus {
     color: $accent-color;
     outline: none;
-    transition: color $time $cubic;
+    transition-property: color;
+    transition-duration: $time;
+    transition-timing-function: $cubic;
   }
 }
 
@@ -155,30 +132,16 @@
   display: flex;
   justify-content: center;
   width: 280px;
-  height: 20px;
+  height: 24px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 22px;
+
   position: relative;
 
   @media screen and (min-width: $min-tablet) {
     width: 336px;
   }
 }
-
-// input:-webkit-autofill,
-// input:-webkit-autofill:hover,
-// input:-webkit-autofill:focus,
-// textarea:-webkit-autofill,
-// textarea:-webkit-autofill:hover,
-// textarea:-webkit-autofill:focus,
-// select:-webkit-autofill,
-// select:-webkit-autofill:hover,
-// select:-webkit-autofill:focus {
-//   -webkit-text-fill-color: white; // Цвет текста
-//   -webkit-box-shadow: 0 0 0px 1000px #000 inset; // Тенью во внутрь делаем BG и вместо #000 выбираем цвет BG
-//   transition: background-color 5000s ease-in-out 0s; // Так-как напрямую с BGC взаимодействовать нельзя, делаем его замену очень медленной, и как-бы отменяем его замену. (хотя через 1.5 часа он таки поменяет цвет)
-// }
 
 .search-form__input {
   width: 100%;
@@ -201,17 +164,21 @@
   &:hover,
   &:focus {
     border-bottom: 0.5px solid $accent-color;
-    transition: border-bottom $time $cubic;
+    transition-property: border-bottom;
+    transition-duration: $time;
+    transition-timing-function: $cubic;
   }
 }
 
 .search-form__btn {
   position: absolute;
-  top: 10%;
-  right: -5px;
+  top: -3px;
+  right: -3px;
 
+  padding: 4px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
   &:hover,
   &:focus {
     transform: scale(1.25);
@@ -219,125 +186,7 @@
   }
 }
 
-// .search-form__icon {
-//   position: absolute;
-//   bottom: 25%;
-//   right: 10px;
-// }
-
-.error-message {
-  color: $warning-color;
-}
-
-// .library-buttons {
-//   display: flex;
-//   justify-content: center;
-// }
-
-// .library__btn:not(:last-child) {
-//   margin-right: 15px;
-// }
-
 header .button--mod {
   color: $white;
-
   border: 1px solid $white;
 }
-
-// /* THEME SWITCH */
-// body.light-theme {
-//   background-color: #e5e5e5;
-//   color: $text-color;
-// }
-
-// body.dark-theme {
-//   background-color: #333;
-//   color: $white;
-//   // background-image: url('../images/film.jpg');
-//   // background-position: center;
-//   // background-repeat: no-repeat;
-//   // background-size: cover;
-// }
-
-// .theme-switch {
-//   position: absolute;
-//   top: 2%;
-//   right: 6%;
-
-//   display: flex;
-//   align-items: center;
-
-//   @media screen and (min-width: $min-tablet) {
-//     right: 10%;
-//   }
-
-//   @media screen and (min-width: $min-desktop) {
-//     right: 7%;
-//   }
-// }
-
-// .theme-switch__icon {
-//   color: currentColor;
-//   height: 24px;
-//   width: 24px;
-//   margin-right: 8px;
-//   margin-left: 8px;
-// }
-
-// .theme-switch__control {
-//   display: flex;
-//   align-items: center;
-//   flex-shrink: 0;
-//   position: relative;
-//   width: 53px;
-//   height: 21px;
-//   border-radius: 50em;
-//   padding: 3px 0;
-// }
-
-// .theme-switch__toggle {
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   margin: 0;
-//   padding: 0;
-//   opacity: 0;
-//   height: 0;
-//   width: 0;
-//   pointer-events: none;
-// }
-
-// .theme-switch__track {
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-//   color: transparent;
-//   user-select: none;
-//   background-color: #333;
-//   border-radius: inherit;
-//   z-index: 1;
-//   cursor: pointer;
-// }
-
-// .theme-switch__marker {
-//   position: relative;
-//   background-color: $accent-color;
-//   width: 15px;
-//   height: 15px;
-//   border-radius: 50%;
-//   z-index: 2;
-//   pointer-events: none;
-//   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-//   transform: translateX(3px);
-//   transition: transform 250ms var(--timing-function);
-// }
-
-// .theme-switch__toggle:checked + .theme-switch__track {
-//   background-color: #d3d3d4;
-// }
-
-// .theme-switch__toggle:checked ~ .theme-switch__marker {
-//   transform: translateX(35px);
-// }

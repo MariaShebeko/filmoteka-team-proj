@@ -30,3 +30,5 @@ import './js/add-to-watched.js';
 import './js/add-to-queue.js';
 import './js/loader.js';
 import './js/filter.js';
+
+import './js/components/modal-library-clean.js';

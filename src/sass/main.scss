@@ -18,19 +18,18 @@
 @import './components/filter';
 @import './components/button-close-trailer';
 @import './components/library-cleaner';
-
 @import './components/button-up';
 @import './components/loader';
 @import './components/_logo.scss';
 @import './components/theme-switch-toggle.scss';
+@import './components/theme-switch.scss';
+@import './components/pagination.scss';
 
 //=========layout===============
 @import './layout/home.scss';
 @import './layout/slider.scss';
 @import './layout/trailer';
 @import './layout/library';
+@import './layout/footer';
+@import './layout/header';
 
-@import './footer';
-@import './header';
-@import './theme-switch.scss';
-@import './components/pagination.scss';

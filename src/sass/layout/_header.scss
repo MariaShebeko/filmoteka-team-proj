@@ -5,7 +5,7 @@
   max-height: 230px;
   background-color: rgba(0, 0, 0, 0.56);
 }
-// Фон основной страницы
+
 .header-home {
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header-home-mobile@1x.jpg');
@@ -42,7 +42,6 @@
   }
 }
 
-// Фон библиотеки
 .header-library {
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header-libr-mobile.jpg');
@@ -87,41 +86,6 @@
 .header-library .header__container {
   padding-bottom: 48px;
 }
-
-// .logo {
-//   display: flex;
-//   align-items: baseline;
-
-//   &:focus {
-//     outline: none;
-//   }
-// }
-
-// .logo__label {
-//   @media screen and (max-width: $max-mobile) {
-//     display: none;
-//   }
-
-//   @media screen and (min-width: $min-tablet) {
-//     font-family: $main-font;
-//     font-weight: 500;
-//     font-size: 30px;
-//     line-height: 1.17;
-//     color: $white;
-//   }
-//   &:hover,
-//   &:focus {
-//     color: $accent-color;
-//     outline: none;
-//     transition-property: color;
-//     transition-duration: $time;
-//     transition-timing-function: $cubic;
-//   }
-// }
-
-// .logo__icon {
-//   margin-right: 10px;
-// }
 
 .header__nav {
   display: flex;
@@ -222,18 +186,7 @@
   }
 }
 
-// .search-form__icon {
-//   position: absolute;
-//   bottom: 25%;
-//   right: 10px;
-// }
-
-// .error-message {
-//   color: $warning-color;
-// }
-
 header .button--mod {
   color: $white;
-
   border: 1px solid $white;
 }

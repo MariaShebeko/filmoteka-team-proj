@@ -7,4 +7,4 @@ export function showLoader() {
   bodyEl.classList.toggle('backdrop-open');
 }
 
-showLoader();
+// showLoader();

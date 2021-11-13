@@ -5,6 +5,7 @@ import movieTemplate from '../templates/film-card-template.hbs';
 import { toGetShortGenresList } from './data-converting-functions.js';
 import { toGetFullGenresList } from './data-converting-functions.js';
 import { toGetYear } from './data-converting-functions.js';
+import { showLoader } from './loader.js';
 
 export const trendingApiServise = window.ApiService;
 
@@ -16,6 +17,7 @@ window.pagination.onPageClicked(function (pageNumber) {
 });
 
 export function onLoad() {
+  showLoader();
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);
   trendingApiServise
     .fetchPopularMovies()
@@ -23,6 +25,7 @@ export function onLoad() {
     .then(toGetShortGenresList)
     .then(toGetFullGenresList)
     .then(data => {
+      showLoader();
       clearContent();
       appendMoviesMarkup(data.results);
       window.pagination.draw(data);

@@ -29,9 +29,14 @@ function onFetchNowPlayingMovies() {
       showLoader();
       clearContent();
       appendMoviesMarkup(data.results);
+      console.log(appendMoviesMarkup(data.results));
       window.pagination.draw(data);
     })
     .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchNowPlayingMovies();
+  });
 }
 function onFetchTopRated() {
   showLoader();
@@ -48,6 +53,10 @@ function onFetchTopRated() {
       window.pagination.draw(data);
     })
     .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchTopRated();
+  });
 }
 function onFetchUpcoming() {
   showLoader();
@@ -64,4 +73,8 @@ function onFetchUpcoming() {
       window.pagination.draw(data);
     })
     .catch(error => console.log(error));
+  window.pagination.onPageClicked(function (pageNumber) {
+    trendingApiServise.pageNumber = pageNumber;
+    onFetchUpcoming();
+  });
 }

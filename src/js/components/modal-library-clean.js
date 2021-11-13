@@ -3,8 +3,8 @@ import refs from '../../js/refs/refs';
 // export { openModalWindowLibrary };
 
 const modalLibrary = document.querySelector('#myModalLibrary');
-const btnConfirm = document.querySelecto('confirm-cleaning-js');
-const btnCancell = document.querySelecto('cancell-cleaning-js');
+const btnConfirm = document.querySelector('confirm-cleaning-js');
+const btnCancell = document.querySelectorAll('cancell-cleaning-js');
 
 
 // refs.btnCleanLibraryEl.addEventListener('click', onBtnCleanLibraryClick);
@@ -23,8 +23,8 @@ const btnCancell = document.querySelecto('cancell-cleaning-js');
 // }
 
 // When clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modalLibrary.style.display = "none";
-    }
-}
+// window.onclick = function (event) {
+//     if (event.target == modalLibrary) {
+//         modalLibrary.style.display = "none";
+//     }
+// }

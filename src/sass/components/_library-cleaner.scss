@@ -18,7 +18,7 @@
   position: relative;
   background-color: #fefefe;
   margin: auto;
-  padding: 0;
+  padding: 10px;
   border: 1px solid #888;
   width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -33,8 +33,8 @@
   padding: 3px;
   font-size: 10px;
 
-  &:last-of-type {
-    margin-top: 5px;
+  &:not(:last-of-type) {
+    margin-bottom: 5px;
   }
 }
 
@@ -69,7 +69,7 @@
   padding: 5px;
   color: rgb(0, 0, 0);
   float: right;
-  // font-size: 18px;
+  font-size: 18px;
   // font-weight: bold;
 }
 

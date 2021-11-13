@@ -78,20 +78,26 @@ function onBtnCleanLibraryClick() {
   refs.btnCleanLibraryEl.classList.add('active')
 
   openModalWindowLibrary();
-}
+};
 const modalLibrary = document.querySelector('.modal-library');
 
 function openModalWindowLibrary() {
-  // alert('hi');
-  // console.dir(modalLibrary);
   modalLibrary.style.display = "block";
-}
+};
 
 const span = document.querySelector('.close');
 span.addEventListener('click', closeModalLibrary);
-function closeModalLibrary() {
+function closeModalLibrary(event) {
+  if (event.target !== modalLibrary) {
+    modalLibrary.style.display = "none";
+  }
   modalLibrary.style.display = "none";
-}
+};
+// window.onclick = function (event) {
+//   if (event.target == modalLibrary) {
+//     modalLibrary.style.display = "none";
+//   }
+// };
 
 export function showEmptyWatched() {
   const watchedShown =

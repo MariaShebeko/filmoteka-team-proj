@@ -19,6 +19,10 @@ function onFetchNowPlayingMovies() {
     trendingApiServise.pageNumber = pageNumber;
     onFetchNowPlayingMovies();
   });
+  refs.nowPlayingBtnEl.classList.add('active');
+  refs.popularBtnEl.classList.remove('active');
+  refs.topRatedBtnEl.classList.remove('active');
+  refs.upcomingBtnEl.classList.remove('active');
 }
 
 function onFetchTopRated() {
@@ -32,6 +36,10 @@ function onFetchTopRated() {
     trendingApiServise.pageNumber = pageNumber;
     onFetchTopRated();
   });
+  refs.nowPlayingBtnEl.classList.remove('active');
+  refs.popularBtnEl.classList.remove('active');
+  refs.topRatedBtnEl.classList.add('active');
+  refs.upcomingBtnEl.classList.remove('active');
 }
 
 function onFetchUpcoming() {
@@ -45,6 +53,10 @@ function onFetchUpcoming() {
     trendingApiServise.pageNumber = pageNumber;
     onFetchUpcoming();
   });
+  refs.nowPlayingBtnEl.classList.remove('active');
+  refs.popularBtnEl.classList.remove('active');
+  refs.topRatedBtnEl.classList.remove('active');
+  refs.upcomingBtnEl.classList.add('active');
 }
 
 function markup(data) {

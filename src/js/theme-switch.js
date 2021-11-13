@@ -8,6 +8,7 @@ const {
   buttonCloseIconEl,
   modalFilmEl,
   modalFilmDescriptionEl,
+  filterBtnEl,
 } = refs;
 
 const Theme = {
@@ -50,6 +51,7 @@ function currentTheme() {
     buttonCloseIconEl.classList.add(Theme.DARK);
     modalFilmEl.classList.add(Theme.DARK);
     modalFilmDescriptionEl.classList.add(Theme.DARK);
+    filterBtnEl.forEach(el => el.classList.add(Theme.DARK));
   }
 }
 currentTheme();

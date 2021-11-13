@@ -6,7 +6,7 @@
   }
 
   @media screen and(min-width:$min-tablet) {
-    max-width: 95px;
+    max-width: 100px;
   }
 }
 
@@ -20,6 +20,7 @@
   }
 }
 .filter-wrapper {
+  padding: 20px 0;
   display: flex;
   justify-content: center;
 

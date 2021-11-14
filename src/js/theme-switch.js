@@ -1,15 +1,6 @@
 import refs from './refs/refs';
 
-const {
-  bodyEl,
-  checkboxEl,
-  buttonWatchedEl,
-  buttonQueueEl,
-  buttonCloseIconEl,
-  modalFilmEl,
-  modalFilmDescriptionEl,
-  filterBtnEl,
-} = refs;
+const { bodyEl, checkboxEl } = refs;
 
 const Theme = {
   LIGHT: 'light-theme',

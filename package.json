@@ -32,8 +32,7 @@
     "pnotify": "^5.2.0",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8",
-    "tui-pagination": "^3.4.1",
-    "lazy-line-painter": "^1.9.6"
+    "tui-pagination": "^3.4.1"
   },
   "dependencies": {}
 }

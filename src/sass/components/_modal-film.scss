@@ -136,12 +136,14 @@
 
 // black theme
 
-.modal-film--theme.dark-theme {
-  background-color: $dark-grey;
-}
+body.dark-theme {
+  & .modal-film--theme {
+    background-color: $dark-grey;
+  }
 
-.modal-film__description.dark-theme {
-  .modal-film__table-td--theme:first-child {
-    color: $white;
+  & .modal-film__description {
+    .modal-film__table-td--theme:first-child {
+      color: $white;
+    }
   }
 }

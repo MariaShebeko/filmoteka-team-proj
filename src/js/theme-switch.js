@@ -24,22 +24,10 @@ function themeChange(event) {
   if (isChecked) {
     bodyEl.classList.remove(Theme.LIGHT);
     bodyEl.classList.add(Theme.DARK);
-    buttonWatchedEl.classList.add(Theme.DARK);
-    buttonQueueEl.classList.add(Theme.DARK);
-    buttonCloseIconEl.classList.add(Theme.DARK);
-    modalFilmEl.classList.add(Theme.DARK);
-    modalFilmDescriptionEl.classList.add(Theme.DARK);
-    filterBtnEl.forEach(el => el.classList.add(Theme.DARK));
     localStorage.setItem('theme', Theme.DARK);
   } else {
     bodyEl.classList.remove(Theme.DARK);
-    buttonWatchedEl.classList.remove(Theme.DARK);
-    buttonQueueEl.classList.remove(Theme.DARK);
-    buttonCloseIconEl.classList.remove(Theme.DARK);
-    modalFilmEl.classList.remove(Theme.DARK);
-    modalFilmDescriptionEl.classList.remove(Theme.DARK);
     bodyEl.classList.add(Theme.LIGHT);
-    filterBtnEl.forEach(el => el.classList.remove(Theme.DARK));
     localStorage.setItem('theme', Theme.LIGHT);
   }
 }
@@ -48,12 +36,6 @@ function currentTheme() {
   if (localStorage.getItem('theme') === Theme.DARK) {
     checkboxEl.checked = true;
     bodyEl.classList.add(Theme.DARK);
-    buttonWatchedEl.classList.add(Theme.DARK);
-    buttonQueueEl.classList.add(Theme.DARK);
-    buttonCloseIconEl.classList.add(Theme.DARK);
-    modalFilmEl.classList.add(Theme.DARK);
-    modalFilmDescriptionEl.classList.add(Theme.DARK);
-    filterBtnEl.forEach(el => el.classList.add(Theme.DARK));
   }
 }
 currentTheme();

@@ -125,6 +125,10 @@
     margin-right: 15px;
   }
 
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
   @media screen and (min-width: $min-tablet) {
     width: 125px;
   }

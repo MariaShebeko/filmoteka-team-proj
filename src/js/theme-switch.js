@@ -29,6 +29,7 @@ function themeChange(event) {
     buttonCloseIconEl.classList.add(Theme.DARK);
     modalFilmEl.classList.add(Theme.DARK);
     modalFilmDescriptionEl.classList.add(Theme.DARK);
+    filterBtnEl.forEach(el => el.classList.add(Theme.DARK));
     localStorage.setItem('theme', Theme.DARK);
   } else {
     bodyEl.classList.remove(Theme.DARK);
@@ -38,6 +39,7 @@ function themeChange(event) {
     modalFilmEl.classList.remove(Theme.DARK);
     modalFilmDescriptionEl.classList.remove(Theme.DARK);
     bodyEl.classList.add(Theme.LIGHT);
+    filterBtnEl.forEach(el => el.classList.remove(Theme.DARK));
     localStorage.setItem('theme', Theme.LIGHT);
   }
 }

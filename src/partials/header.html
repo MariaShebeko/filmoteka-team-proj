@@ -26,9 +26,23 @@
   <div class="container header__container">
     <nav class="header__nav">
       <a class="logo link" href="./index.html">
-        <svg class="logo__icon" width="24px" height="24px">
-          <use href="./images/sprite.svg#icon-film"></use>
+        <svg
+          width="24"
+          height="24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          id="logo"
+          class="logo__icon lazy-line-painter"
+        >
+          <path
+            d="M19.82 2H4.18A2.18 2.18 0 002 4.18v15.64A2.18 2.18 0 004.18 22h15.64A2.18 2.18 0 0022 19.82V4.18A2.18 2.18 0 0019.82 2zM7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"
+            data-llp-duration="2000"
+            fill-opacity="0"
+          />
         </svg>
+        <!-- <svg class="logo__icon" width="24px" height="24px">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg> -->
         <span class="logo__label">Filmoteka</span>
         <h1 class="header__title visually-hidden">Movie library</h1>
       </a>

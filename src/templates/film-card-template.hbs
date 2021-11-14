@@ -4,7 +4,8 @@
       <img
       {{#if this.poster_path}}
         src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
-      {{else}}
+      {{/if}}
+      {{#if this.backdrop_path}}
         src='https://image.tmdb.org/t/p/w500/{{this.backdrop_path}}'
       {{/if}}
         alt='{{this.original_title}}'

@@ -120,6 +120,10 @@
 .button-list__item {
   width: 113px;
   height: 44px;
+  &:not(:last-of-type) {
+    //для форматирования положения кнопок my library
+    margin-right: 15px;
+  }
 
   @media screen and (min-width: $min-tablet) {
     width: 125px;

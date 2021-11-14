@@ -1,5 +1,5 @@
 import refs from './refs/refs';
-import { trendingApiServise, onLoad, appendMoviesMarkup, clearContent } from './markup-home';
+import { trendingApiServise, onLoad, appendMoviesMarkup, clearContent } from './markupHome';
 import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 

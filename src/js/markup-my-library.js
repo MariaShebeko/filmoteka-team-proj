@@ -1,5 +1,4 @@
 import refs from './refs/refs';
-import { getFilm } from './modalFilm.js';
 import movieTemplate from '../templates/film-card-template.hbs';
 // import { openModalWindowLibrary } from '../js/components/modal-library-clean';
 
@@ -17,7 +16,7 @@ export function getWatchedFilms() {
 }
 
 export function getQueue() {
-  queuedFilms = JSON.parse(localStorage.getItem('queve'));
+  queuedFilms = JSON.parse(localStorage.getItem('queue'));
   return queuedFilms;
 }
 

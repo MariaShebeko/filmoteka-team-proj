@@ -1,5 +1,5 @@
 import refs from './refs/refs';
-import { dataFilm } from './modalFilm.js';
+import { dataFilm } from './modal-film.js';
 
 const { modalFilmEl } = refs;
 
@@ -18,14 +18,14 @@ function watched(e) {
 function addToArrayWatchedFirst(e, arrayWatched) {
   arrayWatched.push(dataFilm);
   setLocalArrayWatched(arrayWatched);
-  e.target.textContent = 'REMOVE';
+  e.target.textContent = 'REMOVE FROM WATCHED';
 }
 
 function addToArrayWatched(e) {
   const newArrayWatched = JSON.parse(localStorage.getItem('watched'));
   newArrayWatched.push(dataFilm);
   setLocalArrayWatched(newArrayWatched);
-  e.target.textContent = 'REMOVE';
+  e.target.textContent = 'REMOVE FROM WATCHED';
 }
 
 function deleteFromArrayWatched(e) {

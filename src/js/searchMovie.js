@@ -3,7 +3,7 @@
 import movieTemplate from '../templates/film-card-template.hbs';
 import { myNotice, myError, myAlert } from './components/pnotify';
 import refs from './refs/refs';
-import { getFilm } from './modalFilm.js';
+import { getFilm } from './modal-film.js';
 import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 

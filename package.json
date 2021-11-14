@@ -25,15 +25,14 @@
     "basiclightbox": "^5.0.4",
     "handlebars": "^4.7.7",
     "jquery": "^3.6.0",
+    "lazy-line-painter": "^1.9.6",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
     "pnotify": "^5.2.0",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8",
-    "tui-pagination": "^3.4.1",
-    "lazy-line-painter": "^1.9.6"
+    "tui-pagination": "^3.4.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

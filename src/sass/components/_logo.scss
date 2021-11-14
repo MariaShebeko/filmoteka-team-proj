@@ -31,12 +31,5 @@
 
 .logo__icon {
   margin-right: 10px;
-  fill: $icon-color;
-  &:hover,
-  &:focus {
-    fill: $accent-color;
-    transition-property: fill;
-    transition-duration: $time;
-    transition-timing-function: $cubic;
-  }
+  stroke: $icon-color;
 }

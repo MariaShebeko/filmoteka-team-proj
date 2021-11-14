@@ -22,36 +22,14 @@
         d="M2 30l28-28"
       />
 </symbol>
-<symbol id="icon-arrow-left" viewBox="0 0 32 32">
-<path
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.666"
-        d="M25.334 16h-18.668M16 25.334l-9.334-9.334 9.334-9.334"
-      />
-</symbol>
-<symbol id="icon-arrow-right" viewBox="0 0 32 32">
-<path
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="2.666"
-        d="M6.666 16h18.668M16 25.334l9.334-9.334-9.334-9.334"
-      />
-</symbol>
 <symbol id="icon-favorite" viewBox="0 0 32 32">
-<path
-        fill="#ff6b08"
-        style="fill: var(--color1, #ff6b08)"
+<path               
         d="M16 30.583l-2.24-2.24c-8.32-7.36-13.76-12.32-13.76-18.4 0-4.96 3.84-8.8 8.8-8.8 2.72 0 5.44 1.28 7.2 3.36 1.76-2.080 4.48-3.36 7.2-3.36 4.96 0 8.8 3.84 8.8 8.8 0 6.080-5.44 11.040-13.76 18.4l-2.24 2.24z"
       />
 </symbol>
 <symbol id="icon-film" viewBox="0 0 32 32">
 <path
         fill="none"
-        stroke="#818181"
-        style="stroke: var(--color2, #818181)"
         stroke-linejoin="round"
         stroke-linecap="round"
         stroke-miterlimit="4"
@@ -61,9 +39,6 @@
 </symbol>
 <symbol id="icon-search" viewBox="0 0 32 32">
 <path
-        fill="none"
-        stroke="#fff"
-        style="stroke: var(--color3, #fff)"
         stroke-linejoin="round"
         stroke-linecap="round"
         stroke-miterlimit="4"

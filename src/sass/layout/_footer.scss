@@ -22,6 +22,7 @@
 .footer__icon {
   margin-right: 10px;
   margin-left: 10px;
+  fill: $accent-color;
 }
 .footer__copyright {
   @media screen and(max-width:$max-mobile) {

@@ -2,8 +2,12 @@
   <li class='gallery-item'>
     <div class='movie' id='{{this.id}}'>
       <img
+      {{#if this.poster_path}}
         src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
-        onerror="this.onerror=null;this.src='https://image.shutterstock.com/shutterstock/photos/325494917/display_1500/stock-vector-page-with-a-error-in-the-popular-linear-style-template-reports-that-the-page-is-not-found-325494917.jpg';"
+      {{/if}}
+      {{#if this.backdrop_path}}
+        src='https://image.tmdb.org/t/p/w500/{{this.backdrop_path}}'
+      {{/if}}
         alt='{{this.original_title}}'
         class='movie__image'
         data-source=''

@@ -1,10 +1,8 @@
 // import ApiService from './apiService';
 import refs from './refs/refs';
-import { getFilm } from './modalFilm.js';
+import { getFilm } from './modal-film.js';
 import movieTemplate from '../templates/film-card-template.hbs';
-import { toGetShortGenresList } from './data-converting-functions.js';
-import { toGetFullGenresList } from './data-converting-functions.js';
-import { toGetYear } from './data-converting-functions.js';
+import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 
 export const trendingApiServise = window.ApiService;
@@ -21,9 +19,7 @@ export function onLoad() {
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);
   trendingApiServise
     .fetchPopularMovies()
-    .then(toGetYear)
-    .then(toGetShortGenresList)
-    .then(toGetFullGenresList)
+    .then(convertingData)
     .then(data => {
       showLoader();
       clearContent();

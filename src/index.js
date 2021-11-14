@@ -25,8 +25,10 @@ import './js/theme-switch';
 
 import 'animate.css';
 
-import './js/modalFilm.js';
-import './js/addToWatched.js';
-import './js/addToQueve.js';
+import './js/modal-film.js';
+import './js/add-to-library.js';
 import './js/loader.js';
 import './js/filter.js';
+
+import './js/components/modal-library-clean.js';
+import './js/components/animation';

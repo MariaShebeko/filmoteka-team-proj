@@ -1,6 +1,6 @@
 import refs from './refs/refs';
-import { getFilm } from './modalFilm.js';
 import movieTemplate from '../templates/film-card-template.hbs';
+// import { openModalWindowLibrary } from '../js/components/modal-library-clean';
 import CustomPagination from './components/pagination';
 import MyLibraryApi from './components/myLibApi';
 import { swithPagination } from './components/pagination';
@@ -25,11 +25,13 @@ pagination.onPageClicked((pageNumber) => {
   }
 });
 
+
 export let watchedFilms = [];
 export let queuedFilms = [];
 refs.buttonLibrary.addEventListener('click', onMyLibraryBtnClick);
 refs.btnWatchedHeaderEl.addEventListener('click', onBtnWathedClick);
 refs.btnQueueHeaderEl.addEventListener('click', onBtnQueueClick);
+refs.btnCleanLibraryEl.addEventListener('click', onBtnCleanLibraryClick);
 
 export function getWatchedFilms() {
   watchedFilms = libraryApi.getWatchedFilms();
@@ -39,7 +41,7 @@ export function getWatchedFilms() {
 
 export function getQueue() {
   queuedFilms = libraryApi.getQueueFilms();
-  // queuedFilms = JSON.parse(localStorage.getItem('queve'));
+  // queuedFilms = JSON.parse(localStorage.getItem('queue'));
   return queuedFilms;
 }
 
@@ -82,6 +84,7 @@ function onBtnWathedClick() {
   appendLibraryMarkup(watchedFilms.results);
   refs.btnWatchedHeaderEl.classList.add('active');
   refs.btnQueueHeaderEl.classList.remove('active');
+  refs.btnCleanLibraryEl.classList.remove('active');
   showEmptyWatched();
   pagination.draw(watchedFilms);
 }
@@ -93,7 +96,35 @@ function onBtnQueueClick() {
   refs.btnQueueHeaderEl.classList.add('active');
   showEmptyQueue();
   pagination.draw(queuedFilms);
+  refs.btnCleanLibraryEl.classList.remove('active');
 }
+
+function onBtnCleanLibraryClick() {
+  refs.btnWatchedHeaderEl.classList.remove('active');
+  refs.btnQueueHeaderEl.classList.remove('active');
+  refs.btnCleanLibraryEl.classList.add('active')
+
+  openModalWindowLibrary();
+};
+const modalLibrary = document.querySelector('.modal-library');
+
+function openModalWindowLibrary() {
+  modalLibrary.style.display = "block";
+};
+
+const span = document.querySelector('.close');
+span.addEventListener('click', closeModalLibrary);
+function closeModalLibrary(event) {
+  if (event.target !== modalLibrary) {
+    modalLibrary.style.display = "none";
+  }
+  modalLibrary.style.display = "none";
+};
+// window.onclick = function (event) {
+//   if (event.target == modalLibrary) {
+//     modalLibrary.style.display = "none";
+//   }
+// };
 
 export function showEmptyWatched() {
   const watchedShown =

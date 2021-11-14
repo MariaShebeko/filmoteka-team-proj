@@ -26,10 +26,25 @@
   <div class="container header__container">
     <nav class="header__nav">
       <a class="logo link" href="./index.html">
-        <svg class="logo__icon" width="24px" height="24px">
-          <use href="./images/sprite.svg#icon-film"></use>
+        <svg
+          width="24"
+          height="24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          id="logo"
+          class="logo__icon lazy-line-painter"
+        >
+          <path
+            d="M19.82 2H4.18A2.18 2.18 0 002 4.18v15.64A2.18 2.18 0 004.18 22h15.64A2.18 2.18 0 0022 19.82V4.18A2.18 2.18 0 0019.82 2zM7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"
+            data-llp-duration="2000"
+            fill-opacity="0"
+          />
         </svg>
+        <!-- <svg class="logo__icon" width="24px" height="24px">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg> -->
         <span class="logo__label">Filmoteka</span>
+        <h1 class="header__title visually-hidden">Movie library</h1>
       </a>
 
       <ul class="nav-list list">
@@ -59,10 +74,6 @@
       </button>
     </form>
 
-    <!-- <span class="error-message visually-hidden">
-      Search result not successful. Enter the correct movie name.
-    </span> -->
-
     <ul class="button-list list visually-hidden">
       <li class="button-list__item">
         <button class="button button--mod watched-js" type="button">Watched</button>
@@ -70,6 +81,24 @@
       <li class="button-list__item">
         <button class="button button--mod queue-js" type="button">Queue</button>
       </li>
+      <li class="button-list__item">
+        <button class="button button--mod clean-library-js" type="button">Clean library</button>
+      </li>
     </ul>
+
+    <!-- Modal-libray-cleaner content -->
+    <div class="modal-library">
+      <div class="modal-library-content">
+        <div class="modal-library-header">
+          <span class="close">&times;</span>
+          <!-- <p>Clean the library content</p> -->
+        </div>
+        <div class="modal-library-body">
+          <button class="button modal-button--mod clean-watched-js">Clean Watched</button>
+          <button class="button modal-button--mod clean-queue-js">Clean Queue</button>
+          <button class="button modal-button--mod cancell-cleaning-js">Cancell</button>
+        </div>
+      </div>
+    </div>
   </div>
 </header>

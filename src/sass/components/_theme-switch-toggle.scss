@@ -2,7 +2,6 @@
   position: absolute;
   top: 2%;
   right: 3%;
-
   display: flex;
   align-items: center;
 
@@ -21,6 +20,10 @@
   width: 20px;
   margin-right: 8px;
   margin-left: 8px;
+
+  &:last-child{
+    fill: $white
+  }
 }
 
 .theme-switch__control {

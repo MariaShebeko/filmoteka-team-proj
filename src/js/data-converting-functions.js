@@ -1,3 +1,10 @@
+export function convertingData(data) {
+  toGetYear(data);
+  toGetShortGenresList(data);
+  toGetFullGenresList(data);
+  return data;
+}
+
 // transforming full date in year in results
 export function toGetYear(data) {
   data.results.map(item => {

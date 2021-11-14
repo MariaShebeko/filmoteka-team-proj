@@ -30,4 +30,5 @@ export default {
   upcomingBtnEl: document.querySelector('#upcoming'),
   filterWrapperEl: document.querySelector('.filter-wrapper'),
   emptyTextEl: document.querySelector('.empty-library'),
+  paginationLibEl: document.querySelector('#pagination_library'),
 };

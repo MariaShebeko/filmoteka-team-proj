@@ -30,6 +30,7 @@ export default {
   upcomingBtnEl: document.querySelector('#upcoming'),
   filterWrapperEl: document.querySelector('.filter-wrapper'),
   emptyTextEl: document.querySelector('.empty-library'),
+  paginationLibEl: document.querySelector('#pagination_library'),
   btnCleanLibraryEl: document.querySelector('.clean-library-js'),
   filterBtnEl: document.querySelectorAll('.filter-btn'),
   iconFilmEl: document.querySelector('#logo'),

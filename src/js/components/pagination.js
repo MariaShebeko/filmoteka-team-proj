@@ -1,23 +1,23 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from '../refs/refs';
-const { paginationEl } = refs;
+const { paginationEl, galleryEl, paginationLibEl } = refs;
 
 // console.log("asdasd", paginationEl);
 
 // new Pagination(paginationEl);
 
-class CustomPagination {
-    constructor() {
+export default class CustomPagination {
+    constructor(element) {
         this.perPage = 20;
         this.isDraw = false;
         const options = {
             firstItemClassName: 'tui-first-child',
             lastItemClassName: 'tui-last-child',
             centerAlign: true,
-            visiblePages: 7,
+            visiblePages: 5,
             template: {
-                page: '<span><a href="#" class="btn-no-border tui-page-btn custom-page">{{page}}</a></span>',
+                page: '<span class="pageNumber"><a href="#" class="btn-no-border tui-page-btn custom-page">{{page}}</a></span>',
                 currentPage: '<strong class="btn-no-border tui-page-btn tui-is-selected">{{page}}</strong>',
                 moveButton:
                     '<a href="#" class="btn-no-border tui-page-btn tui-{{type}}">' +
@@ -33,7 +33,7 @@ class CustomPagination {
                     '</a>'
             }
         };
-        this.pagination = new Pagination(paginationEl, options);
+        this.pagination = new Pagination(element, options);
         this.pagination.on('beforeMove', this.#beforeMoveHandler.bind(this));
     }
 
@@ -43,8 +43,9 @@ class CustomPagination {
 
     draw(data) {
         this.isDraw = true;
+        console.log("pagination", data);
         this.pagination.setTotalItems(data.total_results);
-        this.pagination.setItemsPerPage(Math.floor(data.total_results / data.total_pages));
+        this.pagination.setItemsPerPage(this.perPage);
         this.pagination.movePageTo(data.page);
     }
 
@@ -57,10 +58,26 @@ class CustomPagination {
             this.isDraw = false;
             return;
         }
+        window.scrollTo({ top: galleryEl.offsetTop, behavior: 'smooth' });
         this.pageClickedCallbackFunction(evt.page);
     }
 }
 
-window.pagination = new CustomPagination();
+export const swithPagination = (id) => {
+    console.log(id, paginationLibEl);
+    switch (id) {
+        case 2:
+            paginationLibEl.classList.remove("displayNone");
+            paginationEl.classList.add("displayNone");
+            break;
+        case 1:
+        default:
+            paginationLibEl.classList.add("displayNone");
+            paginationEl.classList.remove("displayNone");
+            break;
+    }
+}
+
+window.pagination = new CustomPagination(paginationEl);
 
 // export default CustomPagination;

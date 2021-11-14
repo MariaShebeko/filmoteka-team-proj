@@ -14,7 +14,7 @@ export default class MyLibraryApi{
     }
 
     getQueueFilms() {
-        return this.setQueueData(JSON.parse(localStorage.getItem('queve')));
+        return this.setQueueData(JSON.parse(localStorage.getItem('queue')));
     }
 
     setWatchedData(data) {

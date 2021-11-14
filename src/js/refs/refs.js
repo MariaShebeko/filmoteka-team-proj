@@ -32,4 +32,5 @@ export default {
   emptyTextEl: document.querySelector('.empty-library'),
   btnCleanLibraryEl: document.querySelector('.clean-library-js'),
   filterBtnEl: document.querySelectorAll('.filter-btn'),
+  iconFilmEl: document.querySelector('#logo'),
 };

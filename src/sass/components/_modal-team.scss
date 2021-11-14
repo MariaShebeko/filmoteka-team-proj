@@ -80,7 +80,7 @@
 
 .team__name,
 .team__position {
-  font-size: 12px;
+  font-size: $main-fontsize;
 
   @media screen and(min-width:$min-tablet) {
     font-size: 18px;

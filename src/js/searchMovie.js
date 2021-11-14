@@ -9,14 +9,6 @@ import { showLoader } from './loader.js';
 
 const nameOfMovieToSearch = window.ApiService;
 
-window.pagination.onPageClicked(function (pageNumber) {
-  nameOfMovieToSearch.pageNumber = pageNumber;
-  if (!nameOfMovieToSearch.query) {
-    showLoader();
-    init();
-  } else fetchSearch();
-});
-
 function init() {
   nameOfMovieToSearch.query = refs.inputField.value;
   nameOfMovieToSearch.fetchMovieGenre().then(function (data) {
@@ -28,7 +20,7 @@ function init() {
     .then(function (data) {
       showLoader();
       clearContent();
-      renderMakrup(data.results);
+      renderMakrup(data);
       // getFilm(data.results);
       window.pagination.draw(data);
     });
@@ -44,6 +36,14 @@ function onSearch(event) {
   if (nameOfMovieToSearch.query === refs.inputField.value) {
     return myAlert();
   }
+
+  window.pagination.onPageClicked(function (pageNumber) {
+    nameOfMovieToSearch.pageNumber = pageNumber;
+    if (!nameOfMovieToSearch.query) {
+      showLoader();
+      init();
+    } else fetchSearch();
+  });
 
   //===выполненеие чтения и поиска нового названия===
   if (nameOfMovieToSearch.query !== refs.inputField.value) {
@@ -64,7 +64,7 @@ function fetchSearch() {
       getFilm(data.results);
       if (data.results.length > 0) {
         clearContent();
-        renderMakrup(data.results);
+        renderMakrup(data);
         window.pagination.draw(data);
       } else {
         return myError();
@@ -81,8 +81,8 @@ function fetchSearch() {
   //   .catch(error => console.log(error));
 }
 
-function renderMakrup(results) {
-  refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(results));
+function renderMakrup(data) {
+  refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
   getFilm(data.results);
 }
 

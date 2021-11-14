@@ -26,6 +26,8 @@
 
 // black theme
 
-.button-close__icon--theme.dark-theme {
-  stroke: $white;
+body.dark-theme {
+  & .button-close__icon--theme {
+    stroke: $white;
+  }
 }

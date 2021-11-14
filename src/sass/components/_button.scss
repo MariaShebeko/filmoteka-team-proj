@@ -28,19 +28,22 @@
 
 // black theme
 
-.button--theme.dark-theme {
-  color: $white;
-  background-color: $dark-grey;
-  border-color: $white;
+body.dark-theme {
+  & .button--theme {
+    color: $white;
+    background-color: $dark-grey;
+    border-color: $white;
 
-  &:hover,
-  &:focus {
-    color: $dark-grey;
-    background-color: $accent-color;
-    border-color: $accent-color;
-    box-shadow: 0px 4px 20px rgba(255, 107, 1, 0.6);
+    &:hover,
+    &:focus {
+      color: $dark-grey;
+      background-color: $accent-color;
+      border-color: $accent-color;
+      box-shadow: 0px 4px 20px rgba(255, 107, 1, 0.6);
+    }
   }
 }
+
 .active {
   color: $white;
   background-color: $accent-color;

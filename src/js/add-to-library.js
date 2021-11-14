@@ -15,7 +15,7 @@ function addToWatched(e) {
   if (!localStorage.getItem('watched')) {
     const firstArray = [];
     addToFirstArray(e, 'watched', firstArray);
-  } else if (getLocalStorageArray('watched').some(el => el.title === dataFilm.title)) {
+  } else if (getLocalStorageArray('watched').some(el => el.id === dataFilm.id)) {
     deleteFromArray(e, 'watched');
   } else {
     addToArray(e, 'watched');
@@ -26,7 +26,7 @@ function addToQueue(e) {
   if (!localStorage.getItem('queue')) {
     const firstArray = [];
     addToFirstArray(e, 'queue', firstArray);
-  } else if (getLocalStorageArray('queue').some(el => el.title === dataFilm.title)) {
+  } else if (getLocalStorageArray('queue').some(el => el.id === dataFilm.id)) {
     deleteFromArray(e, 'queue');
   } else {
     addToArray(e, 'queue');
@@ -51,7 +51,7 @@ function addToArray(e, keyLocal) {
 function deleteFromArray(e, keyLocal) {
   const array = getLocalStorageArray(keyLocal);
   array.splice(
-    array.findIndex(el => el.title === dataFilm.title),
+    array.findIndex(el => el.id === dataFilm.id),
     1,
   );
   setLocalStorageArray(keyLocal, array);

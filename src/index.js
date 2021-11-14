@@ -28,5 +28,4 @@ import './js/add-to-library.js';
 import './js/loader.js';
 import './js/filter.js';
 
-import './js/components/modal-library-clean.js';
 import './js/components/animation';

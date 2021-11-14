@@ -72,15 +72,13 @@ export function getFilm(data) {
 
 function getTitle(e) {
   if (e.target.nodeName !== 'IMG') return;
-  markupFilm(e.target.alt);
+  markupFilm(Number(e.target.id));
 }
 
 galleryEl.addEventListener('click', getTitle);
 
 function markupFilm(titleFilm) {
-  dataFilm = arrayFilms.find(
-    el => el.original_title === titleFilm || el.original_name === titleFilm,
-  );
+  dataFilm = arrayFilms.find(el => el.id === titleFilm);
   chekLocalStorage(dataFilm, 'watched', 'WATCHED', buttonWatchedEl);
   chekLocalStorage(dataFilm, 'queue', 'QUEUE', buttonQueueEl);
   modalFilmImageEl.innerHTML = '';
@@ -94,7 +92,7 @@ function markupFilm(titleFilm) {
 function chekLocalStorage(dataFilm, keyLocal, nameBtn, refEl) {
   if (
     localStorage.getItem(keyLocal) &&
-    JSON.parse(localStorage.getItem(keyLocal)).some(el => el.title === dataFilm.title)
+    JSON.parse(localStorage.getItem(keyLocal)).some(el => el.id === dataFilm.id)
   ) {
     refEl.textContent = `REMOVE FROM ${nameBtn}`;
   } else {
@@ -131,6 +129,6 @@ function updateLibrary(keyLocal, refEl, arrayFilms) {
     refEl.innerHTML = '';
   } else {
     refEl.innerHTML = '';
-    appendLibraryMarkup(arrayFilms);
+    appendLibraryMarkup(arrayFilms.results);
   }
 }

@@ -29,7 +29,7 @@ export let queuedFilms = [];
 refs.buttonLibrary.addEventListener('click', onMyLibraryBtnClick);
 refs.btnWatchedHeaderEl.addEventListener('click', onBtnWathedClick);
 refs.btnQueueHeaderEl.addEventListener('click', onBtnQueueClick);
-refs.btnCleanLibraryEl.addEventListener('click', onBtnCleanLibraryClick);
+// refs.btnCleanLibraryEl.addEventListener('click', onBtnCleanLibraryClick);
 
 export function getWatchedFilms() {
   watchedFilms = libraryApi.getWatchedFilms();

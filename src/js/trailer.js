@@ -35,6 +35,7 @@ async function onDrawModalFromTrailer(id) {
     instance.show();
     bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
     onButtonCloseModalTrailer(instance);
+    showLoader();
   }
 }
 

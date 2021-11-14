@@ -83,7 +83,7 @@ function fetchSearch() {
 
 function renderMakrup(results) {
   refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(results));
-  getFilm(data.results);
+  getFilm(results);
 }
 
 function clearContent() {

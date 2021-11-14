@@ -94,7 +94,9 @@ function markupFilm(titleFilm) {
 function chekLocalStorage(dataFilm, keyLocal, nameBtn, refEl) {
   if (
     localStorage.getItem(keyLocal) &&
-    JSON.parse(localStorage.getItem(keyLocal)).some(el => el.title === dataFilm.title)
+    JSON.parse(localStorage.getItem(keyLocal)).some(
+      el => el.original_title === dataFilm.original_title || el.name === dataFilm.original_name,
+    )
   ) {
     refEl.textContent = `REMOVE FROM ${nameBtn}`;
   } else {

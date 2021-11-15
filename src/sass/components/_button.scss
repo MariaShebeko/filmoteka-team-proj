@@ -42,6 +42,11 @@ body.dark-theme {
       box-shadow: 0px 4px 20px rgba(255, 107, 1, 0.6);
     }
   }
+  .active {
+    color: $white;
+    background-color: $accent-color;
+    border-color: $accent-color;
+  }
 }
 
 .active {

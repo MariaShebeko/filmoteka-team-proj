@@ -5,9 +5,9 @@ import movieTemplate from '../templates/film-card-template.hbs';
 import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 import { onCreateTrailerLink } from './trailer.js';
-
+import { onChangeActiveFilterBtn } from './filter.js';
 export const trendingApiServise = window.ApiService;
-
+const { popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl } = refs;
 onLoad();
 
 window.pagination.onPageClicked(function (pageNumber) {
@@ -28,6 +28,7 @@ export function onLoad() {
       window.pagination.draw(data);
     })
     .catch(error => console.log(error));
+  onChangeActiveFilterBtn(popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl);
 }
 
 export function appendMoviesMarkup(data) {

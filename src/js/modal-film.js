@@ -28,11 +28,13 @@ const {
 // Open modal
 
 function openModalFilm(e) {
-  if (e.target.nodeName !== 'IMG') return;
+  // console.log(Number(e.target.parentNode.parentNode.id));
+  if (!e.target.parentNode.parentNode.classList.contains('movie')) return;
   backdropEl.classList.toggle('is-hidden');
   bodyEl.classList.toggle('backdrop-open');
   window.addEventListener('keydown', setKeyListener);
   backdropEl.addEventListener('click', setBackdropListener);
+  // нужно добавить обновление кнопок при открытии модалки (по проверке наличия фильма в localStorage)
 }
 
 galleryEl.addEventListener('click', openModalFilm);
@@ -64,21 +66,58 @@ function setBackdropListener(e) {
 // Markup film
 
 let arrayFilms;
-export let dataFilm;
+export let dataFilm = {};
 
 export function getFilm(data) {
   arrayFilms = data;
 }
 
-function getTitle(e) {
-  if (e.target.nodeName !== 'IMG') return;
-  markupFilm(Number(e.target.id));
+function getId(e) {
+  // console.log(Number(e.target.parentNode.parentNode.id));
+  // console.log(e.target.parentNode.parentNode.classList.contains('movie'));
+  if (!e.target.parentNode.parentNode.classList.contains('movie')) return;
+  markupFilm(Number(e.target.parentNode.parentNode.id));
 }
 
-galleryEl.addEventListener('click', getTitle);
+galleryEl.addEventListener('click', getId);
 
-function markupFilm(titleFilm) {
-  dataFilm = arrayFilms.find(el => el.id === titleFilm);
+function markupFilm(filmId) {
+  // console.log('filmId', filmId);
+  // console.log('dataFilm', dataFilm);
+  // console.log('arrayFilms', arrayFilms);
+  // console.log('watchedFilms', watchedFilms.results);
+  // console.log('queuedFilms', queuedFilms.results);
+  // console.log(
+  //   'arrayFilms.find',
+  //   arrayFilms.find(el => {
+  //     // console.log(el.id, filmId);
+  //     el.id === filmId;
+  //   }),
+  // );
+
+  for (const el of arrayFilms) {
+    if (el.id === filmId) {
+      // console.log(el);
+      dataFilm = el;
+    }
+  }
+  for (const el of watchedFilms.results) {
+    if (el.id === filmId) {
+      // console.log(el);
+      dataFilm = el;
+    }
+  }
+  for (const el of queuedFilms.results) {
+    if (el.id === filmId) {
+      // console.log(el);
+      dataFilm = el;
+    }
+  }
+
+  // console.log('dataFilm', dataFilm);
+  // dataFilm = arrayFilms.find(el => {
+  //   el.id === filmId;
+  // });
   chekLocalStorage(dataFilm, 'watched', 'WATCHED', buttonWatchedEl);
   chekLocalStorage(dataFilm, 'queue', 'QUEUE', buttonQueueEl);
   modalFilmImageEl.innerHTML = '';
@@ -89,10 +128,17 @@ function markupFilm(titleFilm) {
 
 // ChekLocal
 
+// console.log(dataFilm);
+
 function chekLocalStorage(dataFilm, keyLocal, nameBtn, refEl) {
   if (
     localStorage.getItem(keyLocal) &&
-    JSON.parse(localStorage.getItem(keyLocal)).some(el => el.id === dataFilm.id)
+    JSON.parse(localStorage.getItem(keyLocal)).find(el => {
+      // console.log(el);
+      // console.log(dataFilm.id);
+      el.id === dataFilm.id;
+      // console.log(el.id === dataFilm.id);
+    })
   ) {
     refEl.textContent = `REMOVE FROM ${nameBtn}`;
   } else {

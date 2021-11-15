@@ -163,8 +163,9 @@
 
   &:hover,
   &:focus {
+    background-color: $slider-text-shadow;
     border-bottom: 0.5px solid $accent-color;
-    transition-property: border-bottom;
+    transition-property: border-bottom, background-color;
     transition-duration: $time;
     transition-timing-function: $cubic;
   }

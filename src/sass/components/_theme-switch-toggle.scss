@@ -58,9 +58,12 @@
   color: transparent;
   user-select: none;
   background-color: $dark-grey;
+  box-shadow: inset -4px 4px 15px rgb(0 0 0 / 40%);
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
+
+  transition: background-color $time $cubic;
 }
 
 .theme-switch__marker {

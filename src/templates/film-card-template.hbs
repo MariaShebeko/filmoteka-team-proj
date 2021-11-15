@@ -10,7 +10,11 @@
   <div class='movie' id='{{this.id}}'>
     <div class="movie__thumb">
       <img
-        src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
+        {{#if this.poster_path}}
+          src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
+        {{else}}
+           src='https://image.tmdb.org/t/p/w500/{{this.backdrop_path}}'
+        {{/if}}
         onerror="this.onerror=null;this.src='https://image.shutterstock.com/shutterstock/photos/325494917/display_1500/stock-vector-page-with-a-error-in-the-popular-linear-style-template-reports-that-the-page-is-not-found-325494917.jpg';"
         alt='{{this.original_title}}'
         id={{this.id}}

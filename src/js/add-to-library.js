@@ -1,5 +1,5 @@
 import refs from './refs/refs';
-import { dataFilm } from './modal-film.js';
+import { objectFilm } from './modal-film.js';
 
 const { modalFilmEl } = refs;
 
@@ -15,7 +15,7 @@ function addToWatched(e) {
   if (!localStorage.getItem('watched')) {
     const firstArray = [];
     addToFirstArray(e, 'watched', firstArray);
-  } else if (getLocalStorageArray('watched').some(el => el.id === dataFilm.id)) {
+  } else if (getLocalStorageArray('watched').some(el => el.id === objectFilm.id)) {
     deleteFromArray(e, 'watched');
   } else {
     addToArray(e, 'watched');
@@ -26,7 +26,7 @@ function addToQueue(e) {
   if (!localStorage.getItem('queue')) {
     const firstArray = [];
     addToFirstArray(e, 'queue', firstArray);
-  } else if (getLocalStorageArray('queue').some(el => el.id === dataFilm.id)) {
+  } else if (getLocalStorageArray('queue').some(el => el.id === objectFilm.id)) {
     deleteFromArray(e, 'queue');
   } else {
     addToArray(e, 'queue');
@@ -34,7 +34,7 @@ function addToQueue(e) {
 }
 
 function addToFirstArray(e, keyLocal, firstArray) {
-  firstArray.push(dataFilm);
+  firstArray.push(objectFilm);
   setLocalStorageArray(keyLocal, firstArray);
   if (keyLocal === 'watched') e.target.textContent = 'REMOVE FROM WATCHED';
   if (keyLocal === 'queue') e.target.textContent = 'REMOVE FROM QUEUE';
@@ -42,7 +42,7 @@ function addToFirstArray(e, keyLocal, firstArray) {
 
 function addToArray(e, keyLocal) {
   const array = getLocalStorageArray(keyLocal);
-  array.push(dataFilm);
+  array.push(objectFilm);
   setLocalStorageArray(keyLocal, array);
   if (keyLocal === 'watched') e.target.textContent = 'REMOVE FROM WATCHED';
   if (keyLocal === 'queue') e.target.textContent = 'REMOVE FROM QUEUE';
@@ -51,7 +51,7 @@ function addToArray(e, keyLocal) {
 function deleteFromArray(e, keyLocal) {
   const array = getLocalStorageArray(keyLocal);
   array.splice(
-    array.findIndex(el => el.id === dataFilm.id),
+    array.findIndex(el => el.id === objectFilm.id),
     1,
   );
   setLocalStorageArray(keyLocal, array);

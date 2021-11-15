@@ -1,6 +1,8 @@
-// from trailler
+// button youtube on the gallery items
 .btn-youtube {
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
   width: 275px;
   height: 30px;
@@ -11,12 +13,13 @@
   outline: none;
   background-image: url(../images/svg/icon-youtube.svg);
   background-color: initial;
+  background-size: contain;
 }
 
 .btn-youtube__overlay {
-  position: absolute;
-  top: 5px;
-  left: 75px;
+  position: relative;
+  top: 0;
+  left: 9%;
   z-index: 2;
   opacity: 0;
 
@@ -32,15 +35,9 @@
   background-color: $slider-button-youtube-bg-color;
   border-radius: 5px;
 
-  transform: translateX(-63%);
+  transform: translateY(-50%);
   transition: transform $time $cubic, opacity $time $cubic, display $time $cubic,
     background-color $time $cubic;
-}
-
-.slider__item:hover .btn-youtube__overlay {
-  display: flex;
-  opacity: 1;
-  transform: translateX(-65%);
 }
 
 .btn-youtube__title-trailer {
@@ -54,19 +51,33 @@
   transition: color $time $cubic;
 }
 
+// Slider styles for youtube button
+.slider__item:hover .btn-youtube__overlay {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 // Gallery styles for youtube button
+.gallery-item .btn-youtube {
+  @media screen and(max-width: $max-mobile) {
+    height: 35px;
+  }
+}
 .gallery-item .btn-youtube__overlay {
-  left: 190px;
+  left: 10%;
   height: 25px;
-  width: 230px;
+  width: 90%;
+  @media screen and (min-width: $min-mobile) and (max-width: $max-mobile) {
+    left: 12%;
+  }
+  @media screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
+    width: 96%;
+  }
 }
 
 .gallery-item:hover .btn-youtube__overlay {
   display: flex;
   opacity: 1;
-  transform: translateX(-65%);
-}
-
-.gallery-item:hover .btn-youtube {
-  height: 50px;
+  transform: translateY(0);
 }

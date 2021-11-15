@@ -28,7 +28,7 @@ const {
 // Open modal
 
 function openModalFilm(e) {
-  console.log(Number(e.target.parentNode.parentNode.id));
+  // console.log(Number(e.target.parentNode.parentNode.id));
   if (!e.target.parentNode.parentNode.classList.contains('movie')) return;
   backdropEl.classList.toggle('is-hidden');
   bodyEl.classList.toggle('backdrop-open');
@@ -73,8 +73,8 @@ export function getFilm(data) {
 }
 
 function getId(e) {
-  console.log(Number(e.target.parentNode.parentNode.id));
-  console.log(e.target.parentNode.parentNode.classList.contains('movie'));
+  // console.log(Number(e.target.parentNode.parentNode.id));
+  // console.log(e.target.parentNode.parentNode.classList.contains('movie'));
   if (!e.target.parentNode.parentNode.classList.contains('movie')) return;
   markupFilm(Number(e.target.parentNode.parentNode.id));
 }
@@ -82,11 +82,11 @@ function getId(e) {
 galleryEl.addEventListener('click', getId);
 
 function markupFilm(filmId) {
-  console.log('filmId', filmId);
+  // console.log('filmId', filmId);
   // console.log('dataFilm', dataFilm);
-  console.log('arrayFilms', arrayFilms);
-  console.log('watchedFilms', watchedFilms.results);
-  console.log('queuedFilms', queuedFilms.results);
+  // console.log('arrayFilms', arrayFilms);
+  // console.log('watchedFilms', watchedFilms.results);
+  // console.log('queuedFilms', queuedFilms.results);
   // console.log(
   //   'arrayFilms.find',
   //   arrayFilms.find(el => {
@@ -97,24 +97,24 @@ function markupFilm(filmId) {
 
   for (const el of arrayFilms) {
     if (el.id === filmId) {
-      console.log(el);
+      // console.log(el);
       dataFilm = el;
     }
   }
   for (const el of watchedFilms.results) {
     if (el.id === filmId) {
-      console.log(el);
+      // console.log(el);
       dataFilm = el;
     }
   }
   for (const el of queuedFilms.results) {
     if (el.id === filmId) {
-      console.log(el);
+      // console.log(el);
       dataFilm = el;
     }
   }
 
-  console.log('dataFilm', dataFilm);
+  // console.log('dataFilm', dataFilm);
   // dataFilm = arrayFilms.find(el => {
   //   el.id === filmId;
   // });
@@ -137,7 +137,7 @@ function chekLocalStorage(dataFilm, keyLocal, nameBtn, refEl) {
       // console.log(el);
       // console.log(dataFilm.id);
       el.id === dataFilm.id;
-      console.log(el.id === dataFilm.id);
+      // console.log(el.id === dataFilm.id);
     })
   ) {
     refEl.textContent = `REMOVE FROM ${nameBtn}`;

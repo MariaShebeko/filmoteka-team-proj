@@ -1,5 +1,6 @@
 // button youtube on the gallery items
-.btn-youtube {
+.btn-youtube,
+.slider__btn-youtube {
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +60,8 @@
 }
 
 // Gallery styles for youtube button
-.gallery-item .btn-youtube {
+.gallery-item .btn-youtube,
+.gallery-item .slider__btn-youtube {
   @media screen and(max-width: $max-mobile) {
     height: 35px;
   }

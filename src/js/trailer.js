@@ -9,7 +9,6 @@ const videoAPI = new API();
 // activate function: after appending/inserting markup/html, call that: onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 export function onCreateTrailerLink(elementsRef) {
   const trailerButtons = elementsRef;
-  console.log('trailerButtons: ', trailerButtons);
 
   trailerButtons.forEach(element => {
     element.addEventListener('click', e => {

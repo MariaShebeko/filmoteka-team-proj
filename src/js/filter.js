@@ -3,6 +3,8 @@ import { trendingApiServise, onLoad, appendMoviesMarkup, clearContent } from './
 import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 
+const { popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl } = refs;
+
 refs.popularBtnEl.addEventListener('click', onLoad);
 refs.nowPlayingBtnEl.addEventListener('click', onFetchNowPlayingMovies);
 refs.topRatedBtnEl.addEventListener('click', onFetchTopRated);
@@ -19,10 +21,7 @@ function onFetchNowPlayingMovies() {
     trendingApiServise.pageNumber = pageNumber;
     onFetchNowPlayingMovies();
   });
-  refs.nowPlayingBtnEl.classList.add('active');
-  refs.popularBtnEl.classList.remove('active');
-  refs.topRatedBtnEl.classList.remove('active');
-  refs.upcomingBtnEl.classList.remove('active');
+  onChangeActiveFilterBtn(nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl, popularBtnEl);
 }
 
 function onFetchTopRated() {
@@ -36,10 +35,7 @@ function onFetchTopRated() {
     trendingApiServise.pageNumber = pageNumber;
     onFetchTopRated();
   });
-  refs.nowPlayingBtnEl.classList.remove('active');
-  refs.popularBtnEl.classList.remove('active');
-  refs.topRatedBtnEl.classList.add('active');
-  refs.upcomingBtnEl.classList.remove('active');
+  onChangeActiveFilterBtn(topRatedBtnEl, upcomingBtnEl, popularBtnEl, nowPlayingBtnEl);
 }
 
 function onFetchUpcoming() {
@@ -53,10 +49,7 @@ function onFetchUpcoming() {
     trendingApiServise.pageNumber = pageNumber;
     onFetchUpcoming();
   });
-  refs.nowPlayingBtnEl.classList.remove('active');
-  refs.popularBtnEl.classList.remove('active');
-  refs.topRatedBtnEl.classList.remove('active');
-  refs.upcomingBtnEl.classList.add('active');
+  onChangeActiveFilterBtn(upcomingBtnEl, popularBtnEl, nowPlayingBtnEl, topRatedBtnEl);
 }
 
 function markup(data) {
@@ -64,4 +57,11 @@ function markup(data) {
   clearContent();
   appendMoviesMarkup(data.results);
   window.pagination.draw(data);
+}
+
+export function onChangeActiveFilterBtn(active, inactive1, inactive2, inactive3) {
+  active.classList.add('active');
+  inactive1.classList.remove('active');
+  inactive2.classList.remove('active');
+  inactive3.classList.remove('active');
 }

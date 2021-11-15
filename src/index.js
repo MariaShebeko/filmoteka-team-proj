@@ -26,9 +26,7 @@ import './js/theme-switch';
 import 'animate.css';
 
 import './js/modal-film.js';
-// import './js/add-to-library.js';
-import './js/add-to-watched.js';
-import './js/add-to-queue.js';
+import './js/add-to-library.js';
 import './js/loader.js';
 import './js/filter.js';
 

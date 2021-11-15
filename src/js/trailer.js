@@ -1,14 +1,15 @@
 import * as basicLightbox from 'basiclightbox';
 import trailerVideoGoodTemplate from '../templates/trailer-video-good.hbs';
 import trailerVideoErrorTemplate from '../templates/trailer-video-error.hbs';
+import trailerVideoCloseButtonTemplate from '../templates/trailer-video-close-button.hbs';
 import { showLoader } from './loader.js';
 import API from './apiService.js';
-import refs from './refs/refs.js';
-const { bodyEl } = refs;
 const videoAPI = new API();
 
 function onCreateTrailerLink(elementsRef) {
-  elementsRef.forEach(element => {
+  const trailerButtons = elementsRef;
+
+  trailerButtons.forEach(element => {
     element.addEventListener('click', e => {
       onDrawModalFromTrailer(e.target.dataset.id);
     });
@@ -26,31 +27,22 @@ async function onDrawModalFromTrailer(id) {
       const instance = basicLightbox.create(trailerVideoGoodTemplate(responseData));
       instance.show();
       showLoader();
-      bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
       onButtonCloseModalTrailer(instance);
     });
   } catch (error) {
     console.log('catch-error: onDrawModalFromTrailer: ', error);
     const instance = basicLightbox.create(trailerVideoErrorTemplate());
     instance.show();
-    bodyEl.addEventListener('keydown', onPressedEscapeCloseTrailer);
     onButtonCloseModalTrailer(instance);
     showLoader();
   }
 }
 
-function onPressedEscapeCloseTrailer(event) {
-  if (!document.querySelector('.basicLightbox')) return;
-  if (event.key === 'Escape' || event.code === 'Escape' || event.keyCode == 27) {
-    const trailerBackdropEl = document.querySelector('.basicLightbox');
-    trailerBackdropEl.classList.remove('basicLightbox--visible');
-    bodyEl.removeEventListener('keydown', onPressedEscapeCloseTrailer);
-  }
-}
-
 function onButtonCloseModalTrailer(instance) {
+  const lightboxModalPlaceholderEl = document.querySelector('.basicLightbox__placeholder');
+  lightboxModalPlaceholderEl.insertAdjacentHTML('afterbegin', trailerVideoCloseButtonTemplate());
   const modalCloseButtonEl = document.querySelector('.lightbox__button-close');
-  modalCloseButtonEl.addEventListener('click', () => instance.close(), { once: true });
+  modalCloseButtonEl.addEventListener('click', () => instance.close() /*, { once: true }*/);
 }
 
 export default { onCreateTrailerLink };

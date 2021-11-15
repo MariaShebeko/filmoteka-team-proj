@@ -4,6 +4,7 @@ import { getFilm } from './modal-film.js';
 import movieTemplate from '../templates/film-card-template.hbs';
 import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
+import { onCreateTrailerLink } from './trailer.js';
 
 export const trendingApiServise = window.ApiService;
 
@@ -33,6 +34,7 @@ export function appendMoviesMarkup(data) {
   refs.gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
   getFilm(data);
 
+  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
   // pagination.draw(data);
   // window.scrollTo({ top: 0, behavior: 'smooth' });
 }

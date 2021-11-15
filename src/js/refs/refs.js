@@ -34,4 +34,7 @@ export default {
   // btnCleanLibraryEl: document.querySelector('.clean-library-js'),
   filterBtnEl: document.querySelectorAll('.filter-btn'),
   iconFilmEl: document.querySelector('#logo'),
+
+  btnFooterEl: document.querySelector('.footer__link'),
+  footerBackdropEl: document.querySelector('#footer-backdrop'),
 };

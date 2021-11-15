@@ -10,7 +10,7 @@ const libraryApi = new MyLibraryApi();
 
 export const pagination = new CustomPagination(refs.paginationLibEl);
 pagination.onPageClicked(pageNumber => {
-  console.log(pageNumber);
+  // console.log(pageNumber);
   if (refs.library.innerHTML !== '') {
     if (refs.btnWatchedHeaderEl.classList.contains('active')) {
       libraryApi.setWatchedPage(pageNumber);
@@ -132,7 +132,7 @@ export function showEmptyWatched() {
     watchedFilms &&
     watchedFilms.results.length > 0 &&
     refs.btnWatchedHeaderEl.classList.contains('active');
-  console.log(watchedFilms, watchedShown);
+  // console.log(watchedFilms, watchedShown);
   if (!watchedShown) {
     refs.paginationLibEl.classList.add('displayNone');
     refs.emptyTextEl.classList.remove('visually-hidden');

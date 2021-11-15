@@ -66,7 +66,7 @@ function setBackdropListener(e) {
 // Markup film
 
 let arrayFilms;
-export let dataFilm = {};
+export let dataFilm;
 
 export function getFilm(data) {
   arrayFilms = data;
@@ -90,14 +90,14 @@ function markupFilm(filmId) {
   // console.log(
   //   'arrayFilms.find',
   //   arrayFilms.find(el => {
-  //     // console.log(el.id, filmId);
+  // console.log(el.id, filmId);
   //     el.id === filmId;
   //   }),
   // );
 
   for (const el of arrayFilms) {
     if (el.id === filmId) {
-      // console.log(el);
+      console.log(el);
       dataFilm = el;
     }
   }
@@ -131,13 +131,17 @@ function markupFilm(filmId) {
 // console.log(dataFilm);
 
 function chekLocalStorage(dataFilm, keyLocal, nameBtn, refEl) {
+  // console.log('dataFilm', dataFilm);
+  // console.log('keyLocal', keyLocal);
+  // console.log('nameBtn', nameBtn);
+  // console.log('refEl', refEl);
   if (
     localStorage.getItem(keyLocal) &&
     JSON.parse(localStorage.getItem(keyLocal)).find(el => {
-      // console.log(el);
+      // console.log(el.id);
       // console.log(dataFilm.id);
-      el.id === dataFilm.id;
       // console.log(el.id === dataFilm.id);
+      return el.id === dataFilm.id;
     })
   ) {
     refEl.textContent = `REMOVE FROM ${nameBtn}`;

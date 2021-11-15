@@ -4,6 +4,7 @@ import movieTemplate from '../templates/film-card-template.hbs';
 import CustomPagination from './components/pagination';
 import MyLibraryApi from './components/myLibApi';
 import { swithPagination } from './components/pagination';
+import { onCreateTrailerLink } from './trailer.js';
 
 const libraryApi = new MyLibraryApi();
 
@@ -48,6 +49,8 @@ getQueue();
 
 export function appendLibraryMarkup(data) {
   refs.library.insertAdjacentHTML('afterbegin', movieTemplate(data));
+
+  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 function onMyLibraryBtnClick() {
@@ -82,7 +85,7 @@ function onBtnWathedClick() {
   appendLibraryMarkup(watchedFilms.results);
   refs.btnWatchedHeaderEl.classList.add('active');
   refs.btnQueueHeaderEl.classList.remove('active');
-  refs.btnCleanLibraryEl.classList.remove('active');
+  // refs.btnCleanLibraryEl.classList.remove('active');
   showEmptyWatched();
   pagination.draw(watchedFilms);
 }
@@ -94,13 +97,13 @@ function onBtnQueueClick() {
   refs.btnQueueHeaderEl.classList.add('active');
   showEmptyQueue();
   pagination.draw(queuedFilms);
-  refs.btnCleanLibraryEl.classList.remove('active');
+  // refs.btnCleanLibraryEl.classList.remove('active');
 }
 
 function onBtnCleanLibraryClick() {
   refs.btnWatchedHeaderEl.classList.remove('active');
   refs.btnQueueHeaderEl.classList.remove('active');
-  refs.btnCleanLibraryEl.classList.add('active');
+  // refs.btnCleanLibraryEl.classList.add('active');
 
   openModalWindowLibrary();
 }

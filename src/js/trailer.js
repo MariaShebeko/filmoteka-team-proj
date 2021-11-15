@@ -30,7 +30,6 @@ async function onDrawModalFromTrailer(id) {
       onButtonCloseModalTrailer(instance);
     });
   } catch (error) {
-    console.log('catch-error: onDrawModalFromTrailer: ', error);
     const instance = basicLightbox.create(trailerVideoErrorTemplate());
     instance.show();
     onButtonCloseModalTrailer(instance);

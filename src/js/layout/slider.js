@@ -1,10 +1,9 @@
 import API from '../apiService.js';
 import filmCardsTemplate from '../../templates/slider.hbs';
 import refs from '../refs/refs.js';
-import trailer from '../trailer.js';
+import { onCreateTrailerLink } from '../trailer.js';
 import { onCatchError } from '../components/pnotify.js';
 const { sliderEl } = refs;
-const { onCreateTrailerLink } = trailer;
 const sliderAPI = new API();
 
 onSliderLoad();
@@ -28,7 +27,7 @@ async function onSliderLoad() {
 function onAppendSliderMarkup(results) {
   sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
 
-  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+  onCreateTrailerLink(document.querySelectorAll('.slider__btn-youtube'));
 }
 
 async function onSliderActivation() {

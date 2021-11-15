@@ -6,6 +6,7 @@ import refs from './refs/refs';
 import { getFilm } from './modal-film.js';
 import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
+import { onCreateTrailerLink } from './trailer.js';
 
 const nameOfMovieToSearch = window.ApiService;
 
@@ -83,7 +84,8 @@ function fetchSearch() {
 
 function renderMakrup(results) {
   refs.gallery.insertAdjacentHTML('beforeend', movieTemplate(results));
-  getFilm(data.results);
+  getFilm(results);
+  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 function clearContent() {

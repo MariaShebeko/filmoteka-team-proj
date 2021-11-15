@@ -24,6 +24,7 @@
 }
 
 .gallery-item {
+  position: relative;
   border-radius: 5px;
   cursor: pointer;
   transition: transform $time $cubic;

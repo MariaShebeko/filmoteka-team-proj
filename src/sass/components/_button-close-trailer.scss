@@ -19,7 +19,7 @@
   outline: none;
 
   transform: rotateZ(0deg);
-  transition: transform 250ms $cubic, background-color 250ms $cubic 250ms, color 250ms $cubic;
+  transition: transform $time $cubic, background-color $time $cubic $time, color $time $cubic;
 
   &:hover,
   &:focus {

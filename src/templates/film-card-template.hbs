@@ -1,5 +1,12 @@
 {{#each this}}
   <li class='gallery-item'>
+
+        <button class="btn-youtube" data-id="{{this.id}}">
+           <span class="btn-youtube__overlay" data-id="{{this.id}}">
+              <span class="btn-youtube__title-trailer" data-id="{{this.id}}">Trailer</span>
+           </span>
+        </button>
+
     <div class='movie' id='{{this.id}}'>
       <img
         src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'

@@ -6,8 +6,10 @@ import { showLoader } from './loader.js';
 import API from './apiService.js';
 const videoAPI = new API();
 
-function onCreateTrailerLink(elementsRef) {
+// activate function: after appending/inserting markup/html, call that: onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+export function onCreateTrailerLink(elementsRef) {
   const trailerButtons = elementsRef;
+  console.log('trailerButtons: ', trailerButtons);
 
   trailerButtons.forEach(element => {
     element.addEventListener('click', e => {
@@ -43,5 +45,3 @@ function onButtonCloseModalTrailer(instance) {
   const modalCloseButtonEl = document.querySelector('.lightbox__button-close');
   modalCloseButtonEl.addEventListener('click', () => instance.close() /*, { once: true }*/);
 }
-
-export default { onCreateTrailerLink };

@@ -35,9 +35,6 @@ export function onLoad() {
   onChangeActiveFilterBtn(popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl);
 }
 
-// listener on languageToggle
-languagesToggleEl.addEventListener('change', onLoad);
-
 export function appendMoviesMarkup(data) {
   console.dir(languagesToggleEl.checked);
 

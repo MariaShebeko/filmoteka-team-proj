@@ -4,7 +4,6 @@ export function convertingData(data) {
   toGetFullGenresList(data);
   return data;
 }
-
 // transforming full date in year in results
 export function toGetYear(data) {
   data.results.map(item => {
@@ -24,7 +23,6 @@ export function toGetYear(data) {
 
   return data;
 }
-
 // getting short genres names list from local storage
 export function toGetShortGenresList(data) {
   const genres = JSON.parse(localStorage.getItem('genres'));
@@ -35,7 +33,6 @@ export function toGetShortGenresList(data) {
         filmGenres.push(elem.name);
       }
     });
-
     if (filmGenres.length <= 3) {
       item.genresShort = filmGenres.join(', ');
     }
@@ -51,7 +48,6 @@ export function toGetShortGenresList(data) {
   });
   return data;
 }
-
 // getting full genres names list from local storage
 export function toGetFullGenresList(data) {
   const genres = JSON.parse(localStorage.getItem('genres'));

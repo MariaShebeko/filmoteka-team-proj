@@ -6,7 +6,6 @@ class ApiService {
     this.BASE_URL = `https://api.themoviedb.org/3`;
   }
   async fetchPopularMovies() {
-    // const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this.page}`;
     const url = `${this.BASE_URL}/movie/popular?api_key=${this.API_KEY}&page=${this.page}`;
     return await fetch(url)
       .then(response => response.json())
@@ -15,7 +14,6 @@ class ApiService {
         return data;
       });
   }
-
   async fetchSearchMovies() {
     const url = `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return await fetch(url)

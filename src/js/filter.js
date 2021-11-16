@@ -5,10 +5,10 @@ import { showLoader } from './loader.js';
 
 const { popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl } = refs;
 
-refs.popularBtnEl.addEventListener('click', onLoad);
-refs.nowPlayingBtnEl.addEventListener('click', onFetchNowPlayingMovies);
-refs.topRatedBtnEl.addEventListener('click', onFetchTopRated);
-refs.upcomingBtnEl.addEventListener('click', onFetchUpcoming);
+popularBtnEl.addEventListener('click', onLoad);
+nowPlayingBtnEl.addEventListener('click', onFetchNowPlayingMovies);
+topRatedBtnEl.addEventListener('click', onFetchTopRated);
+upcomingBtnEl.addEventListener('click', onFetchUpcoming);
 
 function onFetchNowPlayingMovies() {
   showLoader();

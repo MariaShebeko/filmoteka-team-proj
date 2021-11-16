@@ -1,8 +1,8 @@
 import refs from './refs/refs';
 import movieTemplate from '../templates/film-card-template.hbs';
-import CustomPagination from './components/pagination';
-import MyLibraryApi from './components/myLibApi';
-import { swithPagination } from './components/pagination';
+import CustomPagination from './components/pagination.js';
+import MyLibraryApi from './components/my-lib-api.js';
+import { swithPagination } from './components/pagination.js';
 import { onCreateTrailerLink } from './trailer.js';
 
 const {
@@ -21,6 +21,7 @@ const {
   buttonHomeEl,
   emptyTextEl,
 } = refs;
+
 const libraryApi = new MyLibraryApi();
 
 export const pagination = new CustomPagination(paginationLibEl);
@@ -110,7 +111,6 @@ export function showEmptyWatched() {
     watchedFilms &&
     watchedFilms.results.length > 0 &&
     btnWatchedHeaderEl.classList.contains('active');
-  // console.log(watchedFilms, watchedShown);
   if (!watchedShown) {
     paginationLibEl.classList.add('displayNone');
     emptyTextEl.classList.remove('visually-hidden');

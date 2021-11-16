@@ -24,8 +24,12 @@
       <span class="movie__vote-average">{{vote_average}}</span>
     </div>
       <div class='movie__description'>
-        <p class='movie__name'>    
-            {{this.russian_title}}
+        <p class='movie__name'>
+        {{#if this.atitle_ru}}
+          {{this.atitle_ru}}'
+        {{else}}
+          {{this.title}} (Перевод не найден)
+        {{/if}}
         </p>
         <p class='movie__genres'>{{this.genresShort}}</p>
         <p class='movie__release'> | {{this.release_year}}

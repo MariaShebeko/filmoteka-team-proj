@@ -1,38 +1,68 @@
 import newApi from './api-service';
 // import { trendingApiServise } from './markup-home';
-const trendingApiServise = window.ApiService;
+// const trendingApiServise = window.ApiService;
 let russianValues = {};
 
-trendingApiServise
-  .getLanguages()
-  .then(languages => {
-    return languages.translations.find(el => el.english_name === 'Russian');
-  })
-  .then(el => {
-    russianValues = el.data;
-
-    return russianValues;
-  });
+// import getLanguages from './api-service.js';
 
 export function convertingData(data) {
   toGetYear(data);
   toGetShortGenresList(data);
   toGetFullGenresList(data);
-  toSetRussianValues(data, russianValues);
+  toSetRussianValues(data);
   return data;
 }
 
 // setting russian title and overview
-function toSetRussianValues(data, values) {
+function toSetRussianValues(data) {
+  // console.log(data.results);
   data.results.map(item => {
-    item.russian_title = values.title;
+    let id = item.id;
+    getLanguages(id, item);
+
+    // item.russian_title = translations.find(el => el.english_name === 'Russian');
+    // console.log(item.russian_title);
+    // console.log(data);
   });
-  data.results.map(item => {
-    item.russian_overview = values.overview;
-  });
-  console.log(data);
+
+  // data.results.map(item => {
+  //   item.russian_title = values.title;
+  // });
+  // data.results.map(item => {
+  //   item.russian_overview = values.overview;
+  // });
+  // console.log(data);
   return data;
 }
+
+function getLanguages(id, item) {
+  const url = `https://api.themoviedb.org/3/movie/${id}/translations?api_key=d9be23358e97f87c33dbf928d8eaec37`;
+  return fetch(url)
+    .then(response => response.json())
+    .then(languages => {
+      // console.log(languages.translations);
+      const russianIndex = languages.translations.findIndex(el => el.english_name === 'Russian');
+      if (russianIndex !== -1) {
+        // console.log(languages.translations[russianIndex].data.title);
+        // console.log(languages.translations[russianIndex].data.overview);
+        item.atitle_ru = languages.translations[russianIndex].data.title;
+        item.overview_ru = languages.translations[russianIndex].data.overview;
+      }
+
+      // item.russian_title = languages.translations.find(el => el.english_name === 'Russian');
+      return languages;
+    });
+}
+
+// getLanguages()
+//   .then(languages => {
+//     return languages.translations.find(el => el.english_name === 'Russian');
+//   })
+//   .then(el => {
+//     russianValues = el.data;
+
+//     return russianValues;
+//   });
 
 // transforming full date in year in results
 export function toGetYear(data) {

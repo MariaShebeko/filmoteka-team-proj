@@ -4,7 +4,7 @@ class ApiService {
     this.page = 1;
     this.API_KEY = 'd9be23358e97f87c33dbf928d8eaec37';
     this.BASE_URL = `https://api.themoviedb.org/3`;
-    this.movieId = 566525;
+    // this.movieId = id;
   }
   async fetchPopularMovies() {
     const url = `${this.BASE_URL}/movie/popular?api_key=${this.API_KEY}&page=${this.page}`;
@@ -69,15 +69,15 @@ class ApiService {
       });
   }
 
-  async getLanguages() {
-    const url = `${this.BASE_URL}/movie/${this.movieId}/translations?api_key=${this.API_KEY}`;
-    return await fetch(url)
-      .then(response => response.json())
-      .then(languages => {
-        console.log(languages);
-        return languages;
-      });
-  }
+  // async getLanguages(id) {
+  //   const url = `${this.BASE_URL}/movie/${id}/translations?api_key=${this.API_KEY}`;
+  //   return await fetch(url)
+  //     .then(response => response.json())
+  //     .then(languages => {
+  //       // console.log(languages);
+  //       return languages;
+  //     });
+  // }
 
   incrementPage() {
     this.page += 1;
@@ -101,4 +101,14 @@ class ApiService {
 window.ApiService = new ApiService();
 export default ApiService;
 
-export const newApi = new ApiService();
+// export const newApi = new ApiService();
+
+// export function getLanguages(id) {
+//   const url = `https://api.themoviedb.org/3/movie/${id}/translations?api_key=d9be23358e97f87c33dbf928d8eaec37`;
+//   return fetch(url)
+//     .then(response => response.json())
+//     .then(languages => {
+//       console.log(languages);
+//       return languages;
+//     });
+// }

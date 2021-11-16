@@ -7,7 +7,6 @@ import './js/markupHome.js';
 import './js/markup-my-library.js';
 
 import './js/refs/refs.js';
-import './js/main.js';
 
 import './js/modalTeam.js';
 import './js/components/buttonUp.js';

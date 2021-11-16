@@ -33,7 +33,7 @@ export default {
   paginationLibEl: document.querySelector('#pagination_library'),
   filterBtnEl: document.querySelectorAll('.filter-btn'),
   iconFilmEl: document.querySelector('#logo'),
-
   btnFooterEl: document.querySelector('.footer__link'),
   footerBackdropEl: document.querySelector('#footer-backdrop'),
+  buttonUpEl: document.querySelector('[data-button-up]'),
 };

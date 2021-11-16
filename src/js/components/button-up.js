@@ -1,13 +1,14 @@
-const buttonUp = document.querySelector('[data-button-up]');
+import refs from '../refs/refs.js';
+const { buttonUpEl } = refs;
 
 window.addEventListener('scroll', showButtonUp);
-buttonUp.addEventListener('click', onButtonUpClick);
+buttonUpEl.addEventListener('click', onButtonUpClick);
 
 function showButtonUp() {
   if (pageYOffset < document.documentElement.clientHeight) {
-    buttonUp.classList.add('visually-hidden');
+    buttonUpEl.classList.add('visually-hidden');
   } else {
-    buttonUp.classList.remove('visually-hidden');
+    buttonUpEl.classList.remove('visually-hidden');
   }
 }
 

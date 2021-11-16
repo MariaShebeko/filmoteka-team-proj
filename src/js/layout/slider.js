@@ -1,4 +1,4 @@
-import API from '../apiService.js';
+import API from '../api-service.js';
 import filmCardsTemplate from '../../templates/slider.hbs';
 import refs from '../refs/refs.js';
 import { onCreateTrailerLink } from '../trailer.js';

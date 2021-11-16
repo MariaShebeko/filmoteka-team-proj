@@ -2,11 +2,6 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from '../refs/refs';
 const { paginationEl, galleryEl, paginationLibEl } = refs;
-
-// console.log("asdasd", paginationEl);
-
-// new Pagination(paginationEl);
-
 export default class CustomPagination {
   constructor(element) {
     this.perPage = 20;
@@ -43,7 +38,6 @@ export default class CustomPagination {
 
   draw(data) {
     this.isDraw = true;
-    // console.log("pagination", data);
     this.pagination.setTotalItems(data.total_results);
     this.pagination.setItemsPerPage(this.perPage);
     this.pagination.movePageTo(data.page);
@@ -64,7 +58,6 @@ export default class CustomPagination {
 }
 
 export const swithPagination = id => {
-  // console.log(id, paginationLibEl);
   switch (id) {
     case 2:
       paginationLibEl.classList.remove('displayNone');
@@ -79,5 +72,3 @@ export const swithPagination = id => {
 };
 
 window.pagination = new CustomPagination(paginationEl);
-
-// export default CustomPagination;

@@ -36,4 +36,5 @@ export default {
   btnFooterEl: document.querySelector('.footer__link'),
   footerBackdropEl: document.querySelector('#footer-backdrop'),
   buttonUpEl: document.querySelector('[data-button-up]'),
+  languagesToggleEl: document.querySelector('.language__toggle'),
 };

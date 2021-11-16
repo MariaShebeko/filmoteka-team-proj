@@ -4,6 +4,7 @@ class ApiService {
     this.page = 1;
     this.API_KEY = 'd9be23358e97f87c33dbf928d8eaec37';
     this.BASE_URL = `https://api.themoviedb.org/3`;
+    this.movieId = 566525;
   }
   async fetchPopularMovies() {
     const url = `${this.BASE_URL}/movie/popular?api_key=${this.API_KEY}&page=${this.page}`;
@@ -67,6 +68,17 @@ class ApiService {
         return data;
       });
   }
+
+  async getLanguages() {
+    const url = `${this.BASE_URL}/movie/${this.movieId}/translations?api_key=${this.API_KEY}`;
+    return await fetch(url)
+      .then(response => response.json())
+      .then(languages => {
+        console.log(languages);
+        return languages;
+      });
+  }
+
   incrementPage() {
     this.page += 1;
   }
@@ -88,3 +100,5 @@ class ApiService {
 }
 window.ApiService = new ApiService();
 export default ApiService;
+
+export const newApi = new ApiService();

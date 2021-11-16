@@ -1,9 +1,39 @@
+import newApi from './api-service';
+// import { trendingApiServise } from './markup-home';
+const trendingApiServise = window.ApiService;
+let russianValues = {};
+
+trendingApiServise
+  .getLanguages()
+  .then(languages => {
+    return languages.translations.find(el => el.english_name === 'Russian');
+  })
+  .then(el => {
+    russianValues = el.data;
+
+    return russianValues;
+  });
+
 export function convertingData(data) {
   toGetYear(data);
   toGetShortGenresList(data);
   toGetFullGenresList(data);
+  toSetRussianValues(data, russianValues);
   return data;
 }
+
+// setting russian title and overview
+function toSetRussianValues(data, values) {
+  data.results.map(item => {
+    item.russian_title = values.title;
+  });
+  data.results.map(item => {
+    item.russian_overview = values.overview;
+  });
+  console.log(data);
+  return data;
+}
+
 // transforming full date in year in results
 export function toGetYear(data) {
   data.results.map(item => {

@@ -1,12 +1,14 @@
 import refs from './refs/refs';
 import { getFilm } from './modal-film.js';
 import movieTemplate from '../templates/film-card-template.hbs';
+import movieTemplateRu from '../templates/film-card-template-russian.hbs';
 import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 import { onCreateTrailerLink } from './trailer.js';
 import { onChangeActiveFilterBtn } from './filter.js';
 export const trendingApiServise = window.ApiService;
-const { popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl, gallery } = refs;
+const { popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl, gallery, languagesToggleEl } =
+  refs;
 onLoad();
 
 window.pagination.onPageClicked(function (pageNumber) {
@@ -17,12 +19,15 @@ window.pagination.onPageClicked(function (pageNumber) {
 export function onLoad() {
   showLoader();
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);
+  // trendingApiServise.getLanguages()
   trendingApiServise
     .fetchPopularMovies()
     .then(convertingData)
     .then(data => {
+      console.log(data);
       showLoader();
       clearContent();
+
       appendMoviesMarkup(data.results);
       window.pagination.draw(data);
     })
@@ -30,8 +35,14 @@ export function onLoad() {
   onChangeActiveFilterBtn(popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl);
 }
 
+// listener on languageToggle
+languagesToggleEl.addEventListener('change', onLoad);
+
 export function appendMoviesMarkup(data) {
-  gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
+  console.dir(languagesToggleEl.checked);
+
+  if (!languagesToggleEl.checked) gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
+  if (languagesToggleEl.checked) gallery.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
   getFilm(data);
   onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }

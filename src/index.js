@@ -11,9 +11,9 @@ import './js/refs/refs.js';
 import './js/modal-team.js';
 import './js/components/button-up.js';
 
-import './js/layout/slider.js';
 import './sass/components/basicLightbox.min.css';
 import './js/components/basicLightbox.min.js';
+import './js/slider.js';
 import './js/trailer.js';
 
 import './js/search-movie.js';

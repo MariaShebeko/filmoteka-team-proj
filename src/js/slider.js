@@ -1,8 +1,8 @@
-import API from '../api-service.js';
-import filmCardsTemplate from '../../templates/slider.hbs';
-import refs from '../refs/refs.js';
-import { onCreateTrailerLink } from '../trailer.js';
-import { onCatchError } from '../components/pnotify.js';
+import API from './api-service.js';
+import filmCardsTemplate from '../templates/slider.hbs';
+import refs from './refs/refs.js';
+import { onCreateTrailerLink } from './trailer.js';
+import { onCatchError } from './components/pnotify.js';
 const { sliderEl } = refs;
 const sliderAPI = new API();
 
@@ -32,7 +32,7 @@ function onAppendSliderMarkup(results) {
 
 async function onSliderActivation() {
   window.jQuery = window.$ = require('jquery');
-  require('../slider/slick.min.js');
+  require('./components/slick.min.js');
 
   $(document).ready(function () {
     $('.slider').slick({

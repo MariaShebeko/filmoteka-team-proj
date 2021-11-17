@@ -1,3 +1,25 @@
+const genresRu = [
+  { id: 28, name: 'Боевик' },
+  { id: 12, name: 'Приключения' },
+  { id: 16, name: 'Мультфильм' },
+  { id: 35, name: 'Комедия' },
+  { id: 80, name: 'Криминал' },
+  { id: 99, name: 'Документальный' },
+  { id: 18, name: 'Драма' },
+  { id: 10751, name: 'Семейный' },
+  { id: 14, name: 'Фантастика' },
+  { id: 36, name: 'Исторический' },
+  { id: 27, name: 'Ужасы' },
+  { id: 10402, name: 'Мюзикл' },
+  { id: 9648, name: 'Мистика' },
+  { id: 10749, name: 'Романтический' },
+  { id: 878, name: 'Научная фантастика' },
+  { id: 10770, name: 'ТВ шоу' },
+  { id: 53, name: 'Триллер' },
+  { id: 10752, name: 'Военный' },
+  { id: 37, name: 'Вестерн' },
+];
+
 export function convertingData(data) {
   toGetYear(data);
   toGetShortGenresList(data);
@@ -68,37 +90,79 @@ export function toGetShortGenresList(data) {
   const genres = JSON.parse(localStorage.getItem('genres'));
   data.results.map(item => {
     let filmGenres = [];
+    let filmGenresRu = [];
     genres.find(elem => {
       if (item.genre_ids.includes(elem.id)) {
         filmGenres.push(elem.name);
       }
     });
+
+    genresRu.find(elem => {
+      if (item.genre_ids.includes(elem.id)) {
+        filmGenresRu.push(elem.name);
+      }
+    });
+
     if (filmGenres.length <= 3) {
       item.genresShort = filmGenres.join(', ');
     }
+
+    if (filmGenresRu.length <= 3) {
+      item.genresShortRu = filmGenresRu.join(', ');
+    }
+
     if (filmGenres.length > 3) {
       filmGenres.splice(2, filmGenres.length - 2);
       filmGenres.push('Other');
       item.genresShort = filmGenres.join(', ');
     }
+
+    if (filmGenresRu.length > 3) {
+      filmGenresRu.splice(2, filmGenresRu.length - 2);
+      filmGenresRu.push('Other');
+      item.genresShortRu = filmGenresRu.join(', ');
+    }
+
     if (filmGenres.length === 0) {
       filmGenres.push('Other');
       item.genresShort = filmGenres.join(', ');
     }
+
+    if (filmGenresRu.length === 0) {
+      filmGenresRu.push('Other');
+      item.genresShortRu = filmGenresRu.join(', ');
+    }
   });
   return data;
 }
+
 // getting full genres names list from local storage
 export function toGetFullGenresList(data) {
   const genres = JSON.parse(localStorage.getItem('genres'));
   data.results.map(item => {
     let filmGenresAll = [];
+    let genresAllRu = [];
+
     genres.find(elem => {
       if (item.genre_ids.includes(elem.id)) {
         filmGenresAll.push(elem.name);
       }
     });
+
+    genresRu.find(elem => {
+      if (item.genre_ids.includes(elem.id)) {
+        genresAllRu.push(elem.name);
+      }
+    });
+
     item.genresAll = filmGenresAll;
+    item.genresAllRu = genresAllRu;
   });
   return data;
+}
+
+translateGenres();
+function translateGenres() {
+  const genres = JSON.parse(localStorage.getItem('genres'));
+  console.log(genres);
 }

@@ -9,6 +9,10 @@ const {
   btnWatchedHeaderEl,
   btnQueueHeaderEl,
   gallery,
+  popularBtnEl,
+  nowPlayingBtnEl,
+  topRatedBtnEl,
+  upcomingBtnEl,
 } = refs;
 
 // listener on languageToggle
@@ -26,13 +30,22 @@ function changeLanduage() {
     btnWatchedHeaderEl.textContent = 'Просмотренные';
     btnQueueHeaderEl.textContent = 'В очереди';
 
-    //   добавить кнопки фильтров, футер???, надпись "trending movies"
+    //   добавить футер???, надпись "trending movies"
+
+    popularBtnEl.textContent = 'Популярные';
+    nowPlayingBtnEl.textContent = 'Сейчас смотрят';
+    topRatedBtnEl.textContent = 'Топ-рейтинг';
+    upcomingBtnEl.textContent = 'Скоро на экране';
   } else {
     buttonHomeEl.textContent = 'Home';
     buttonLibrary.textContent = 'My library';
     inputField.placeholder = 'Movies search';
     btnWatchedHeaderEl.textContent = 'Watched';
     btnQueueHeaderEl.textContent = 'Queue';
+    popularBtnEl.textContent = 'Popular';
+    nowPlayingBtnEl.textContent = 'Now playing';
+    topRatedBtnEl.textContent = 'Top rated';
+    upcomingBtnEl.textContent = 'Upcoming';
   }
 
   // Добавить перевод жанров? тогда в data-converting-functions надо еще записывать

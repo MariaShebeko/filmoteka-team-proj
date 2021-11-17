@@ -38,7 +38,7 @@ export function onLoad() {
 export function appendMoviesMarkup(data) {
   console.dir(languagesToggleEl.checked);
 
-  // console.log(data);
+  console.log(data);
   data.forEach(el => {
     // console.log(el);
     // console.log(Object.keys(el));

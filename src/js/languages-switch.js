@@ -19,7 +19,7 @@ const {
 
 // listener on languageToggle
 languagesToggleEl.addEventListener('change', changeLanduage);
-languagesToggleEl.addEventListener('change', languageeChange);
+// languagesToggleEl.addEventListener('change', languageChange);
 
 function changeLanduage() {
   if (gallery.innerHTML !== '') {
@@ -66,22 +66,22 @@ function changeLanduage() {
 // название atitle не забыть поменять
 
 // Add languages to Local Storage
-const Language = {
-  EN: 'english',
-  RU: 'russian',
-};
+// const Language = {
+//   EN: 'english',
+//   RU: 'russian',
+// };
 
-function languageeChange(event) {
-  const isChecked = event.target.checked;
-  if (isChecked) {
-    localStorage.setItem('language', Language.RU);
-  } else {
-    localStorage.setItem('language', Language.EN);
-  }
-}
-function currentLanguage() {
-  if (localStorage.getItem('language') === Language.RU) {
-    languagesToggleEl.checked = true;
-  }
-}
-currentLanguage();
+// function languageeChange(event) {
+//   const isChecked = event.target.checked;
+//   if (isChecked) {
+//     localStorage.setItem('language', Language.RU);
+//   } else {
+//     localStorage.setItem('language', Language.EN);
+//   }
+// }
+// function currentLanguage() {
+//   if (localStorage.getItem('language') === Language.RU) {
+//     languagesToggleEl.checked = true;
+//   }
+// }
+// currentLanguage();

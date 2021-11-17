@@ -95,7 +95,7 @@ export function changeMyLibraryHeader() {
   buttonLibrary.classList.add('nav-list__link_current');
 }
 
-function onBtnWathedClick() {
+export function onBtnWathedClick() {
   clearContent();
   appendLibraryMarkup(watchedFilms.results);
   btnWatchedHeaderEl.classList.add('active');

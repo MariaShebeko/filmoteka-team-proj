@@ -126,8 +126,12 @@ function fnLibrary() {
   getWatchedFilms();
   getQueue();
   if (refs.gallery.innerHTML === '') {
-    updateLibrary('watched', library, watchedFilms);
-    updateLibrary('queue', library, queuedFilms);
+    if (btnWatchedHeaderEl.classList.contains('active')) {
+      updateLibrary('watched', library, watchedFilms);
+    }
+    if (btnQueueHeaderEl.classList.contains('active')) {
+      updateLibrary('queue', library, queuedFilms);
+    }
   }
   if (refs.library.innerHTML !== '') {
     if (btnWatchedHeaderEl.classList.contains('active')) {
@@ -140,8 +144,8 @@ function fnLibrary() {
   if (refs.gallery.innerHTML !== '') {
     return;
   } else if (refs.library.innerHTML === '') {
-    showEmptyWatched();
-    showEmptyQueue();
+    if (btnWatchedHeaderEl.classList.contains('active')) showEmptyWatched();
+    if (btnQueueHeaderEl.classList.contains('active')) showEmptyQueue();
   }
 }
 

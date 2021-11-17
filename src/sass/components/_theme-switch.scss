@@ -10,12 +10,13 @@ body.dark-theme {
 
 .dark-theme .theme-switch__icon {
   fill: $white;
-  
-  &:last-child{
-    fill: $accent-color
+
+  &:last-child {
+    fill: $accent-color;
   }
 }
 
-.dark-theme .theme-switch__marker {
+.dark-theme .theme-switch__marker,
+.dark-theme .language-switch__marker {
   background-color: $white;
 }

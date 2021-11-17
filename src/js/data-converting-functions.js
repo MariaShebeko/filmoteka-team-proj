@@ -1,10 +1,3 @@
-import newApi from './api-service';
-// import { trendingApiServise } from './markup-home';
-// const trendingApiServise = window.ApiService;
-let russianValues = {};
-
-// import getLanguages from './api-service.js';
-
 export function convertingData(data) {
   toGetYear(data);
   toGetShortGenresList(data);
@@ -15,23 +8,10 @@ export function convertingData(data) {
 
 // setting russian title and overview
 function toSetRussianValues(data) {
-  // console.log(data.results);
   data.results.map(item => {
     let id = item.id;
     getLanguages(id, item);
-
-    // item.russian_title = translations.find(el => el.english_name === 'Russian');
-    // console.log(item.russian_title);
-    // console.log(data);
   });
-
-  // data.results.map(item => {
-  //   item.russian_title = values.title;
-  // });
-  // data.results.map(item => {
-  //   item.russian_overview = values.overview;
-  // });
-  // console.log(data);
   return data;
 }
 

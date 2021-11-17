@@ -27,8 +27,6 @@ const {
   languagesToggleEl,
 } = refs;
 
-// Open modal
-
 function openModalFilm(e) {
   if (!e.target.parentNode.parentNode.classList.contains('movie')) return;
   backdropEl.classList.toggle('is-hidden');
@@ -38,8 +36,6 @@ function openModalFilm(e) {
 }
 
 galleryEl.addEventListener('click', openModalFilm);
-
-// Close modal
 
 function closeModalFilm() {
   backdropEl.classList.toggle('is-hidden');
@@ -62,8 +58,6 @@ function setBackdropListener(e) {
   if (!e.target.classList.contains('backdrop')) return;
   closeModalFilm();
 }
-
-// Markup film
 
 let arrayFilms;
 export let objectFilm;
@@ -92,7 +86,7 @@ function checkFilmId(filmId) {
 function markupFilm(dataFilm) {
   cheсkLocalStorage(dataFilm, 'watched', 'WATCHED', buttonWatchedEl);
   cheсkLocalStorage(dataFilm, 'queue', 'QUEUE', buttonQueueEl);
-  changeModalButtonsLanguage();
+  if (languagesToggleEl.checked) changeModalButtonsLanguage();
   modalFilmImageEl.innerHTML = '';
   modalFilmDescriptionEl.innerHTML = '';
   modalFilmImageEl.insertAdjacentHTML('afterbegin', modalImageTemplate(dataFilm));
@@ -105,29 +99,16 @@ function markupFilm(dataFilm) {
   }
 }
 
-// check languges
-function changeModalButtonsLanguage() {
-  if (languagesToggleEl.checked) {
-    console.log(buttonWatchedEl.textContent);
-    if (buttonWatchedEl.textContent === 'ADD TO WATCHED') {
-      buttonWatchedEl.textContent = 'Добавить в просмотренные';
-    }
-    if (buttonWatchedEl.textContent === 'REMOVE FROM WATCHED') {
-      buttonWatchedEl.textContent = 'Удалить из просмотренных';
-    }
-  }
-  if (languagesToggleEl.checked) {
-    console.log(buttonWatchedEl.textContent);
-    if (buttonQueueEl.textContent === 'ADD TO QUEUE') {
-      buttonQueueEl.textContent = 'Добавить в очередь';
-    }
-    if (buttonQueueEl.textContent === 'REMOVE FROM QUEUE') {
-      buttonQueueEl.textContent = 'Удалить из очереди';
-    }
-  }
+export function changeModalButtonsLanguage() {
+  if (buttonWatchedEl.textContent === 'ADD TO WATCHED')
+    buttonWatchedEl.textContent = 'Добавить в просмотренные';
+  if (buttonWatchedEl.textContent === 'REMOVE FROM WATCHED')
+    buttonWatchedEl.textContent = 'Удалить из просмотренных';
+  if (buttonQueueEl.textContent === 'ADD TO QUEUE')
+    buttonQueueEl.textContent = 'Добавить в очередь';
+  if (buttonQueueEl.textContent === 'REMOVE FROM QUEUE')
+    buttonQueueEl.textContent = 'Удалить из очереди';
 }
-
-// ChekLocal
 
 function cheсkLocalStorage(dataFilm, keyLocal, nameBtn, refEl) {
   if (

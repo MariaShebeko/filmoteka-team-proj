@@ -44,7 +44,7 @@ function getLanguages(id, item) {
     .then(languages => {
       const russianIndex = languages.translations.findIndex(el => el.english_name === 'Russian');
       if (russianIndex !== -1) {
-        item.title_ru = languages.translations[russianIndex].data.title;
+        item.atitle_ru = languages.translations[russianIndex].data.title;
         item.overview_ru = languages.translations[russianIndex].data.overview;
       }
       return languages;

@@ -1,0 +1,90 @@
+.language-switch {
+  position: absolute;
+  top: 21%;
+  right: 3%;
+  display: flex;
+  align-items: center;
+
+  @media screen and (min-width: $min-tablet) {
+    right: 8%;
+  }
+
+  @media screen and (min-width: $min-desktop) {
+    right: 6%;
+  }
+}
+
+.language-switch__icon {
+  fill: $accent-color;
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
+
+  &:last-child {
+    fill: $white;
+  }
+}
+
+.language-switch__control {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  width: 53px;
+  height: 21px;
+  border-radius: 50em;
+  padding: 3px 0;
+}
+
+.language-switch__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.language-switch__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  user-select: none;
+  background-color: $dark-grey;
+  box-shadow: inset -4px 4px 15px rgb(0 0 0 / 40%);
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+
+  transition: background-color $time $cubic;
+}
+
+.language-switch__marker {
+  position: relative;
+  background-color: $accent-color;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition-property: transform;
+  transition-duration: $time;
+  transition-timing-function: $cubic;
+}
+
+.language-switch__toggle:checked + .language-switch__track {
+  background-color: $toggle-bg-color;
+}
+
+.language-switch__toggle:checked ~ .language-switch__marker {
+  transform: translateX(35px);
+}

@@ -1,7 +1,7 @@
 import refs from './refs/refs';
-import { objectFilm } from './modal-film.js';
+import { objectFilm, changeModalButtonsLanguage } from './modal-film.js';
 
-const { modalFilmEl } = refs;
+const { modalFilmEl, languagesToggleEl } = refs;
 
 function addToLibrary(e) {
   if (e.target.dataset.value !== 'watched' && e.target.dataset.value !== 'queue') return;
@@ -38,6 +38,7 @@ function addToFirstArray(e, keyLocal, firstArray) {
   setLocalStorageArray(keyLocal, firstArray);
   if (keyLocal === 'watched') e.target.textContent = 'REMOVE FROM WATCHED';
   if (keyLocal === 'queue') e.target.textContent = 'REMOVE FROM QUEUE';
+  if (languagesToggleEl.checked) changeModalButtonsLanguage();
 }
 
 function addToArray(e, keyLocal) {
@@ -46,6 +47,7 @@ function addToArray(e, keyLocal) {
   setLocalStorageArray(keyLocal, array);
   if (keyLocal === 'watched') e.target.textContent = 'REMOVE FROM WATCHED';
   if (keyLocal === 'queue') e.target.textContent = 'REMOVE FROM QUEUE';
+  if (languagesToggleEl.checked) changeModalButtonsLanguage();
 }
 
 function deleteFromArray(e, keyLocal) {
@@ -57,6 +59,7 @@ function deleteFromArray(e, keyLocal) {
   setLocalStorageArray(keyLocal, array);
   if (keyLocal === 'watched') e.target.textContent = 'ADD TO WATCHED';
   if (keyLocal === 'queue') e.target.textContent = 'ADD TO QUEUE';
+  if (languagesToggleEl.checked) changeModalButtonsLanguage();
 }
 
 function setLocalStorageArray(keyLocal, array) {

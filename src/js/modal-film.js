@@ -122,7 +122,7 @@ function changeModalButtonsLanguage() {
       buttonQueueEl.textContent = 'Добавить в очередь';
     }
     if (buttonQueueEl.textContent === 'REMOVE FROM QUEUE') {
-      buttonQueueEl.textContent = 'Удалить из просмотренных';
+      buttonQueueEl.textContent = 'Удалить из очереди';
     }
   }
 }

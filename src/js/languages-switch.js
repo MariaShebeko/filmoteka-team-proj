@@ -1,5 +1,6 @@
 import refs from './refs/refs.js';
 import { onLoad } from './markup-home.js';
+import { onMyLibraryBtnClick } from './markup-my-library.js';
 
 const {
   languagesToggleEl,
@@ -22,6 +23,10 @@ function changeLanduage() {
   if (gallery.innerHTML !== '') {
     onLoad();
   }
+  if (library.innerHTML !== '') {
+    onMyLibraryBtnClick();
+  }
+
   const sliderTitle = document.getElementById('slider-title');
 
   if (languagesToggleEl.checked) {

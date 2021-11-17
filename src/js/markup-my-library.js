@@ -71,7 +71,7 @@ export function appendLibraryMarkup(data) {
   onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
-function onMyLibraryBtnClick() {
+export function onMyLibraryBtnClick() {
   swithPagination(2);
   clearContent();
   changeMyLibraryHeader();

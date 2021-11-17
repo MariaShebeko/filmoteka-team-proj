@@ -16,11 +16,12 @@ const {
   topRatedBtnEl,
   upcomingBtnEl,
 } = refs;
+
 // listener on languageToggle
 languagesToggleEl.addEventListener('change', changeLanduage);
 
 function changeLanduage() {
-  if (gallery.innerHTML !== '' && gallery.classList.contains('rendered')) {
+  if (gallery.innerHTML !== '') {
     if (!inputField.value) {
       onLoad();
     } else {

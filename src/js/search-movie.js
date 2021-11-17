@@ -50,7 +50,7 @@ function onSearch(event) {
   fetchSearch();
 }
 
-function fetchSearch() {
+export function fetchSearch() {
   showLoader();
   nameOfMovieToSearch
     .fetchSearchMovies()

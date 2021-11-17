@@ -19,15 +19,12 @@ window.pagination.onPageClicked(function (pageNumber) {
 export function onLoad() {
   showLoader();
   trendingApiServise.fetchMovieGenre().then(toSaveGenres);
-  // trendingApiServise.getLanguages()
   trendingApiServise
     .fetchPopularMovies()
     .then(convertingData)
     .then(data => {
-      // console.log(data);
       showLoader();
       clearContent();
-      // console.log(data.results);
       appendMoviesMarkup(data.results);
       window.pagination.draw(data);
     })
@@ -36,15 +33,6 @@ export function onLoad() {
 }
 
 export function appendMoviesMarkup(data) {
-  console.dir(languagesToggleEl.checked);
-
-  console.log(data);
-  data.forEach(el => {
-    // console.log(el);
-    // console.log(Object.keys(el));
-    // console.log(el.atitle_ru);
-  });
-
   if (!languagesToggleEl.checked) gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
   if (languagesToggleEl.checked) {
     setTimeout(() => {

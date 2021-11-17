@@ -145,9 +145,3 @@ export function toGetFullGenresList(data) {
   });
   return data;
 }
-
-translateGenres();
-function translateGenres() {
-  const genres = JSON.parse(localStorage.getItem('genres'));
-  console.log(genres);
-}

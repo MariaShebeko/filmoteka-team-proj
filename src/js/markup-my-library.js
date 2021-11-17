@@ -60,7 +60,6 @@ getWatchedFilms();
 getQueue();
 
 export function appendLibraryMarkup(data) {
-  console.log(data);
   if (!languagesToggleEl.checked) library.insertAdjacentHTML('afterbegin', movieTemplate(data));
   if (languagesToggleEl.checked) {
     setTimeout(() => {

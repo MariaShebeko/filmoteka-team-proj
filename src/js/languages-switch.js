@@ -1,6 +1,7 @@
 import refs from './refs/refs.js';
 import { onLoad } from './markup-home.js';
 import { onMyLibraryBtnClick } from './markup-my-library.js';
+import { fetchSearch } from './search-movie.js';
 
 const {
   languagesToggleEl,
@@ -21,7 +22,11 @@ languagesToggleEl.addEventListener('change', changeLanduage);
 
 function changeLanduage() {
   if (gallery.innerHTML !== '') {
-    onLoad();
+    if (!inputField.value) {
+      onLoad();
+    } else {
+      fetchSearch();
+    }
   }
   if (library.innerHTML !== '') {
     onMyLibraryBtnClick();
@@ -53,14 +58,8 @@ function changeLanduage() {
     upcomingBtnEl.textContent = 'Upcoming';
     sliderTitle.textContent = 'Trending movies';
   }
-  // Добавить перевод жанров? тогда в data-converting-functions надо еще записывать +
-  //   списки жанров на русском, и внести их в film - card - template - russian.hbs +
 }
-// сделать еще один шаблон для модалки (setTimeout по идее не надо будет) +
-// в LocalStorage они попадают уже с нужными данными, добавить отрисовку библиотеки по переключателю +
-// добавить отрисовку поиска по переключателю (скорее всего надо будет setTimeout) +
 
-// в библиотеке (перевод не найден), почему
 // Кнопки модалки, при открытии меняются, добавить еще замену контента при переключении!!!
 // привести переключтель в норм вид (сделала файл в sass) !!!
-// название atitle не забыть поменять !!!
+// название atitle не забыть поменять

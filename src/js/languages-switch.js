@@ -15,6 +15,7 @@ const {
   nowPlayingBtnEl,
   topRatedBtnEl,
   upcomingBtnEl,
+  emptyTextEl,
 } = refs;
 
 // listener on languageToggle
@@ -46,7 +47,7 @@ function changeLanduage() {
     topRatedBtnEl.textContent = 'Топ-рейтинг';
     upcomingBtnEl.textContent = 'Скоро на экране';
     sliderTitle.textContent = 'В тренде';
-    //   добавить футер???
+    emptyTextEl.textContent = 'Этот список пуст';
   } else {
     buttonHomeEl.textContent = 'Home';
     buttonLibrary.textContent = 'My library';
@@ -58,6 +59,7 @@ function changeLanduage() {
     topRatedBtnEl.textContent = 'Top rated';
     upcomingBtnEl.textContent = 'Upcoming';
     sliderTitle.textContent = 'Trending movies';
+    emptyTextEl.textContent = 'This list is empty';
   }
 }
 

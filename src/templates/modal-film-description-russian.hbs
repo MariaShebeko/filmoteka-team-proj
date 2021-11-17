@@ -1,0 +1,54 @@
+<h2 class='modal-film__title'>
+  {{#if this.title_ru}}
+    {{this.title_ru}}'
+  {{else}}
+    {{this.title}}
+    (Перевод не найден)
+  {{/if}}
+</h2>
+<table class='modal-film__table'>
+  <tr class='modal-film__table-tr'>
+    <td class='modal-film__table-td modal-film__table-td--theme'>
+      Голосование
+    </td>
+    <td class='modal-film__table-td'>
+      <span class='modal-film__table-td--mod'>
+        {{this.vote_average}}
+      </span>
+      &nbsp/
+      {{this.vote_count}}
+    </td>
+  </tr>
+  <tr class='modal-film__table-tr'>
+    <td class='modal-film__table-td modal-film__table-td--theme'>
+      Попудярность
+    </td>
+    <td class='modal-film__table-td'>
+      {{this.popularity}}
+    </td>
+  </tr>
+  <tr class='modal-film__table-tr'>
+    <td class='modal-film__table-td modal-film__table-td--theme'>
+      Оригинальное название
+    </td>
+    <td class='modal-film__table-td'>
+      {{this.original_title}}
+    </td>
+  </tr>
+  <tr class='modal-film__table-tr'>
+    <td class='modal-film__table-td modal-film__table-td--theme'>
+      Жанры
+    </td>
+    <td class='modal-film__table-td'>
+      {{#each this.genresAllRu}}
+        {{this}}
+      {{/each}}
+    </td>
+  </tr>
+</table>
+<h3 class='modal-film__subtitle'>
+  Описание
+</h3>
+<p class='modal-film__text'>
+  {{overview_ru}}
+</p>

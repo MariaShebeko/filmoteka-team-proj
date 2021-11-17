@@ -42,29 +42,14 @@ function getLanguages(id, item) {
   return fetch(url)
     .then(response => response.json())
     .then(languages => {
-      // console.log(languages.translations);
       const russianIndex = languages.translations.findIndex(el => el.english_name === 'Russian');
       if (russianIndex !== -1) {
-        // console.log(languages.translations[russianIndex].data.title);
-        // console.log(languages.translations[russianIndex].data.overview);
-        item.atitle_ru = languages.translations[russianIndex].data.title;
+        item.title_ru = languages.translations[russianIndex].data.title;
         item.overview_ru = languages.translations[russianIndex].data.overview;
       }
-
-      // item.russian_title = languages.translations.find(el => el.english_name === 'Russian');
       return languages;
     });
 }
-
-// getLanguages()
-//   .then(languages => {
-//     return languages.translations.find(el => el.english_name === 'Russian');
-//   })
-//   .then(el => {
-//     russianValues = el.data;
-
-//     return russianValues;
-//   });
 
 // transforming full date in year in results
 export function toGetYear(data) {

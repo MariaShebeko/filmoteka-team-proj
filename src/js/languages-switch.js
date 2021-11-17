@@ -29,13 +29,11 @@ function changeLanduage() {
     inputField.placeholder = 'Поиск фильмов';
     btnWatchedHeaderEl.textContent = 'Просмотренные';
     btnQueueHeaderEl.textContent = 'В очереди';
-
-    //   добавить футер???, надпись "trending movies"
-
     popularBtnEl.textContent = 'Популярные';
     nowPlayingBtnEl.textContent = 'Сейчас смотрят';
     topRatedBtnEl.textContent = 'Топ-рейтинг';
     upcomingBtnEl.textContent = 'Скоро на экране';
+    //   добавить футер???, надпись "trending movies"
   } else {
     buttonHomeEl.textContent = 'Home';
     buttonLibrary.textContent = 'My library';
@@ -47,17 +45,13 @@ function changeLanduage() {
     topRatedBtnEl.textContent = 'Top rated';
     upcomingBtnEl.textContent = 'Upcoming';
   }
-
-  // Добавить перевод жанров? тогда в data-converting-functions надо еще записывать
-  //   списки жанров на русском, и внести их в film - card - template - russian.hbs
+  // Добавить перевод жанров? тогда в data-converting-functions надо еще записывать +
+  //   списки жанров на русском, и внести их в film - card - template - russian.hbs +
 }
+// сделать еще один шаблон для модалки (setTimeout по идее не надо будет) +
+// в LocalStorage они попадают уже с нужными данными, добавить отрисовку библиотеки по переключателю +
+// добавить отрисовку поиска по переключателю (скорее всего надо будет setTimeout) +
 
-// сделать еще один шаблон для модалки (setTimeout по идее не надо будет)
-
-// название atitle не забыть поменять
-
-// в LocalStorage они попадают уже с нужными данными, добавить отрисовку библиотеки по переключателю
-
-// добавить отрисовку поиска по переключателю (скорее всего надо будет setTimeout)
-
-// привести переключтель в норм вид (сделала файл в sass)
+// Кнопки модалки, при открытии меняются, добавить еще замену контента при переключении!!!
+// привести переключтель в норм вид (сделала файл в sass) !!!
+// название atitle не забыть поменять !!!

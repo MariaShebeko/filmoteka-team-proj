@@ -1,0 +1,39 @@
+{{#each this}}
+  <li class='gallery-item'>
+
+        <button class="btn-youtube" data-id="{{this.id}}">
+           <span class="btn-youtube__overlay" data-id="{{this.id}}">
+              <span class="btn-youtube__title-trailer" data-id="{{this.id}}">Trailer</span>
+           </span>
+        </button>
+
+  <div class='movie' id='{{this.id}}'>
+    <div class="movie__thumb">
+      <img
+        {{#if this.poster_path}}
+          src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
+        {{else}}
+           src='https://image.tmdb.org/t/p/w500/{{this.backdrop_path}}'
+        {{/if}}
+        onerror="this.onerror=null;this.src='https://image.shutterstock.com/shutterstock/photos/325494917/display_1500/stock-vector-page-with-a-error-in-the-popular-linear-style-template-reports-that-the-page-is-not-found-325494917.jpg';"
+        alt='{{this.original_title}}'
+        id={{this.id}}
+        loading="lazy"
+        class='movie__image'
+        data-source=''/>
+      <span class="movie__vote-average">{{vote_average}}</span>
+    </div>
+      <div class='movie__description'>
+        <p class='movie__name'>
+        {{#if this.atitle_ru}}
+          {{this.atitle_ru}}'
+        {{else}}
+          {{this.title}} (Перевод не найден)
+        {{/if}}
+        </p>
+        <p class='movie__genres'>{{this.genresShortRu}}</p>
+        <p class='movie__release'> | {{this.release_year}}
+      </div>
+    </div>
+  </li>
+{{/each}}

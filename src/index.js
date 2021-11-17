@@ -28,3 +28,5 @@ import './js/loader.js';
 import './js/filter.js';
 
 import './js/components/animation.js';
+
+import './js/languages-switch.js';

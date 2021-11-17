@@ -1,11 +1,12 @@
 import movieTemplate from '../templates/film-card-template.hbs';
+import movieTemplateRu from '../templates/film-card-template-russian.hbs';
 import { myNotice, myError, myAlert } from './components/pnotify';
 import refs from './refs/refs';
 import { getFilm } from './modal-film.js';
 import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 import { onCreateTrailerLink } from './trailer.js';
-const { inputField, formEl, filterWrapperEl, gallery } = refs;
+const { inputField, formEl, filterWrapperEl, gallery, languagesToggleEl } = refs;
 const nameOfMovieToSearch = window.ApiService;
 
 function init() {
@@ -49,7 +50,7 @@ function onSearch(event) {
   fetchSearch();
 }
 
-function fetchSearch() {
+export function fetchSearch() {
   showLoader();
   nameOfMovieToSearch
     .fetchSearchMovies()
@@ -70,7 +71,16 @@ function fetchSearch() {
 
 function renderMakrup(data) {
   filterWrapperEl.style.display = 'none';
-  gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
+
+  // gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
+
+  if (!languagesToggleEl.checked)
+    gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
+  if (languagesToggleEl.checked) {
+    setTimeout(() => {
+      gallery.insertAdjacentHTML('beforeend', movieTemplateRu(data.results));
+    }, 200);
+  }
   getFilm(data.results);
   onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }

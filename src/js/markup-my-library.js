@@ -1,5 +1,6 @@
 import refs from './refs/refs';
 import movieTemplate from '../templates/film-card-template.hbs';
+import movieTemplateRu from '../templates/film-card-template-russian.hbs';
 import CustomPagination from './components/pagination.js';
 import MyLibraryApi from './components/my-lib-api.js';
 import { swithPagination } from './components/pagination.js';
@@ -20,6 +21,7 @@ const {
   formEl,
   buttonHomeEl,
   emptyTextEl,
+  languagesToggleEl,
 } = refs;
 
 const libraryApi = new MyLibraryApi();
@@ -58,12 +60,17 @@ getWatchedFilms();
 getQueue();
 
 export function appendLibraryMarkup(data) {
-  library.insertAdjacentHTML('afterbegin', movieTemplate(data));
+  if (!languagesToggleEl.checked) library.insertAdjacentHTML('afterbegin', movieTemplate(data));
+  if (languagesToggleEl.checked) {
+    setTimeout(() => {
+      library.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
+    }, 200);
+  }
 
   onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
-function onMyLibraryBtnClick() {
+export function onMyLibraryBtnClick() {
   swithPagination(2);
   clearContent();
   changeMyLibraryHeader();

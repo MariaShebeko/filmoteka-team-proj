@@ -1,6 +1,7 @@
 import refs from './refs/refs';
 import modalImageTemplate from '../templates/modal-film-image.hbs';
 import modalDescriptionTemplate from '../templates/modal-film-description.hbs';
+import modalDescriptionTemplateRu from '../templates/modal-film-description-russian.hbs';
 import {
   getWatchedFilms,
   getQueue,
@@ -23,6 +24,7 @@ const {
   library,
   btnWatchedHeaderEl,
   btnQueueHeaderEl,
+  languagesToggleEl,
 } = refs;
 
 // Open modal
@@ -90,10 +92,39 @@ function checkFilmId(filmId) {
 function markupFilm(dataFilm) {
   cheсkLocalStorage(dataFilm, 'watched', 'WATCHED', buttonWatchedEl);
   cheсkLocalStorage(dataFilm, 'queue', 'QUEUE', buttonQueueEl);
+  changeModalButtonsLanguage();
   modalFilmImageEl.innerHTML = '';
   modalFilmDescriptionEl.innerHTML = '';
   modalFilmImageEl.insertAdjacentHTML('afterbegin', modalImageTemplate(dataFilm));
-  modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', modalDescriptionTemplate(dataFilm));
+  if (!languagesToggleEl.checked)
+    modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', modalDescriptionTemplate(dataFilm));
+  if (languagesToggleEl.checked) {
+    setTimeout(() => {
+      modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', modalDescriptionTemplateRu(dataFilm));
+    }, 200);
+  }
+}
+
+// check languges
+function changeModalButtonsLanguage() {
+  if (languagesToggleEl.checked) {
+    console.log(buttonWatchedEl.textContent);
+    if (buttonWatchedEl.textContent === 'ADD TO WATCHED') {
+      buttonWatchedEl.textContent = 'Добавить в просмотренные';
+    }
+    if (buttonWatchedEl.textContent === 'REMOVE FROM WATCHED') {
+      buttonWatchedEl.textContent = 'Удалить из просмотренных';
+    }
+  }
+  if (languagesToggleEl.checked) {
+    console.log(buttonWatchedEl.textContent);
+    if (buttonQueueEl.textContent === 'ADD TO QUEUE') {
+      buttonQueueEl.textContent = 'Добавить в очередь';
+    }
+    if (buttonQueueEl.textContent === 'REMOVE FROM QUEUE') {
+      buttonQueueEl.textContent = 'Удалить из очереди';
+    }
+  }
 }
 
 // ChekLocal

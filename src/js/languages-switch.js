@@ -22,6 +22,7 @@ function changeLanduage() {
   if (gallery.innerHTML !== '') {
     onLoad();
   }
+  const sliderTitle = document.getElementById('slider-title');
 
   if (languagesToggleEl.checked) {
     buttonHomeEl.textContent = 'Домой';
@@ -33,7 +34,8 @@ function changeLanduage() {
     nowPlayingBtnEl.textContent = 'Сейчас смотрят';
     topRatedBtnEl.textContent = 'Топ-рейтинг';
     upcomingBtnEl.textContent = 'Скоро на экране';
-    //   добавить футер???, надпись "trending movies"
+    sliderTitle.textContent = 'В тренде';
+    //   добавить футер???
   } else {
     buttonHomeEl.textContent = 'Home';
     buttonLibrary.textContent = 'My library';
@@ -44,6 +46,7 @@ function changeLanduage() {
     nowPlayingBtnEl.textContent = 'Now playing';
     topRatedBtnEl.textContent = 'Top rated';
     upcomingBtnEl.textContent = 'Upcoming';
+    sliderTitle.textContent = 'Trending movies';
   }
   // Добавить перевод жанров? тогда в data-converting-functions надо еще записывать +
   //   списки жанров на русском, и внести их в film - card - template - russian.hbs +

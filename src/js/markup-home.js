@@ -7,8 +7,15 @@ import { showLoader } from './loader.js';
 import { onCreateTrailerLink } from './trailer.js';
 import { onChangeActiveFilterBtn } from './filter.js';
 export const trendingApiServise = window.ApiService;
-const { popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl, gallery, languagesToggleEl } =
-  refs;
+const {
+  popularBtnEl,
+  nowPlayingBtnEl,
+  topRatedBtnEl,
+  upcomingBtnEl,
+  gallery,
+  languagesToggleEl,
+  buttonHomeEl,
+} = refs;
 onLoad();
 
 window.pagination.onPageClicked(function (pageNumber) {
@@ -39,6 +46,7 @@ export function appendMoviesMarkup(data) {
       gallery.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
     }, 200);
   }
+  gallery.classList.add('rendered');
   getFilm(data);
   onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }

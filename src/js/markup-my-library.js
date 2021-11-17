@@ -5,6 +5,7 @@ import CustomPagination from './components/pagination.js';
 import MyLibraryApi from './components/my-lib-api.js';
 import { swithPagination } from './components/pagination.js';
 import { onCreateTrailerLink } from './trailer.js';
+import { onLoad } from './markup-home.js';
 
 const {
   paginationLibEl,
@@ -47,6 +48,7 @@ export let queuedFilms = [];
 buttonLibrary.addEventListener('click', onMyLibraryBtnClick);
 btnWatchedHeaderEl.addEventListener('click', onBtnWathedClick);
 btnQueueHeaderEl.addEventListener('click', onBtnQueueClick);
+buttonHomeEl.addEventListener('click', onbuttonHomeClick);
 
 export function getWatchedFilms() {
   return (watchedFilms = libraryApi.getWatchedFilms());
@@ -95,6 +97,14 @@ export function changeMyLibraryHeader() {
   buttonLibrary.classList.add('nav-list__link_current');
 }
 
+function changeIntoHomeHeader() {
+  headerEl.classList.replace('header-library', 'header-home');
+  libraryBtnListEl.classList.add('visually-hidden');
+  formEl.classList.remove('visually-hidden');
+  buttonHomeEl.classList.add('nav-list__link_current');
+  buttonLibrary.classList.remove('nav-list__link_current');
+}
+
 function onBtnWathedClick() {
   clearContent();
   appendLibraryMarkup(watchedFilms.results);
@@ -111,6 +121,11 @@ function onBtnQueueClick() {
   btnQueueHeaderEl.classList.add('active');
   showEmptyQueue();
   pagination.draw(queuedFilms);
+}
+
+function onbuttonHomeClick() {
+  changeIntoHomeHeader();
+  onLoad();
 }
 
 export function showEmptyWatched() {

@@ -37,7 +37,9 @@ export function onLoad() {
 
 export function appendMoviesMarkup(data) {
   if (languagesToggleEl.checked) {
-    library.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
+    setTimeout(() => {
+      library.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
+    }, 1000);
     onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
   } else if (!languagesToggleEl.checked) {
     library.insertAdjacentHTML('afterbegin', movieTemplate(data));

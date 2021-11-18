@@ -39,11 +39,9 @@ export function appendMoviesMarkup(data) {
   if (languagesToggleEl.checked) {
     library.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
     onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
-    return;
   } else if (!languagesToggleEl.checked) {
     library.insertAdjacentHTML('afterbegin', movieTemplate(data));
     onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
-    return;
   }
   getFilm(data);
 }

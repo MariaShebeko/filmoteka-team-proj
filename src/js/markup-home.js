@@ -36,14 +36,18 @@ export function onLoad() {
 }
 
 export function appendMoviesMarkup(data) {
-  if (!languagesToggleEl.checked) gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
+  if (!languagesToggleEl.checked) {
+    gallery.insertAdjacentHTML('afterbegin', movieTemplate(data));
+    onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+  }
   if (languagesToggleEl.checked) {
     setTimeout(() => {
       gallery.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
-    }, 200);
+      onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+    }, 1000);
   }
   getFilm(data);
-  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+  // onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 export function clearContent() {

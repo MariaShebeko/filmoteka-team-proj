@@ -60,14 +60,18 @@ getWatchedFilms();
 getQueue();
 
 export function appendLibraryMarkup(data) {
-  if (!languagesToggleEl.checked) library.insertAdjacentHTML('afterbegin', movieTemplate(data));
+  if (!languagesToggleEl.checked) {
+    library.insertAdjacentHTML('afterbegin', movieTemplate(data));
+    onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+  }
   if (languagesToggleEl.checked) {
-    setTimeout(() => {
-      library.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
-    }, 200);
+    // setTimeout(() => {
+    library.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
+    onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+    // }, 500);
   }
 
-  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+  // onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 export function onMyLibraryBtnClick() {

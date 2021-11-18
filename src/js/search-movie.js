@@ -76,10 +76,12 @@ function renderMakrup(data) {
 
   if (languagesToggleEl.checked) {
     gallery.insertAdjacentHTML('beforeend', movieTemplateRu(data.results));
+    onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+  } else if (!languagesToggleEl.checked) {
+    gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
+    onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
   }
-  gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
   getFilm(data.results);
-  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 function clearContent() {

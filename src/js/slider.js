@@ -26,6 +26,10 @@ async function onSliderLoad() {
 
 function onAppendSliderMarkup(results) {
   sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
+  const sliderTitle = document.getElementById('slider-title');
+  if (localStorage.getItem('language') === 'russian') {
+    sliderTitle.textContent = 'В тренде';
+  }
 
   onCreateTrailerLink(document.querySelectorAll('.slider__btn-youtube'));
 }

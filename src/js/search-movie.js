@@ -74,13 +74,10 @@ function renderMakrup(data) {
 
   // gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
 
-  if (!languagesToggleEl.checked)
-    gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
   if (languagesToggleEl.checked) {
-    setTimeout(() => {
-      gallery.insertAdjacentHTML('beforeend', movieTemplateRu(data.results));
-    }, 200);
+    gallery.insertAdjacentHTML('beforeend', movieTemplateRu(data.results));
   }
+  gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
   getFilm(data.results);
   onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }

@@ -90,12 +90,11 @@ function markupFilm(dataFilm) {
   modalFilmImageEl.innerHTML = '';
   modalFilmDescriptionEl.innerHTML = '';
   modalFilmImageEl.insertAdjacentHTML('afterbegin', modalImageTemplate(dataFilm));
-  if (!languagesToggleEl.checked)
-    modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', modalDescriptionTemplate(dataFilm));
+
   if (languagesToggleEl.checked) {
-    setTimeout(() => {
-      modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', modalDescriptionTemplateRu(dataFilm));
-    }, 200);
+    modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', modalDescriptionTemplateRu(dataFilm));
+  } else if (!languagesToggleEl.checked) {
+    modalFilmDescriptionEl.insertAdjacentHTML('afterbegin', modalDescriptionTemplate(dataFilm));
   }
 }
 

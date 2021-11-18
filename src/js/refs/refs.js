@@ -37,4 +37,5 @@ export default {
   footerBackdropEl: document.querySelector('#footer-backdrop'),
   buttonUpEl: document.querySelector('[data-button-up]'),
   languagesToggleEl: document.querySelector('.language__toggle'),
+  sliderTitleEl: document.getElementById('slider-title'),
 };

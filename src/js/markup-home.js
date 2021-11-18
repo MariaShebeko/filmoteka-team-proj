@@ -6,6 +6,7 @@ import { convertingData } from './data-converting-functions.js';
 import { showLoader } from './loader.js';
 import { onCreateTrailerLink } from './trailer.js';
 import { onChangeActiveFilterBtn } from './filter.js';
+import { currentLanguage, changeContent } from './languages-switch.js';
 export const trendingApiServise = window.ApiService;
 const { popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl, gallery, languagesToggleEl } =
   refs;
@@ -25,8 +26,10 @@ export function onLoad() {
     .then(data => {
       showLoader();
       clearContent();
+      currentLanguage();
       appendMoviesMarkup(data.results);
       window.pagination.draw(data);
+      changeContent();
     })
     .catch(error => console.log(error));
   onChangeActiveFilterBtn(popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl);

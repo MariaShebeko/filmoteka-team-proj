@@ -74,8 +74,18 @@ export function onMyLibraryBtnClick() {
   swithPagination(2);
   clearContent();
   changeMyLibraryHeader();
-  btnWatchedHeaderEl.classList.add('active');
-  onBtnWathedClick();
+  if (
+    !btnWatchedHeaderEl.classList.contains('active') &&
+    !btnQueueHeaderEl.classList.contains('active')
+  ) {
+    btnWatchedHeaderEl.classList.add('active');
+  }
+  if (btnWatchedHeaderEl.classList.contains('active')) {
+    onBtnWathedClick();
+  }
+  if (btnQueueHeaderEl.classList.contains('active')) {
+    onBtnQueueClick();
+  }
   showEmptyWatched();
 }
 
@@ -104,7 +114,7 @@ export function onBtnWathedClick() {
   pagination.draw(watchedFilms);
 }
 
-function onBtnQueueClick() {
+export function onBtnQueueClick() {
   clearContent();
   appendLibraryMarkup(queuedFilms.results);
   btnWatchedHeaderEl.classList.remove('active');

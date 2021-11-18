@@ -195,3 +195,10 @@ header .button--mod {
   color: $white;
   border: 1px solid $white;
 }
+
+header .button-list__item {
+  width: 125px;
+  @media screen and (min-width: $min-desktop) {
+    width: 136px;
+  }
+}

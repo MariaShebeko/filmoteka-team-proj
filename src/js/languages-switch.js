@@ -57,7 +57,7 @@ export function currentLanguage() {
 
 export function changeContent() {
   if (languagesToggleEl.checked) {
-    buttonHomeEl.textContent = 'Домой';
+    buttonHomeEl.textContent = 'Главная';
     buttonLibrary.textContent = 'Библиотека';
     inputField.placeholder = 'Поиск фильмов';
     btnWatchedHeaderEl.textContent = 'Просмотренные';

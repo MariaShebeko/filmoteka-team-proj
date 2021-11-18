@@ -75,7 +75,9 @@ function renderMakrup(data) {
   // gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
 
   if (languagesToggleEl.checked) {
-    gallery.insertAdjacentHTML('beforeend', movieTemplateRu(data.results));
+    setTimeout(() => {
+      gallery.insertAdjacentHTML('beforeend', movieTemplateRu(data.results));
+    }, 1000);
     onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
   } else if (!languagesToggleEl.checked) {
     gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));

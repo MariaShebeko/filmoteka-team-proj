@@ -12,42 +12,56 @@ $cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .animate-ul li {
   list-style: none;
-  animation: ani 1.2s linear infinite;
+  animation: ani 900ms linear infinite;
 }
 .animate-ul li:nth-child(1) {
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
 }
 .animate-ul li:nth-child(2) {
-  animation-delay: 0.6s;
+  animation-delay: 0.2s;
 }
 .animate-ul li:nth-child(3) {
-  animation-delay: 0.8s;
+  animation-delay: 0.3s;
 }
 .animate-ul li:nth-child(4) {
-  animation-delay: 1s;
+  animation-delay: 0.4s;
 }
 .animate-ul li:nth-child(5) {
-  animation-delay: 1.4s;
+  animation-delay: 0.5s;
 }
 .animate-ul li:nth-child(6) {
-  animation-delay: 1.8s;
+  animation-delay: 0.6s;
 }
 .animate-ul li:nth-child(7) {
-  animation-delay: 1.12s;
+  animation-delay: 0.7s;
+}
+.animate-ul li:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.animate-ul li:nth-child(9) {
+  animation-delay: 0.9s;
 }
 @keyframes ani {
   0% {
-    color: $accent-color;
+    color: #fba400;
     text-shadow: none;
   }
-  45% {
-    color: $white;
+
+  25% {
+    color: #fd9700;
     text-shadow: none;
   }
-  45% {
-    color: $yellow;
+
+  50% {
+    color: #fe8900;
     text-shadow: none;
   }
+
+  75% {
+    color: #ff7a00;
+    text-shadow: none;
+  }
+
   100% {
     color: $accent-color;
     text-shadow: 0 0 7px $text-color, 0 0 70px $text-color;

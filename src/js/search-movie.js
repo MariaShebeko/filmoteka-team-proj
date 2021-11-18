@@ -84,7 +84,6 @@ function renderMakrup(data) {
     }, 1000);
   }
   getFilm(data.results);
-  // onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 function clearContent() {

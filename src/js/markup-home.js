@@ -47,7 +47,6 @@ export function appendMoviesMarkup(data) {
     }, 1000);
   }
   getFilm(data);
-  // onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 export function clearContent() {

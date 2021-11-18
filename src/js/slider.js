@@ -25,7 +25,7 @@ async function onSliderLoad() {
 }
 
 function onAppendSliderMarkup(results) {
-  sliderEl.insertAdjacentHTML('afterbegin', filmCardsTemplate(results));
+  sliderEl.insertAdjacentHTML('beforeend', filmCardsTemplate(results));
   const sliderTitle = document.getElementById('slider-title');
   if (localStorage.getItem('language') === 'russian') {
     sliderTitle.textContent = 'В тренде';

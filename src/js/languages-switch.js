@@ -36,16 +36,6 @@ function changeLanguage() {
   changeContent();
 }
 
-// Кнопки модалки, при открытии меняются, добавить еще замену контента при переключении!!!
-// привести переключтель в норм вид (сделала файл в sass) !!!
-// название atitle не забыть поменять
-
-// Add languages to Local Storage
-// const Language = {
-//   EN: 'english',
-//   RU: 'russian',
-// };
-
 function setLanguageInLocalStorage() {
   if (languagesToggleEl.checked) {
     localStorage.setItem('language', 'russian');

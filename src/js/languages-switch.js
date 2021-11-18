@@ -1,6 +1,6 @@
 import refs from './refs/refs.js';
 import { onLoad } from './markup-home.js';
-import { onMyLibraryBtnClick, onBtnWathedClick, onBtnQueueClick } from './markup-my-library.js';
+import { onBtnWathedClick, onBtnQueueClick } from './markup-my-library.js';
 import { fetchSearch } from './search-movie.js';
 
 const {
@@ -16,6 +16,7 @@ const {
   topRatedBtnEl,
   upcomingBtnEl,
   emptyTextEl,
+  sliderTitleEl,
 } = refs;
 
 // listener on languageToggle
@@ -67,6 +68,7 @@ export function changeContent() {
     topRatedBtnEl.textContent = 'Топ-рейтинг';
     upcomingBtnEl.textContent = 'Скоро на экране';
     emptyTextEl.textContent = 'Этот список пуст';
+    sliderTitleEl.textContent = 'В тренде';
   } else {
     buttonHomeEl.textContent = 'Home';
     buttonLibrary.textContent = 'My library';
@@ -78,14 +80,6 @@ export function changeContent() {
     topRatedBtnEl.textContent = 'Top rated';
     upcomingBtnEl.textContent = 'Upcoming';
     emptyTextEl.textContent = 'This list is empty';
+    sliderTitleEl.textContent = 'Trending movies';
   }
-
-  setTimeout(() => {
-    const sliderTitle = document.getElementById('slider-title');
-    if (languagesToggleEl.checked) {
-      sliderTitle.textContent = 'В тренде';
-    } else {
-      sliderTitle.textContent = 'Trending movies';
-    }
-  }, 200);
 }

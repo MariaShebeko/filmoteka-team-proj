@@ -86,7 +86,6 @@ export function onMyLibraryBtnClick() {
   if (btnQueueHeaderEl.classList.contains('active')) {
     onBtnQueueClick();
   }
-
   showEmptyWatched();
 }
 
@@ -115,7 +114,7 @@ export function onBtnWathedClick() {
   pagination.draw(watchedFilms);
 }
 
-function onBtnQueueClick() {
+export function onBtnQueueClick() {
   clearContent();
   appendLibraryMarkup(queuedFilms.results);
   btnWatchedHeaderEl.classList.remove('active');

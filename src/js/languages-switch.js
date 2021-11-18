@@ -1,6 +1,6 @@
 import refs from './refs/refs.js';
 import { onLoad } from './markup-home.js';
-import { onMyLibraryBtnClick } from './markup-my-library.js';
+import { onMyLibraryBtnClick, onBtnWathedClick, onBtnQueueClick } from './markup-my-library.js';
 import { fetchSearch } from './search-movie.js';
 
 const {
@@ -31,7 +31,12 @@ function changeLanguage() {
     }
   }
   if (library.innerHTML !== '') {
-    onMyLibraryBtnClick();
+    if (btnWatchedHeaderEl.classList.contains('active')) {
+      onBtnWathedClick();
+    }
+    if (btnQueueHeaderEl.classList.contains('active')) {
+      onBtnQueueClick();
+    }
   }
   changeContent();
 }
@@ -51,7 +56,6 @@ export function currentLanguage() {
 }
 
 export function changeContent() {
-  const sliderTitle = document.getElementById('slider-title');
   if (languagesToggleEl.checked) {
     buttonHomeEl.textContent = 'Домой';
     buttonLibrary.textContent = 'Библиотека';
@@ -62,7 +66,6 @@ export function changeContent() {
     nowPlayingBtnEl.textContent = 'Сейчас смотрят';
     topRatedBtnEl.textContent = 'Топ-рейтинг';
     upcomingBtnEl.textContent = 'Скоро на экране';
-    sliderTitle.textContent = 'В тренде';
     emptyTextEl.textContent = 'Этот список пуст';
   } else {
     buttonHomeEl.textContent = 'Home';
@@ -74,7 +77,15 @@ export function changeContent() {
     nowPlayingBtnEl.textContent = 'Now playing';
     topRatedBtnEl.textContent = 'Top rated';
     upcomingBtnEl.textContent = 'Upcoming';
-    sliderTitle.textContent = 'Trending movies';
     emptyTextEl.textContent = 'This list is empty';
   }
+
+  setTimeout(() => {
+    const sliderTitle = document.getElementById('slider-title');
+    if (languagesToggleEl.checked) {
+      sliderTitle.textContent = 'В тренде';
+    } else {
+      sliderTitle.textContent = 'Trending movies';
+    }
+  }, 200);
 }

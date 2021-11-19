@@ -76,13 +76,14 @@ function renderMakrup(data) {
 
   if (!languagesToggleEl.checked)
     gallery.insertAdjacentHTML('beforeend', movieTemplate(data.results));
+  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
   if (languagesToggleEl.checked) {
     setTimeout(() => {
       gallery.insertAdjacentHTML('beforeend', movieTemplateRu(data.results));
-    }, 200);
+      onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+    }, 1000);
   }
   getFilm(data.results);
-  onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
 }
 
 function clearContent() {

@@ -5,8 +5,8 @@
   margin-right: auto;
   padding-top: 48px;
   padding-bottom: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: $white;
 
   @media screen and (min-width: $min-tablet) {
@@ -118,12 +118,8 @@
 }
 
 .button-list__item {
-  width: 113px;
-  height: 44px;
-  &:not(:last-of-type) {
-    //для форматирования положения кнопок my library
-    margin-right: 15px;
-  }
+  width: 124px;
+  height: 45px;
 
   &:not(:last-child) {
     margin-right: 15px;

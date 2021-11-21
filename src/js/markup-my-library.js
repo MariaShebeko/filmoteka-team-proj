@@ -65,10 +65,10 @@ export function appendLibraryMarkup(data) {
     onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
   }
   if (languagesToggleEl.checked) {
-    setTimeout(() => {
-      library.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
-      onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
-    }, 500);
+    // setTimeout(() => {
+    library.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
+    onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+    // }, 500);
   }
 }
 

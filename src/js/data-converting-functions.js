@@ -20,36 +20,48 @@ const genresRu = [
   { id: 37, name: 'Вестерн' },
 ];
 
-export function convertingData(data) {
+export async function convertingData(data) {
   toGetYear(data);
   toGetShortGenresList(data);
   toGetFullGenresList(data);
-  toSetRussianValues(data);
+  await toSetRussianValues(data).then(resolve => resolve);
   return data;
 }
 
 // setting russian title and overview
 function toSetRussianValues(data) {
-  data.results.map(item => {
-    let id = item.id;
-    getLanguages(id, item);
+  return new Promise(resolve => {
+    resolve(
+      getLanguages(data).then(language => {
+        for (let el = 0, em = 0; el < language.length, em < data.results.length; el += 1, em += 1) {
+          const russianIndex = language[el].translations.findIndex(
+            el => el.english_name === 'Russian',
+          );
+          if (russianIndex !== -1) {
+            data.results[em].atitle_ru = language[el].translations[russianIndex].data.title;
+            data.results[em].overview_ru = language[el].translations[russianIndex].data.overview;
+          }
+        }
+      }),
+    );
   });
-  return data;
 }
 
-function getLanguages(id, item) {
-  const url = `https://api.themoviedb.org/3/movie/${id}/translations?api_key=d9be23358e97f87c33dbf928d8eaec37`;
-  return fetch(url)
-    .then(response => response.json())
-    .then(languages => {
-      const russianIndex = languages.translations.findIndex(el => el.english_name === 'Russian');
-      if (russianIndex !== -1) {
-        item.atitle_ru = languages.translations[russianIndex].data.title;
-        item.overview_ru = languages.translations[russianIndex].data.overview;
-      }
-      return languages;
-    });
+// ==================================================
+
+async function getLanguages(data) {
+  let urls = data.results.map(
+    item =>
+      `https://api.themoviedb.org/3/movie/${item.id}/translations?api_key=d9be23358e97f87c33dbf928d8eaec37`,
+  );
+  let requests = urls.map(url => fetch(url));
+
+  const responses = await Promise.all(requests);
+  return Promise.all(responses.map(response => response.json())).then(languages =>
+    languages.map(language => language),
+  );
 }
+// ==================================================
 
 // transforming full date in year in results
 export function toGetYear(data) {

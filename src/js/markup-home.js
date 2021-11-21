@@ -8,8 +8,14 @@ import { onCreateTrailerLink } from './trailer.js';
 import { onChangeActiveFilterBtn } from './filter.js';
 import { currentLanguage, changeContent } from './languages-switch.js';
 export const trendingApiServise = window.ApiService;
-const { popularBtnEl, nowPlayingBtnEl, topRatedBtnEl, upcomingBtnEl, gallery, languagesToggleEl } =
-  refs;
+const {
+  popularBtnEl,
+  nowPlayingBtnEl,
+  topRatedBtnEl,
+  upcomingBtnEl,
+  gallery,
+  languagesToggleEl,
+} = refs;
 onLoad();
 
 window.pagination.onPageClicked(function (pageNumber) {
@@ -41,10 +47,10 @@ export function appendMoviesMarkup(data) {
     onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
   }
   if (languagesToggleEl.checked) {
-    setTimeout(() => {
-      gallery.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
-      onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
-    }, 1000);
+    // setTimeout(() => {
+    gallery.insertAdjacentHTML('afterbegin', movieTemplateRu(data));
+    onCreateTrailerLink(document.querySelectorAll('.btn-youtube'));
+    // }, 1000);
   }
   getFilm(data);
 }
